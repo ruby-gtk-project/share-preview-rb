@@ -1,0 +1,10 @@
+module Share
+  module Preview
+    module Rb
+      module Version
+        VERSION: String
+      end
+      VERSION: String
+    end
+  end
+end
