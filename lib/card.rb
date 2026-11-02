@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'i18n'
 require_relative 'image'
 require_relative 'log_item'
 require_relative 'social'
@@ -123,10 +124,10 @@ class Card
       case value
       when nil then nil
       when ''
-        warn_social(format('"%{name}" is empty!', name: 'og:site_name'))
+        warn_social(f_('"{name}" is empty!', name: 'og:site_name'))
       else
         @site = value
-        log_social(LogItem::INFO, format('Found "%{name}".', name: 'og:site_name'))
+        log_social(LogItem::INFO, f_('Found "{name}".', name: 'og:site_name'))
       end
     end
 
@@ -136,11 +137,11 @@ class Card
       case [@pre_title, @data.title]
       in [String => title, _] then title
       in [nil, String => document_title]
-        warn_social('Unable to find a metadata for title!. Falling back to document title.')
+        warn_social(_('Unable to find a metadata for title!. Falling back to document title.'))
         document_title
       else
-        warn_social('Unable to find a metadata for title!. Falling back to document title.')
-        warn_social('Unable to find the document title!. Falling back to site url.')
+        warn_social(_('Unable to find a metadata for title!. Falling back to document title.'))
+        warn_social(_('Unable to find the document title!. Falling back to site url.'))
         @site
       end
     end
@@ -156,15 +157,15 @@ class Card
       case [@social.key, description]
       in [:linkedin, nil]
         warn_social(
-          format(
-            'Add a "%{tag}" tag to the page to have control over the content.',
+          f_(
+            'Add a "{tag}" tag to the page to have control over the content.',
             tag: 'og:description',
           ),
         )
       in [:linkedin, String => text] if text.length < 100
         warn_social(
-          format(
-            'The description should be at least "%{count}" characters long.',
+          f_(
+            'The description should be at least "{count}" characters long.',
             count: '100',
           ),
         )
@@ -181,7 +182,7 @@ class Card
       if @social == Social::TWITTER
         case card_type
         when nil
-          log_social(LogItem::ERROR, 'Unable to find any valid card type.')
+          log_social(LogItem::ERROR, _('Unable to find any valid card type.'))
           raise CardError, CardError::TWITTER_NO_CARD_FOUND
         else
           note_twitter_card
@@ -196,8 +197,8 @@ class Card
       case value
       when nil
         warn_social(
-          format(
-            'Unable to find "%{name}". Consider providing a "%{name}" meta property.',
+          f_(
+            'Unable to find "{name}". Consider providing a "{name}" meta property.',
             name: 'twitter:card',
           ),
         )
@@ -205,7 +206,7 @@ class Card
         if value == 'summary_large_image'
           @image_sizes.push(Social::LARGE)
         end
-        log_social(LogItem::INFO, format('Found card of type "%{name}".', name: value))
+        log_social(LogItem::INFO, f_('Found card of type "{name}".', name: value))
       end
     end
 
@@ -213,7 +214,7 @@ class Card
     # at all.
     def check_enough_data
       if @social == Social::TWITTER && @pre_title.nil? && @description.nil?
-        log_social(LogItem::ERROR, 'Unable to find any valid title or description.')
+        log_social(LogItem::ERROR, _('Unable to find any valid title or description.'))
         raise CardError, CardError::NOT_ENOUGH_DATA
       end
     end
@@ -242,15 +243,15 @@ class Card
     def warn_no_image
       case @social.key
       when :discourse
-        warn_social('Unable to find a valid image in the metadata.')
+        warn_social(_('Unable to find a valid image in the metadata.'))
       when :linkedin, :facebook
-        warn_social('Unable to find a valid image in the metadata or document body.')
+        warn_social(_('Unable to find a valid image in the metadata or document body.'))
       when :mastodon
-        warn_social('Unable to find a valid image in the metadata, will render an icon.')
+        warn_social(_('Unable to find a valid image in the metadata, will render an icon.'))
       when :twitter
         warn_social(
-          format(
-            'Unable to find a valid image in the metadata, will render a "%{name}" card with icon.',
+          f_(
+            'Unable to find a valid image in the metadata, will render a "{name}" card with icon.',
             name: 'summary',
           ),
         )
@@ -320,7 +321,7 @@ class Card
       case [@social == Social::TWITTER, image.was_relative]
       in [true, true]
         warn_plain(
-          format('Image "%{url}" is defined with a relative url.', url: image.url.to_s),
+          f_('Image "{url}" is defined with a relative url.', url: image.url.to_s),
         )
         nil
       else
@@ -332,7 +333,7 @@ class Card
       kind = image.check(@social, @image_sizes, @constraints)
       log_plain(
         LogItem::DEBUG,
-        format('Image "%{url}" met the requirements.', url: image.url.to_s),
+        f_('Image "{url}" met the requirements.', url: image.url.to_s),
       )
       kind
     rescue Image::ImageError => e
@@ -355,8 +356,8 @@ class Card
     end
 
     def requirements_text(image, error)
-      format(
-        'Image "%{url}" did not meet the requirements: %{info}.',
+      f_(
+        'Image "{url}" did not meet the requirements: {info}.',
         url:  image.url.to_s,
         info: error.message,
       )
@@ -402,14 +403,14 @@ class Card
       bytes = image.thumbnail(width, height)
       log_plain(
         LogItem::DEBUG,
-        format('Image "%{url}" processed successfully.', url: image.url.to_s),
+        f_('Image "{url}" processed successfully.', url: image.url.to_s),
       )
       {bytes: bytes, size: size, ideal: ideal}
     rescue Image::ImageError => e
       log_plain(
         LogItem::DEBUG,
-        format(
-          'Failed to thumbnail "%{url}": %{info}.',
+        f_(
+          'Failed to thumbnail "{url}": {info}.',
           url:  image.url.to_s,
           info: e.message,
         ),

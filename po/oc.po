@@ -1,0 +1,365 @@
+# Occitan translation file.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the share-preview package.
+# Quentin PAGÈS, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: share-preview\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 23:30+0000\n"
+"PO-Revision-Date: 2025-06-13 10:01+0000\n"
+"Last-Translator: Quentin PAGÈS <quentinantonin@free.fr>\n"
+"Language-Team: Occitan <https://hosted.weblate.org/projects/share-preview/"
+"share-preview/oc/>\n"
+"Language: oc\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.12-dev\n"
+
+#: lib/about_dialog.rb:13 lib/main.rb:22 lib/window.rb:379
+msgid "Share Preview"
+msgstr "Apercebut de partiment"
+
+#: lib/card.rb:127 lib/data.rb:65
+#, python-brace-format
+msgid "\"{name}\" is empty!"
+msgstr "« {name} » es void !"
+
+#: lib/card.rb:130
+#, python-brace-format
+msgid "Found \"{name}\"."
+msgstr "« {name} } » trobat."
+
+#: lib/card.rb:140 lib/card.rb:143
+msgid "Unable to find a metadata for title!. Falling back to document title."
+msgstr ""
+"Impossible de trobar una metadonada pel títol. Utilizatz del títol del "
+"document."
+
+#: lib/card.rb:144
+msgid "Unable to find the document title!. Falling back to site url."
+msgstr ""
+"Impossible de trobar lo títol del document. Utilizacion de l’adreça del site "
+"a la plaça."
+
+#: lib/card.rb:161
+#, python-brace-format
+msgid "Add a \"{tag}\" tag to the page to have control over the content."
+msgstr ""
+"Ajustatz una etiqueta « {tag} » a la pagina per aver mai de contraròtle sul "
+"contengut."
+
+#: lib/card.rb:168
+#, python-brace-format
+msgid "The description should be at least \"{count}\" characters long."
+msgstr "La descripcion deu almens aver « {count} » caractèrs."
+
+#: lib/card.rb:185
+msgid "Unable to find any valid card type."
+msgstr "Impossible de trobar cap de carta valida."
+
+#: lib/card.rb:201
+#, python-brace-format
+msgid ""
+"Unable to find \"{name}\". Consider providing a \"{name}\" meta property."
+msgstr ""
+"Impossible de trobar « {name} ». Pensatz de fornir una proprietat meta "
+"« {name} »."
+
+#: lib/card.rb:209
+#, python-brace-format
+msgid "Found card of type \"{name}\"."
+msgstr "Carta de tipe « {name} » trobada."
+
+#: lib/card.rb:217
+msgid "Unable to find any valid title or description."
+msgstr "Impossible de trobar cap de títol o descripcion valida."
+
+#: lib/card.rb:246
+msgid "Unable to find a valid image in the metadata."
+msgstr "Impossible de trobar un imatge valid dins las metadonadas."
+
+#: lib/card.rb:248
+msgid "Unable to find a valid image in the metadata or document body."
+msgstr ""
+"Impossible de trobar un imatge valid dins las metadonadas o dins lo còs del "
+"document."
+
+#: lib/card.rb:250
+msgid "Unable to find a valid image in the metadata, will render an icon."
+msgstr ""
+"Impossible de trobar un imatge valid dins las metadonadas, se mostrarà una "
+"icòna."
+
+#: lib/card.rb:254
+#, python-brace-format
+msgid ""
+"Unable to find a valid image in the metadata, will render a \"{name}\" card "
+"with icon."
+msgstr ""
+"Impossible de trobar un imatge valid dins las metadonadas, se mostrarà una "
+"carta « {name} » amb una icòna."
+
+#: lib/card.rb:324
+#, python-brace-format
+msgid "Image \"{url}\" is defined with a relative url."
+msgstr "L’imatge « {url} » es definida amb una url relativa."
+
+#: lib/card.rb:336
+#, python-brace-format
+msgid "Image \"{url}\" met the requirements."
+msgstr "L’imatge « {url} » correspond a las exigéncias."
+
+#: lib/card.rb:360
+#, python-brace-format
+msgid "Image \"{url}\" did not meet the requirements: {info}."
+msgstr "L’imatge « {url} » correspondiá pas a las exigéncias : {info}."
+
+#: lib/card.rb:406
+#, python-brace-format
+msgid "Image \"{url}\" processed successfully."
+msgstr "Imatge « {url} » tractat amb succès."
+
+#: lib/card.rb:413
+#, python-brace-format
+msgid "Failed to thumbnail \"{url}\": {info}."
+msgstr "Fracàs de la creacion de la miniatura « {url} » : {info}."
+
+#: lib/card_box.rb:39
+msgid "Couldn’t find enough data to generate a card for this social media."
+msgstr ""
+"Èra pas possible de trobar pro de donadas per generar una carta per aqueste "
+"malhum social."
+
+#: lib/card_box.rb:40
+msgid "Twitter: No card found."
+msgstr "Twitter : cap de carta pas trobada."
+
+#: lib/card_box.rb:112
+msgid "Card Error"
+msgstr "Error de carta"
+
+#: lib/data.rb:63
+#, python-brace-format
+msgid "No occurrences found for \"{name}\"!"
+msgstr "Cap d’ocurréncia pas trobada per « {name} » !"
+
+#: lib/data.rb:71
+#, python-brace-format
+msgid "Found a valid occurrence for \"{name}\" with value \"{value}\"."
+msgstr "Ocurréncia valida trobada per « {name} » amb la valor « {value} »."
+
+#: lib/data_dialog.rb:61
+msgid "Metadata"
+msgstr "Metadonadas"
+
+#: lib/data_dialog.rb:62
+msgid "Body Images"
+msgstr "Imatge del Body"
+
+#: lib/data_dialog.rb:317
+msgid "Nothing to Show"
+msgstr "Pas res a mostrar"
+
+#: lib/image.rb:32
+#, python-brace-format
+msgid "Image Url Error: {info}"
+msgstr "Error de l’URL de l’imatge : {info}"
+
+#: lib/image.rb:34
+#, python-brace-format
+msgid "Image Data Url Error: {info}"
+msgstr "Error de l’Url amb las donadas de l’imatge : {info}"
+
+#: lib/image.rb:36
+#, python-brace-format
+msgid "Image Data Invalid Base64: {info}"
+msgstr "Donadas de l’imatge en Base64 invalidas : {info}"
+
+#: lib/image.rb:38
+#, python-brace-format
+msgid "Network Error: {info}"
+msgstr "Error ret : {info}"
+
+#: lib/image.rb:40
+#, python-brace-format
+msgid "Request Error: {info}"
+msgstr "Error de requèsta : {info}"
+
+#: lib/image.rb:42
+#, python-brace-format
+msgid "Image Error: {info}"
+msgstr "Error de l’imatge : {info}"
+
+#: lib/image.rb:48
+#, python-brace-format
+msgid "Image is too tiny ({actual}), minimum dimensions are {min}"
+msgstr "L’imatge es tròp pichon ({actual}), las dimensions minimalas son {min}"
+
+#: lib/image.rb:59
+#, python-brace-format
+msgid "Image is too heavy ({actual}), max size is {max}"
+msgstr "L’imatge es tròp pesuc ({actual}), la talha maximala es {max}"
+
+#: lib/image.rb:66
+#, python-brace-format
+msgid "Image is unsupported: {info}"
+msgstr "L’imatge es pas pres en carga : {info}"
+
+#: lib/image.rb:68 lib/window.rb:38
+msgid "Unexpected Error"
+msgstr "Error inesperada"
+
+#: lib/image.rb:117
+msgid "Format is unsupported"
+msgstr "Lo format es pas pres en carga"
+
+#: lib/log_dialog.rb:46
+msgid "Scraping Log"
+msgstr "Recuperacion dels logs"
+
+#: lib/log_row.rb:18
+msgid "DEBUG"
+msgstr "DESBUGATGE"
+
+#: lib/log_row.rb:19
+msgid "INFO"
+msgstr "INFORMACION"
+
+#: lib/log_row.rb:20
+msgid "WARNING"
+msgstr "AVERTIMENT"
+
+#: lib/log_row.rb:21
+msgid "ERROR"
+msgstr "ERROR"
+
+#: lib/shortcuts_window.rb:19
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: lib/shortcuts_window.rb:24
+msgctxt "shortcut window"
+msgid "Focus the URL entry"
+msgstr "Fòcus sul camp de l’URL"
+
+#: lib/shortcuts_window.rb:25
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Afichar los acorchis"
+
+#: lib/shortcuts_window.rb:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Quitar"
+
+#: lib/window.rb:37
+msgid "Network Error"
+msgstr "Error ret"
+
+#: lib/window.rb:39
+msgid "Couldn’t connect to the given URL."
+msgstr "Connexion impossibla a l’URL donada."
+
+#: lib/window.rb:203
+msgid "Invalid URL"
+msgstr "URL invalida"
+
+#: lib/window.rb:265
+#, python-brace-format
+msgid "Server Error {status}"
+msgstr "Error servidor {status}"
+
+#: lib/window.rb:396
+msgid "Toggle Color Scheme"
+msgstr "Alternar l’esquèma de color"
+
+#: lib/window.rb:404
+msgid "Main Menu"
+msgstr "Menú principal"
+
+#: lib/window.rb:419
+msgid "_New Window"
+msgstr "Fenèstra _novèla"
+
+#: lib/window.rb:425
+msgid "_Keyboard Shortcuts"
+msgstr "Aco_rchis de clavièr"
+
+#: lib/window.rb:426
+msgid "_About Share Preview"
+msgstr "_A prepaus d’Apercebut de partiment"
+
+#: lib/window.rb:452
+msgid "Go"
+msgstr "Aviar"
+
+#: lib/window.rb:466
+msgid "Set a URL to preview"
+msgstr "Definir una URL a previsualizar"
+
+#: lib/window.rb:528
+msgid "View Metadata"
+msgstr "Veire las metadonadas"
+
+#: lib/window.rb:539
+msgid "Show Logs"
+msgstr "Afichar los jornals"
+
+#~ msgid "Test social media cards locally"
+#~ msgstr "Provar las cartas de malhums socials en local"
+
+#~ msgid "Gnome;GTK;link;url;unfurl;"
+#~ msgstr "Gnome;GTK;ligam;url;unfurl;"
+
+#~ msgid "New Window"
+#~ msgstr "Fenèstra novèla"
+
+#~ msgid "Preview and debug websites metadata tags for social media share."
+#~ msgstr ""
+#~ "Previsualizar e debugar las etiquetas de metadonadas de site web pels "
+#~ "partiements de ligam."
+
+#~ msgid "Rafael Mardojai CM"
+#~ msgstr "Rafael Mardojai CM"
+
+#~ msgid ""
+#~ "Unable to find a valid image in the metadata, will look for images in the "
+#~ "document body."
+#~ msgstr ""
+#~ "Impossible de trapar un imatge valid dins las metadonadas, recèrca "
+#~ "d’imatges al còs del document."
+
+#~ msgid "No valid images found in the document body."
+#~ msgstr "Cap d’imatge valid pas trobat dins lo còs del document."
+
+#~ msgid "Looking for valid occurrences for \"{name}\""
+#~ msgstr "Recèrca d’ocuréncias validas per « {name} »"
+
+#~ msgid "No valid occurrences found for \"{name}\"!"
+#~ msgstr "Cap d’ocurréncia valida pas trobada per « {name} » !"
+
+#~ msgid "Go..."
+#~ msgstr "I anar..."
+
+#~ msgid "View Found Data..."
+#~ msgstr "Visualizar las donadas trobadas..."
+
+#~ msgid "Gnome;GTK;"
+#~ msgstr "Gnome;GTK;"
+
+#~ msgid "Failure when receiving image from the peer."
+#~ msgstr "Error pendent la recepcion de l’imatge del par estant."
+
+#~ msgid "Invalid image format."
+#~ msgstr "Format d'imatge invalid."
+
+#~ msgid "Unexpected image error."
+#~ msgstr "Error de l’imatge inesperada."
+
+#~ msgid "Toggle Dark Mode"
+#~ msgstr "Alternar lo mòde escur"

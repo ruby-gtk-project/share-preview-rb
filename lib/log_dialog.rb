@@ -2,6 +2,7 @@
 
 require 'adwaita'
 
+require_relative 'i18n'
 require_relative 'log_row'
 
 # LogDialog shows the scraping log the card builder wrote.
@@ -42,7 +43,7 @@ class LogDialog
 
   def dialog
     @dialog ||= Adwaita::Dialog.new.tap do |window|
-      window.title = 'Scraping Log'
+      window.title = _('Scraping Log')
       window.content_width = CONTENT_WIDTH
       window.content_height = CONTENT_HEIGHT
     end

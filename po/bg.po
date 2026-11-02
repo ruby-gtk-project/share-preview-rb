@@ -1,0 +1,321 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the share-preview package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# twlvnn kraftwerk <kraft_werk@tutanota.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: share-preview\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 23:30+0000\n"
+"PO-Revision-Date: 2025-07-28 12:04+0000\n"
+"Last-Translator: twlvnn <kraft_werk@tutanota.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/share-preview/"
+"share-preview/bg/>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
+
+#: lib/about_dialog.rb:13 lib/main.rb:22 lib/window.rb:379
+msgid "Share Preview"
+msgstr "Споделяне на преглед"
+
+#: lib/card.rb:127 lib/data.rb:65
+#, python-brace-format
+msgid "\"{name}\" is empty!"
+msgstr "„{name}“ е празно!"
+
+#: lib/card.rb:130
+#, python-brace-format
+msgid "Found \"{name}\"."
+msgstr "Намерено е „{name}“."
+
+#: lib/card.rb:140 lib/card.rb:143
+msgid "Unable to find a metadata for title!. Falling back to document title."
+msgstr ""
+"Метаданни за заглавието на документа не са намерени! Връщане към заглавието "
+"на документа."
+
+#: lib/card.rb:144
+msgid "Unable to find the document title!. Falling back to site url."
+msgstr ""
+"Заглавието на документа не е намерен! Връщане към адреса на страницата."
+
+#: lib/card.rb:161
+#, python-brace-format
+msgid "Add a \"{tag}\" tag to the page to have control over the content."
+msgstr ""
+"Добавете етикет „{tag}“ към страницата, за да имате контрол върху "
+"съдържанието."
+
+#: lib/card.rb:168
+#, python-brace-format
+msgid "The description should be at least \"{count}\" characters long."
+msgstr "Дължината на описанието трябва да бъде най-малко „{count}“ знака."
+
+#: lib/card.rb:185
+msgid "Unable to find any valid card type."
+msgstr "Правилен тип карта не е намерена."
+
+#: lib/card.rb:201
+#, python-brace-format
+msgid ""
+"Unable to find \"{name}\". Consider providing a \"{name}\" meta property."
+msgstr "„{name}“ не е намерено. Предоставете „{name}“ мета свойство."
+
+#: lib/card.rb:209
+#, python-brace-format
+msgid "Found card of type \"{name}\"."
+msgstr "Намерена е карта от тип „{name}“."
+
+#: lib/card.rb:217
+msgid "Unable to find any valid title or description."
+msgstr "Правилно заглавие или описание не е намерено."
+
+#: lib/card.rb:246
+msgid "Unable to find a valid image in the metadata."
+msgstr "Правилно изображение не е намерено в метаданните."
+
+#: lib/card.rb:248
+msgid "Unable to find a valid image in the metadata or document body."
+msgstr ""
+"Правилно изображение не е намерено в метаданните или в тялото на документа."
+
+#: lib/card.rb:250
+msgid "Unable to find a valid image in the metadata, will render an icon."
+msgstr ""
+"Правилно изображение не е намерено в метаданните, ще се генерира иконка."
+
+#: lib/card.rb:254
+#, fuzzy, python-brace-format
+msgid ""
+"Unable to find a valid image in the metadata, will render a \"{name}\" card "
+"with icon."
+msgstr ""
+"Правилно изображение не е намерено в метаданните, ще се генерира карта "
+"„{име}“ с иконка."
+
+#: lib/card.rb:324
+#, python-brace-format
+msgid "Image \"{url}\" is defined with a relative url."
+msgstr "Изображението „{url}“ е дефинирано с относителен адрес."
+
+#: lib/card.rb:336
+#, python-brace-format
+msgid "Image \"{url}\" met the requirements."
+msgstr "Изображението „{url}“ отговаря на изискванията."
+
+#: lib/card.rb:360
+#, python-brace-format
+msgid "Image \"{url}\" did not meet the requirements: {info}."
+msgstr "Изображението „{url}“ не отговаря на изискванията: {info}."
+
+#: lib/card.rb:406
+#, python-brace-format
+msgid "Image \"{url}\" processed successfully."
+msgstr "Изображението „{url}“ е обработено успещно."
+
+#: lib/card.rb:413
+#, python-brace-format
+msgid "Failed to thumbnail \"{url}\": {info}."
+msgstr "Грешка в предварителен преглед „{url}“: {info}."
+
+#: lib/card_box.rb:39
+msgid "Couldn’t find enough data to generate a card for this social media."
+msgstr ""
+"Не са намерени достатъчно данни, за да се генерира карта за тази социална "
+"мрежа."
+
+#: lib/card_box.rb:40
+msgid "Twitter: No card found."
+msgstr "Twitter: Няма намерена карта."
+
+#: lib/card_box.rb:112
+msgid "Card Error"
+msgstr "Грешка в картата"
+
+#: lib/data.rb:63
+#, python-brace-format
+msgid "No occurrences found for \"{name}\"!"
+msgstr "Няма съвпадения за „{name}“!"
+
+#: lib/data.rb:71
+#, python-brace-format
+msgid "Found a valid occurrence for \"{name}\" with value \"{value}\"."
+msgstr "Намерено е правилно съвпадения за „{name}“ със стойност „{value}“."
+
+#: lib/data_dialog.rb:61
+msgid "Metadata"
+msgstr "Метаданни"
+
+#: lib/data_dialog.rb:62
+msgid "Body Images"
+msgstr "Изображения на тялото"
+
+#: lib/data_dialog.rb:317
+msgid "Nothing to Show"
+msgstr "Нищо за показване"
+
+#: lib/image.rb:32
+#, python-brace-format
+msgid "Image Url Error: {info}"
+msgstr "Грешка в адреса на изображението: {info}"
+
+#: lib/image.rb:34
+#, python-brace-format
+msgid "Image Data Url Error: {info}"
+msgstr "Грешка в данните на адреса на изображението: {info}"
+
+#: lib/image.rb:36
+#, python-brace-format
+msgid "Image Data Invalid Base64: {info}"
+msgstr "Неправилни Base64 данни в изображението: {info}"
+
+#: lib/image.rb:38
+#, python-brace-format
+msgid "Network Error: {info}"
+msgstr "Мрежова грешка: {info}"
+
+#: lib/image.rb:40
+#, python-brace-format
+msgid "Request Error: {info}"
+msgstr "Грешка в заявката: {info}"
+
+#: lib/image.rb:42
+#, python-brace-format
+msgid "Image Error: {info}"
+msgstr "Грешка в изображението: {info}"
+
+#: lib/image.rb:48
+#, fuzzy, python-brace-format
+msgid "Image is too tiny ({actual}), minimum dimensions are {min}"
+msgstr "Изображението е твърде малко ({actual}), минималните размери са {max}"
+
+#: lib/image.rb:59
+#, python-brace-format
+msgid "Image is too heavy ({actual}), max size is {max}"
+msgstr "Изображението е твърде голямо ({actual}), максималният размер е {max}"
+
+#: lib/image.rb:66
+#, python-brace-format
+msgid "Image is unsupported: {info}"
+msgstr "Изображението не се поддържа: {info}"
+
+#: lib/image.rb:68 lib/window.rb:38
+msgid "Unexpected Error"
+msgstr "Неочаквана грешка"
+
+#: lib/image.rb:117
+msgid "Format is unsupported"
+msgstr "Форматът не се поддържа"
+
+#: lib/log_dialog.rb:46
+msgid "Scraping Log"
+msgstr "Обхождане на журнала"
+
+#: lib/log_row.rb:18
+msgid "DEBUG"
+msgstr "Отстраняване на грешки"
+
+#: lib/log_row.rb:19
+msgid "INFO"
+msgstr "Информация"
+
+#: lib/log_row.rb:20
+msgid "WARNING"
+msgstr "Предупреждение"
+
+#: lib/log_row.rb:21
+msgid "ERROR"
+msgstr "Грешка"
+
+#: lib/shortcuts_window.rb:19
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Общи"
+
+#: lib/shortcuts_window.rb:24
+msgctxt "shortcut window"
+msgid "Focus the URL entry"
+msgstr "Фокусиране на записа на адреса"
+
+#: lib/shortcuts_window.rb:25
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Показване на клавишните комбинации"
+
+#: lib/shortcuts_window.rb:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Спиране на програмата"
+
+#: lib/window.rb:37
+msgid "Network Error"
+msgstr "Мрежова грешка"
+
+#: lib/window.rb:39
+msgid "Couldn’t connect to the given URL."
+msgstr "Не може да се осъществи връзка с дадения адрес."
+
+#: lib/window.rb:203
+msgid "Invalid URL"
+msgstr "Неправилен адрес"
+
+#: lib/window.rb:265
+#, python-brace-format
+msgid "Server Error {status}"
+msgstr "Грешка на сървъра {status}"
+
+#: lib/window.rb:396
+msgid "Toggle Color Scheme"
+msgstr "Превключване на цветовата схема"
+
+#: lib/window.rb:404
+msgid "Main Menu"
+msgstr "Основно меню"
+
+#: lib/window.rb:419
+msgid "_New Window"
+msgstr "_Нов прозорец"
+
+#: lib/window.rb:425
+msgid "_Keyboard Shortcuts"
+msgstr "_Клавишни комбинации"
+
+#: lib/window.rb:426
+msgid "_About Share Preview"
+msgstr "_Относно „Споделяне на преглед“"
+
+#: lib/window.rb:452
+msgid "Go"
+msgstr "Начало"
+
+#: lib/window.rb:466
+msgid "Set a URL to preview"
+msgstr "Задайте адрес за преглеждане"
+
+#: lib/window.rb:528
+msgid "View Metadata"
+msgstr "Показване на метаданните"
+
+#: lib/window.rb:539
+msgid "Show Logs"
+msgstr "Показване на журнала"
+
+#~ msgid "Test social media cards locally"
+#~ msgstr "Проверете локално карти за социални мрежи"
+
+#~ msgid "Gnome;GTK;link;url;unfurl;"
+#~ msgstr "адрес;връзка;"
+
+#~ msgid "New Window"
+#~ msgstr "Нов прозорец"
+
+#~ msgid "Preview and debug websites metadata tags for social media share."
+#~ msgstr ""
+#~ "Предварително прегледайте и отстранете грешки в етикетите за метаданни за "
+#~ "споделяне в социалните мрежи."

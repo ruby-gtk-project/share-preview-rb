@@ -1,0 +1,317 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the share-preview package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: share-preview\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 23:30+0000\n"
+"PO-Revision-Date: 2025-01-28 13:02+0000\n"
+"Last-Translator: GolfNovemberUniform <standard-0010@proton.me>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/share-preview/"
+"share-preview/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.10-dev\n"
+
+#: lib/about_dialog.rb:13 lib/main.rb:22 lib/window.rb:379
+msgid "Share Preview"
+msgstr "Поділитися"
+
+#: lib/card.rb:127 lib/data.rb:65
+#, python-brace-format
+msgid "\"{name}\" is empty!"
+msgstr "\"{name}\" є порожнім!"
+
+#: lib/card.rb:130
+#, python-brace-format
+msgid "Found \"{name}\"."
+msgstr "Знайдено \"{name}\"."
+
+#: lib/card.rb:140 lib/card.rb:143
+msgid "Unable to find a metadata for title!. Falling back to document title."
+msgstr ""
+"Не вдалося знайти метадані для заголовку! Повернення до заголовку документа."
+
+#: lib/card.rb:144
+msgid "Unable to find the document title!. Falling back to site url."
+msgstr "Не вдалося знайти заголовок документу! Повернення до URL-адреси сайту."
+
+#: lib/card.rb:161
+#, python-brace-format
+msgid "Add a \"{tag}\" tag to the page to have control over the content."
+msgstr "Додайте тег \"{tag}\" до сторінки, щоб мати змогу контролювати вміст."
+
+#: lib/card.rb:168
+#, python-brace-format
+msgid "The description should be at least \"{count}\" characters long."
+msgstr "Опис має містити принаймні \"{count}\" символів."
+
+#: lib/card.rb:185
+msgid "Unable to find any valid card type."
+msgstr "Не вдалося знайти жодного дійсного типу картки."
+
+#: lib/card.rb:201
+#, python-brace-format
+msgid ""
+"Unable to find \"{name}\". Consider providing a \"{name}\" meta property."
+msgstr ""
+"Не вдалося знайти \"{name}\". Розгляньте надання мета-властивості \"{name}\"."
+
+#: lib/card.rb:209
+#, python-brace-format
+msgid "Found card of type \"{name}\"."
+msgstr "Знайдено картку типу \"{name}\"."
+
+#: lib/card.rb:217
+msgid "Unable to find any valid title or description."
+msgstr "Не вдалося знайти жодного дійсного заголовку чи опису."
+
+#: lib/card.rb:246
+msgid "Unable to find a valid image in the metadata."
+msgstr "Не вдалося знайти дійсного зображення в метаданих."
+
+#: lib/card.rb:248
+msgid "Unable to find a valid image in the metadata or document body."
+msgstr "Не вдалося знайти дійсного зображення в метаданих чи тілі документу."
+
+#: lib/card.rb:250
+msgid "Unable to find a valid image in the metadata, will render an icon."
+msgstr ""
+"Не вдалося знайти дійсного зображення в метаданих, буде створено піктограму."
+
+#: lib/card.rb:254
+#, python-brace-format
+msgid ""
+"Unable to find a valid image in the metadata, will render a \"{name}\" card "
+"with icon."
+msgstr ""
+"Не вдалося знайти дійсне зображення в метаданих, буде створено картку "
+"\"{name}\" з піктограмою."
+
+#: lib/card.rb:324
+#, python-brace-format
+msgid "Image \"{url}\" is defined with a relative url."
+msgstr "Зображення \"{url}\" визначається відносною URL-адресою."
+
+#: lib/card.rb:336
+#, python-brace-format
+msgid "Image \"{url}\" met the requirements."
+msgstr "Зображення \"{url}\" відповідає вимогам."
+
+#: lib/card.rb:360
+#, python-brace-format
+msgid "Image \"{url}\" did not meet the requirements: {info}."
+msgstr "Зображення \"{url}\" не відповідає вимогам: {info}."
+
+#: lib/card.rb:406
+#, python-brace-format
+msgid "Image \"{url}\" processed successfully."
+msgstr "Зображення \"{url}\" оброблено успішно."
+
+#: lib/card.rb:413
+#, python-brace-format
+msgid "Failed to thumbnail \"{url}\": {info}."
+msgstr "Не вдалося створити мініатюру \"{url}\": {info}."
+
+#: lib/card_box.rb:39
+msgid "Couldn’t find enough data to generate a card for this social media."
+msgstr ""
+"Не вдалося знайти достатньо даних для створення картки для цієї соціальної "
+"мережі."
+
+#: lib/card_box.rb:40
+msgid "Twitter: No card found."
+msgstr "Twitter: Карток не знайдено."
+
+#: lib/card_box.rb:112
+msgid "Card Error"
+msgstr "Помилка карти"
+
+#: lib/data.rb:63
+#, python-brace-format
+msgid "No occurrences found for \"{name}\"!"
+msgstr "Не знайдено випадків для \"{name}\"!"
+
+#: lib/data.rb:71
+#, python-brace-format
+msgid "Found a valid occurrence for \"{name}\" with value \"{value}\"."
+msgstr "Знайдено дійсний випадок для \"{name}\" зі значенням \"{value}\"."
+
+#: lib/data_dialog.rb:61
+msgid "Metadata"
+msgstr "Метадані"
+
+#: lib/data_dialog.rb:62
+msgid "Body Images"
+msgstr "Зображення тіла"
+
+#: lib/data_dialog.rb:317
+msgid "Nothing to Show"
+msgstr "Нічого показувати"
+
+#: lib/image.rb:32
+#, python-brace-format
+msgid "Image Url Error: {info}"
+msgstr "Помилка URL-адреси зображення: {info}"
+
+#: lib/image.rb:34
+#, python-brace-format
+msgid "Image Data Url Error: {info}"
+msgstr ""
+
+#: lib/image.rb:36
+#, python-brace-format
+msgid "Image Data Invalid Base64: {info}"
+msgstr ""
+
+#: lib/image.rb:38
+#, python-brace-format
+msgid "Network Error: {info}"
+msgstr "Помилка мережі: {info}"
+
+#: lib/image.rb:40
+#, python-brace-format
+msgid "Request Error: {info}"
+msgstr "Помилка запиту: {info}"
+
+#: lib/image.rb:42
+#, python-brace-format
+msgid "Image Error: {info}"
+msgstr "Помилка зображення: {info}"
+
+#: lib/image.rb:48
+#, python-brace-format
+msgid "Image is too tiny ({actual}), minimum dimensions are {min}"
+msgstr ""
+"Зображення занадто мале ({actual}), мінімально допустимим розміром є {min}"
+
+#: lib/image.rb:59
+#, python-brace-format
+msgid "Image is too heavy ({actual}), max size is {max}"
+msgstr ""
+"Зображення занадто важке ({actual}), максимально допустимим розміром є {max}"
+
+#: lib/image.rb:66
+#, python-brace-format
+msgid "Image is unsupported: {info}"
+msgstr "Зображення не підтримується: {info}"
+
+#: lib/image.rb:68 lib/window.rb:38
+msgid "Unexpected Error"
+msgstr "Неочікувана помилка"
+
+#: lib/image.rb:117
+msgid "Format is unsupported"
+msgstr "Формат не підтримується"
+
+#: lib/log_dialog.rb:46
+msgid "Scraping Log"
+msgstr ""
+
+#: lib/log_row.rb:18
+msgid "DEBUG"
+msgstr "НАЛАГОДЖЕННЯ"
+
+#: lib/log_row.rb:19
+msgid "INFO"
+msgstr "ІНФОРМАЦІЯ"
+
+#: lib/log_row.rb:20
+msgid "WARNING"
+msgstr "ПОПЕРЕДЖЕННЯ"
+
+#: lib/log_row.rb:21
+msgid "ERROR"
+msgstr "ПОМИЛКА"
+
+#: lib/shortcuts_window.rb:19
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Загальне"
+
+#: lib/shortcuts_window.rb:24
+msgctxt "shortcut window"
+msgid "Focus the URL entry"
+msgstr "Фокусувати URL"
+
+#: lib/shortcuts_window.rb:25
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Показати клавіатурні скорочення"
+
+#: lib/shortcuts_window.rb:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Вийти"
+
+#: lib/window.rb:37
+msgid "Network Error"
+msgstr "Помилка мережі"
+
+#: lib/window.rb:39
+msgid "Couldn’t connect to the given URL."
+msgstr "Не вдалося під'єднатися до вказаної URL-адреси."
+
+#: lib/window.rb:203
+msgid "Invalid URL"
+msgstr "Неправильна URL-адреса"
+
+#: lib/window.rb:265
+#, python-brace-format
+msgid "Server Error {status}"
+msgstr ""
+
+#: lib/window.rb:396
+msgid "Toggle Color Scheme"
+msgstr "Змінити кольорову схему"
+
+#: lib/window.rb:404
+msgid "Main Menu"
+msgstr "Головне меню"
+
+#: lib/window.rb:419
+msgid "_New Window"
+msgstr "_Нове вікно"
+
+#: lib/window.rb:425
+msgid "_Keyboard Shortcuts"
+msgstr "_Клавіатурні скорочення"
+
+#: lib/window.rb:426
+msgid "_About Share Preview"
+msgstr "_Про Share Preview"
+
+#: lib/window.rb:452
+msgid "Go"
+msgstr "Вперед"
+
+#: lib/window.rb:466
+msgid "Set a URL to preview"
+msgstr "Встановити URL для попереднього перегляду"
+
+#: lib/window.rb:528
+msgid "View Metadata"
+msgstr "Перегляд метаданих"
+
+#: lib/window.rb:539
+msgid "Show Logs"
+msgstr "Показати журнали"
+
+#~ msgid "Test social media cards locally"
+#~ msgstr "Локально тестуйте картки соціальних мереж"
+
+#, fuzzy
+#~ msgid "New Window"
+#~ msgstr "_Нове вікно"
+
+#~ msgid "Preview and debug websites metadata tags for social media share."
+#~ msgstr ""
+#~ "Попередній перегляд та налагодження тегів метаданих вебсайтів для "
+#~ "публікації в соціальних мережах."

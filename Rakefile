@@ -170,3 +170,46 @@ rescue LoadError
     warn("NOTE: stone_checksums isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
   end
 end
+
+### TRANSLATION TASKS
+require "fileutils"
+
+LOCALE_DIR = "locale"
+GETTEXT_DOMAIN = "share-preview"
+
+def linguas = File.readlines("po/LINGUAS", chomp: true).reject(&:empty?)
+
+desc "Compile po/*.po into #{LOCALE_DIR}/<lang>/LC_MESSAGES/#{GETTEXT_DOMAIN}.mo"
+task :translations do
+  linguas.each do |lang|
+    File.join(LOCALE_DIR, lang, "LC_MESSAGES").then do |dir|
+      FileUtils.mkdir_p(dir)
+      sh "msgfmt po/#{lang}.po -o #{dir}/#{GETTEXT_DOMAIN}.mo"
+    end
+  end
+end
+
+XGETTEXT = "xgettext --from-code=UTF-8 --add-comments=Translators: " \
+           "--package-name=#{GETTEXT_DOMAIN} " \
+           "--keyword=_ --keyword=f_ --keyword=c_:1c,2"
+
+desc "Refresh po/#{GETTEXT_DOMAIN}.pot and merge it into every po/*.po"
+task :pot do
+  # GNU xgettext does not read Ruby itself: handed a .rb file it shells out to
+  # rxgettext, which the gettext *gem* provides and this dev shell does not, so
+  # the sources are scanned as Python - same call syntax, same quoting, and the
+  # msgids carry gettext_f's "{name}" placeholders rather than any
+  # language's format spec, so nothing in them is language-specific.
+  File.readlines("po/POTFILES.in", chomp: true).reject(&:empty?).then do |sources|
+    sh "#{XGETTEXT} --language=Python --output=po/#{GETTEXT_DOMAIN}.pot #{sources.join(" ")}"
+  end
+
+  linguas.each do |lang|
+    sh "msgmerge --update --backup=none po/#{lang}.po po/#{GETTEXT_DOMAIN}.pot"
+  end
+end
+
+# The catalogues have to be compiled before anything that renders a string can
+# show a translated one.
+task test: :translations
+task build: :translations

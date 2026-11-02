@@ -78,7 +78,12 @@ Gem::Specification.new do |spec|
     *enumerate_package_files.call("exe"),
     # Extra package files configured by .structuredmerge/kettle-jem.yml
     *enumerate_package_glob.call(File.join(gemspec_root, "data/**/*")),
-    *enumerate_package_glob.call(File.join(gemspec_root, "po/**/*"))
+    *enumerate_package_glob.call(File.join(gemspec_root, "po/**/*")),
+    # locale/<lang>/LC_MESSAGES/share-preview.mo is compiled from po/*.po by
+    # `rake translations`, which `rake build` depends on. po/*.po is the source
+    # form and no gettext reads it at runtime, so both forms ship: the sources
+    # for translators, the catalogues for the app.
+    *enumerate_package_glob.call(File.join(gemspec_root, "locale/**/*"))
   ]
   spec.rdoc_options += [
     "--title",

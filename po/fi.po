@@ -1,0 +1,315 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the share-preview package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: share-preview\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 23:30+0000\n"
+"PO-Revision-Date: 2025-08-02 17:01+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/share-preview/"
+"share-preview/fi/>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
+
+#: lib/about_dialog.rb:13 lib/main.rb:22 lib/window.rb:379
+msgid "Share Preview"
+msgstr "Share Preview"
+
+#: lib/card.rb:127 lib/data.rb:65
+#, python-brace-format
+msgid "\"{name}\" is empty!"
+msgstr "\"{name}\" on tyhjä!"
+
+#: lib/card.rb:130
+#, python-brace-format
+msgid "Found \"{name}\"."
+msgstr "Löytyi \"{name}\"."
+
+#: lib/card.rb:140 lib/card.rb:143
+msgid "Unable to find a metadata for title!. Falling back to document title."
+msgstr ""
+"Metatietoja otsikkoa varten ei löytynyt! Turvaudutaan asiakirjan otsikkoon."
+
+#: lib/card.rb:144
+msgid "Unable to find the document title!. Falling back to site url."
+msgstr ""
+"Asiakirjan otsikkoa ei löytynyt! Turvaudutaan sivun verkko-osoitteeseen."
+
+#: lib/card.rb:161
+#, python-brace-format
+msgid "Add a \"{tag}\" tag to the page to have control over the content."
+msgstr "Lisää tagi \"{tag}\" sivulle hallitaksesi sisältöä."
+
+#: lib/card.rb:168
+#, python-brace-format
+msgid "The description should be at least \"{count}\" characters long."
+msgstr "Kuvauksen tulee olla enintään \"{count}\" merkkiä."
+
+#: lib/card.rb:185
+msgid "Unable to find any valid card type."
+msgstr "Mitään kelvollista korttityyppiä ei löytynyt."
+
+#: lib/card.rb:201
+#, python-brace-format
+msgid ""
+"Unable to find \"{name}\". Consider providing a \"{name}\" meta property."
+msgstr ""
+"\"{name}\":ta ei voi löytää. Harkitse meta-omaisuuden \"{name}\" "
+"tiedottamista."
+
+#: lib/card.rb:209
+#, python-brace-format
+msgid "Found card of type \"{name}\"."
+msgstr "Kortti tyyppiä \"{name}\" löytyi."
+
+#: lib/card.rb:217
+msgid "Unable to find any valid title or description."
+msgstr "Mitään kelvollista otsikkoa tai kuvausta ei löytynyt."
+
+#: lib/card.rb:246
+msgid "Unable to find a valid image in the metadata."
+msgstr "Metatiedoista ei löytynyt kelvollista kuvaa."
+
+#: lib/card.rb:248
+msgid "Unable to find a valid image in the metadata or document body."
+msgstr "Metatiedoista tai asiakirjan rungosta ei löytynyt kelvollista kuvaa."
+
+#: lib/card.rb:250
+msgid "Unable to find a valid image in the metadata, will render an icon."
+msgstr "Metatiedoista ei löytynyt kelvollista kuvaa, piirretään kuvake."
+
+#: lib/card.rb:254
+#, python-brace-format
+msgid ""
+"Unable to find a valid image in the metadata, will render a \"{name}\" card "
+"with icon."
+msgstr ""
+"Metatiedoista kelvollista kuvaa ei voi löytää; hahmonnetaan kortti \"{name}"
+"\", jossa on kuvake."
+
+#: lib/card.rb:324
+#, python-brace-format
+msgid "Image \"{url}\" is defined with a relative url."
+msgstr "Kuva \"{url}\" on määritetty suhteellisella verkko-osoitteella."
+
+#: lib/card.rb:336
+#, python-brace-format
+msgid "Image \"{url}\" met the requirements."
+msgstr "Kuva \"{url}\" täytti vaatimukset."
+
+#: lib/card.rb:360
+#, python-brace-format
+msgid "Image \"{url}\" did not meet the requirements: {info}."
+msgstr "Kuva \"{url}\" ei täyttänyt vaatimuksia: {info}."
+
+#: lib/card.rb:406
+#, python-brace-format
+msgid "Image \"{url}\" processed successfully."
+msgstr "Kuva \"{url}\" käsitelty."
+
+#: lib/card.rb:413
+#, python-brace-format
+msgid "Failed to thumbnail \"{url}\": {info}."
+msgstr "Pikkukuvan \"{url}\" luominen epäonnistui: {info}."
+
+#: lib/card_box.rb:39
+msgid "Couldn’t find enough data to generate a card for this social media."
+msgstr "Ei riittävästi dataa kortin luomiseksi tätä sosiaalista mediaa varten."
+
+#: lib/card_box.rb:40
+msgid "Twitter: No card found."
+msgstr "Twitter: Korttia ei löytynyt."
+
+#: lib/card_box.rb:112
+msgid "Card Error"
+msgstr "Korttivirhe"
+
+#: lib/data.rb:63
+#, python-brace-format
+msgid "No occurrences found for \"{name}\"!"
+msgstr "Ei tietueen \"{name}\" esiintymiä!"
+
+#: lib/data.rb:71
+#, python-brace-format
+msgid "Found a valid occurrence for \"{name}\" with value \"{value}\"."
+msgstr "Löydettiin kelvollinen tietue \"{name}\", jonka arvo on \"{value}\"."
+
+#: lib/data_dialog.rb:61
+msgid "Metadata"
+msgstr "Metatiedot"
+
+#: lib/data_dialog.rb:62
+msgid "Body Images"
+msgstr "Runkokuvat"
+
+#: lib/data_dialog.rb:317
+msgid "Nothing to Show"
+msgstr "Ei mitään näytettävää"
+
+#: lib/image.rb:32
+#, python-brace-format
+msgid "Image Url Error: {info}"
+msgstr "Kuvan osoitteen virhe: {info}"
+
+#: lib/image.rb:34
+#, python-brace-format
+msgid "Image Data Url Error: {info}"
+msgstr "Kuvadatan verkko-osoitteen virhe: {info}"
+
+#: lib/image.rb:36
+#, python-brace-format
+msgid "Image Data Invalid Base64: {info}"
+msgstr "Kuvan data ei ole kelvollisessa base64-muodossa: {info}"
+
+#: lib/image.rb:38
+#, python-brace-format
+msgid "Network Error: {info}"
+msgstr "Verkkovirhe: {info}"
+
+#: lib/image.rb:40
+#, python-brace-format
+msgid "Request Error: {info}"
+msgstr "Pyyntövirhe: {info}"
+
+#: lib/image.rb:42
+#, python-brace-format
+msgid "Image Error: {info}"
+msgstr "Kuvavirhe: {info}"
+
+#: lib/image.rb:48
+#, python-brace-format
+msgid "Image is too tiny ({actual}), minimum dimensions are {min}"
+msgstr "Kuva on liian pieni ({actual}), vähimmäismittojen tulee olla {min}"
+
+#: lib/image.rb:59
+#, python-brace-format
+msgid "Image is too heavy ({actual}), max size is {max}"
+msgstr "Kuva on liian suurikokoinen ({actual}), enimmäiskoko on {max}"
+
+#: lib/image.rb:66
+#, python-brace-format
+msgid "Image is unsupported: {info}"
+msgstr "Kuva ei ole tuettu: {info}"
+
+#: lib/image.rb:68 lib/window.rb:38
+msgid "Unexpected Error"
+msgstr "Odottamaton virhe"
+
+#: lib/image.rb:117
+msgid "Format is unsupported"
+msgstr "Muoto ei ole tuettu"
+
+#: lib/log_dialog.rb:46
+msgid "Scraping Log"
+msgstr "Keruuloki"
+
+#: lib/log_row.rb:18
+msgid "DEBUG"
+msgstr "VIANJÄLJITYS"
+
+#: lib/log_row.rb:19
+msgid "INFO"
+msgstr "INFO"
+
+#: lib/log_row.rb:20
+msgid "WARNING"
+msgstr "VAROITUS"
+
+#: lib/log_row.rb:21
+msgid "ERROR"
+msgstr "VIRHE"
+
+#: lib/shortcuts_window.rb:19
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Yleiset"
+
+#: lib/shortcuts_window.rb:24
+msgctxt "shortcut window"
+msgid "Focus the URL entry"
+msgstr "Kohdista verkko-osoitteen kenttään"
+
+#: lib/shortcuts_window.rb:25
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Näytä pikanäppäimet"
+
+#: lib/shortcuts_window.rb:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Lopeta"
+
+#: lib/window.rb:37
+msgid "Network Error"
+msgstr "Verkkovirhe"
+
+#: lib/window.rb:39
+msgid "Couldn’t connect to the given URL."
+msgstr "Annettuun verkko-osoitteeseen ei voitu muodostaa yhteyttä."
+
+#: lib/window.rb:203
+msgid "Invalid URL"
+msgstr "Virheellinen verkko-osoite"
+
+#: lib/window.rb:265
+#, python-brace-format
+msgid "Server Error {status}"
+msgstr "Palvelinvirhe {status}"
+
+#: lib/window.rb:396
+msgid "Toggle Color Scheme"
+msgstr "Vaihda väriteema"
+
+#: lib/window.rb:404
+msgid "Main Menu"
+msgstr "Päävalikko"
+
+#: lib/window.rb:419
+msgid "_New Window"
+msgstr "_Uusi ikkuna"
+
+#: lib/window.rb:425
+msgid "_Keyboard Shortcuts"
+msgstr "_Pikanäppäimet"
+
+#: lib/window.rb:426
+msgid "_About Share Preview"
+msgstr "_Tietoja - Share Preview"
+
+#: lib/window.rb:452
+msgid "Go"
+msgstr "Siirry"
+
+#: lib/window.rb:466
+msgid "Set a URL to preview"
+msgstr "Aseta verkko-osoite esikatselua varten"
+
+#: lib/window.rb:528
+msgid "View Metadata"
+msgstr "Näytä metatiedot"
+
+#: lib/window.rb:539
+msgid "Show Logs"
+msgstr "Näytä lokit"
+
+#~ msgid "Test social media cards locally"
+#~ msgstr "Testaa sosiaalisen median kortteja paikallisesti"
+
+#~ msgid "Gnome;GTK;link;url;unfurl;"
+#~ msgstr "Gnome;GTK;link;url;unfurl;linkki;"
+
+#~ msgid "New Window"
+#~ msgstr "Uusi ikkuna"
+
+#~ msgid "Preview and debug websites metadata tags for social media share."
+#~ msgstr ""
+#~ "Esikatsele ja selvitä ongelmia verkkosivustojen sosiaalisten mediajakojen "
+#~ "metatiedoissa."

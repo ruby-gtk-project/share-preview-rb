@@ -7,6 +7,7 @@ require 'adwaita'
 require_relative 'card'
 require_relative 'card_box'
 require_relative 'data'
+require_relative 'i18n'
 require_relative 'data_dialog'
 require_relative 'log_dialog'
 require_relative 'log_item'
@@ -33,9 +34,9 @@ class Window
   CARD = 'card'
 
   # The two error states upstream's run() renders for a Scraper::Error.
-  NETWORK_TITLE = 'Network Error'
-  UNEXPECTED_TITLE = 'Unexpected Error'
-  CONNECTION_MESSAGE = 'Couldn’t connect to the given URL.'
+  NETWORK_TITLE = _('Network Error')
+  UNEXPECTED_TITLE = _('Unexpected Error')
+  CONNECTION_MESSAGE = _('Couldn’t connect to the given URL.')
 
   # Mirrors upstream's `klass.install_action` calls, plus the
   # show-help-overlay action a GtkApplicationWindow gives upstream for free.
@@ -199,7 +200,7 @@ class Window
 
       case uri
       when nil
-        toasts.add_toast(Adwaita::Toast.new('Invalid URL'))
+        toasts.add_toast(Adwaita::Toast.new(_('Invalid URL')))
         url_entry.add_css_class('error')
       else
         url_entry.remove_css_class('error')
@@ -261,7 +262,7 @@ class Window
       case [error.kind, error.status]
       in [Scraper::Error::NETWORK_ERROR, _] then [NETWORK_TITLE, CONNECTION_MESSAGE]
       in [_, ''] then [UNEXPECTED_TITLE, CONNECTION_MESSAGE]
-      else [UNEXPECTED_TITLE, format('Server Error %{status}', status: error.status)]
+      else [UNEXPECTED_TITLE, f_('Server Error {status}', status: error.status)]
       end
     end
 
@@ -375,7 +376,7 @@ class Window
 
     def window
       @window ||= Adwaita::ApplicationWindow.new(@app).tap do |win|
-        win.title = 'Share Preview'
+        win.title = _('Share Preview')
         win.set_default_size(DEFAULT_WIDTH, DEFAULT_HEIGHT)
         win.resizable = false
       end
@@ -392,7 +393,7 @@ class Window
     def color_scheme
       @color_scheme ||= Gtk::Button.new.tap do |button|
         button.icon_name = 'display-brightness-symbolic'
-        button.tooltip_text = 'Toggle Color Scheme'
+        button.tooltip_text = _('Toggle Color Scheme')
       end
     end
 
@@ -400,7 +401,7 @@ class Window
       @menu_button ||= Gtk::MenuButton.new.tap do |button|
         button.menu_model = primary_menu
         button.icon_name = 'open-menu-symbolic'
-        button.tooltip_text = 'Main Menu'
+        button.tooltip_text = _('Main Menu')
       end
     end
 
@@ -415,14 +416,14 @@ class Window
 
     def window_section
       @window_section ||= Gio::Menu.new.tap do |menu|
-        menu.append('_New Window', 'app.new-window')
+        menu.append(_('_New Window'), 'app.new-window')
       end
     end
 
     def help_section
       @help_section ||= Gio::Menu.new.tap do |menu|
-        menu.append('_Keyboard Shortcuts', 'win.show-help-overlay')
-        menu.append('_About Share Preview', 'app.about')
+        menu.append(_('_Keyboard Shortcuts'), 'win.show-help-overlay')
+        menu.append(_('_About Share Preview'), 'app.about')
       end
     end
 
@@ -448,7 +449,7 @@ class Window
         entry.input_purpose = :url
         entry.secondary_icon_name = 'go-next-symbolic'
         entry.secondary_icon_sensitive = false
-        entry.secondary_icon_tooltip_text = 'Go'
+        entry.secondary_icon_tooltip_text = _('Go')
       end
     end
 
@@ -462,7 +463,7 @@ class Window
 
     def start_page
       @start_page ||= Adwaita::StatusPage.new.tap do |page|
-        page.title = 'Set a URL to preview'
+        page.title = _('Set a URL to preview')
       end
     end
 
@@ -524,7 +525,7 @@ class Window
     def metadata_content
       @metadata_content ||= Adwaita::ButtonContent.new.tap do |content|
         content.icon_name = 'code-symbolic'
-        content.label = 'View Metadata'
+        content.label = _('View Metadata')
       end
     end
 
@@ -535,7 +536,7 @@ class Window
         button.hexpand = true
         button.valign = :center
         button.margin_start = 12
-        button.tooltip_text = 'Show Logs'
+        button.tooltip_text = _('Show Logs')
         button.add_css_class('flat')
       end
     end

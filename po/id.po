@@ -1,0 +1,322 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the share-preview package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: share-preview\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 23:30+0000\n"
+"PO-Revision-Date: 2024-03-20 14:01+0000\n"
+"Last-Translator: Juan Manuel <juanmanueldilo09@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/share-preview/"
+"share-preview/id/>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.5-dev\n"
+
+#: lib/about_dialog.rb:13 lib/main.rb:22 lib/window.rb:379
+msgid "Share Preview"
+msgstr "Bagikan Pratinjau"
+
+#: lib/card.rb:127 lib/data.rb:65
+#, fuzzy, python-brace-format
+msgid "\"{name}\" is empty!"
+msgstr "\"{nama}\" Ditemukan!"
+
+#: lib/card.rb:130
+#, fuzzy, python-brace-format
+msgid "Found \"{name}\"."
+msgstr "Ditemukan \"{nama}\"."
+
+#: lib/card.rb:140 lib/card.rb:143
+msgid "Unable to find a metadata for title!. Falling back to document title."
+msgstr "Tidak dapat menemukan metadata untuk judul!. Kembali ke judul dokumen."
+
+#: lib/card.rb:144
+msgid "Unable to find the document title!. Falling back to site url."
+msgstr "Tidak dapat menemukan judul dokumen!. Kembali ke url situs."
+
+#: lib/card.rb:161
+#, python-brace-format
+msgid "Add a \"{tag}\" tag to the page to have control over the content."
+msgstr "Tambahkan tag \"{tag}\" ke laman untuk mengontrol konten."
+
+#: lib/card.rb:168
+#, python-brace-format
+msgid "The description should be at least \"{count}\" characters long."
+msgstr "Deskripsi minimal harus berisi \"{count}\" karakter."
+
+#: lib/card.rb:185
+msgid "Unable to find any valid card type."
+msgstr "Tidak dapat menemukan jenis kartu yang valid."
+
+#: lib/card.rb:201
+#, python-brace-format
+msgid ""
+"Unable to find \"{name}\". Consider providing a \"{name}\" meta property."
+msgstr ""
+"Tidak dapat menemukan \"{name}\". Pertimbangkan untuk menyediakan properti "
+"meta \"{name}\"."
+
+#: lib/card.rb:209
+#, fuzzy, python-brace-format
+msgid "Found card of type \"{name}\"."
+msgstr "Ditemukan kartu jenis \"{nama}\"."
+
+#: lib/card.rb:217
+msgid "Unable to find any valid title or description."
+msgstr "Tidak dapat menemukan judul atau deskripsi yang valid."
+
+#: lib/card.rb:246
+msgid "Unable to find a valid image in the metadata."
+msgstr "Tidak dapat menemukan gambar yang valid di metadata."
+
+#: lib/card.rb:248
+msgid "Unable to find a valid image in the metadata or document body."
+msgstr ""
+"Tidak dapat menemukan gambar yang valid di metadata atau badan dokumen."
+
+#: lib/card.rb:250
+msgid "Unable to find a valid image in the metadata, will render an icon."
+msgstr ""
+"Tidak dapat menemukan gambar yang valid dalam metadata, akan menampilkan "
+"ikon."
+
+#: lib/card.rb:254
+#, fuzzy, python-brace-format
+msgid ""
+"Unable to find a valid image in the metadata, will render a \"{name}\" card "
+"with icon."
+msgstr ""
+"Tidak dapat menemukan gambar yang valid dalam metadata, akan menampilkan "
+"kartu \"{nama}\" dengan ikon."
+
+#: lib/card.rb:324
+#, fuzzy, python-brace-format
+msgid "Image \"{url}\" is defined with a relative url."
+msgstr "Gambar \"{url}\" memenuhi persyaratan."
+
+#: lib/card.rb:336
+#, python-brace-format
+msgid "Image \"{url}\" met the requirements."
+msgstr "Gambar \"{url}\" memenuhi persyaratan."
+
+#: lib/card.rb:360
+#, python-brace-format
+msgid "Image \"{url}\" did not meet the requirements: {info}."
+msgstr "Gambar \"{url}\" tidak memenuhi persyaratan: {info}."
+
+#: lib/card.rb:406
+#, python-brace-format
+msgid "Image \"{url}\" processed successfully."
+msgstr "Gambar \"{url}\" berhasil diproses."
+
+#: lib/card.rb:413
+#, python-brace-format
+msgid "Failed to thumbnail \"{url}\": {info}."
+msgstr "Gagal membuat thumbnail \"{url}\": {info}."
+
+#: lib/card_box.rb:39
+msgid "Couldn’t find enough data to generate a card for this social media."
+msgstr ""
+"Tidak dapat menemukan cukup data untuk membuat kartu untuk media sosial ini."
+
+#: lib/card_box.rb:40
+msgid "Twitter: No card found."
+msgstr "Twitter: Tidak ada kartu yang ditemukan."
+
+#: lib/card_box.rb:112
+msgid "Card Error"
+msgstr "Kartu Gagal"
+
+#: lib/data.rb:63
+#, fuzzy, python-brace-format
+msgid "No occurrences found for \"{name}\"!"
+msgstr "Tidak ditemukan kemunculan untuk \"{nama}\"!"
+
+#: lib/data.rb:71
+#, fuzzy, python-brace-format
+msgid "Found a valid occurrence for \"{name}\" with value \"{value}\"."
+msgstr "Ditemukan kejadian valid untuk \"{nama}\" dengan nilai \"{value}\"."
+
+#: lib/data_dialog.rb:61
+msgid "Metadata"
+msgstr "Metadata"
+
+#: lib/data_dialog.rb:62
+msgid "Body Images"
+msgstr "Gambar Tubuh"
+
+#: lib/data_dialog.rb:317
+msgid "Nothing to Show"
+msgstr "Tidak Ada yang Perlu Ditunjukkan"
+
+#: lib/image.rb:32
+#, fuzzy, python-brace-format
+msgid "Image Url Error: {info}"
+msgstr "Kesalahan Gambar: {info}"
+
+#: lib/image.rb:34
+#, fuzzy, python-brace-format
+msgid "Image Data Url Error: {info}"
+msgstr "Kesalahan Gambar: {info}"
+
+#: lib/image.rb:36
+#, python-brace-format
+msgid "Image Data Invalid Base64: {info}"
+msgstr ""
+
+#: lib/image.rb:38
+#, python-brace-format
+msgid "Network Error: {info}"
+msgstr "Kesalahan Jaringan: {info}"
+
+#: lib/image.rb:40
+#, python-brace-format
+msgid "Request Error: {info}"
+msgstr "Kesalahan Permintaan: {info}"
+
+#: lib/image.rb:42
+#, python-brace-format
+msgid "Image Error: {info}"
+msgstr "Kesalahan Gambar: {info}"
+
+#: lib/image.rb:48
+#, python-brace-format
+msgid "Image is too tiny ({actual}), minimum dimensions are {min}"
+msgstr "Gambar terlalu kecil ({actual}), dimensi minimumnya {min}"
+
+#: lib/image.rb:59
+#, python-brace-format
+msgid "Image is too heavy ({actual}), max size is {max}"
+msgstr "Gambar terlalu berat ({actual}), ukuran maksimalnya adalah {max}"
+
+#: lib/image.rb:66
+#, python-brace-format
+msgid "Image is unsupported: {info}"
+msgstr "Gambar tidak didukung: {info}"
+
+#: lib/image.rb:68 lib/window.rb:38
+msgid "Unexpected Error"
+msgstr "Kesalahan tak terduga"
+
+#: lib/image.rb:117
+msgid "Format is unsupported"
+msgstr "Format tidak didukung"
+
+#: lib/log_dialog.rb:46
+#, fuzzy
+msgid "Scraping Log"
+msgstr "Menggores Log"
+
+#: lib/log_row.rb:18
+msgid "DEBUG"
+msgstr ""
+
+#: lib/log_row.rb:19
+msgid "INFO"
+msgstr "INFO"
+
+#: lib/log_row.rb:20
+msgid "WARNING"
+msgstr "PERINGATAN"
+
+#: lib/log_row.rb:21
+msgid "ERROR"
+msgstr "ERROR"
+
+#: lib/shortcuts_window.rb:19
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Umum"
+
+#: lib/shortcuts_window.rb:24
+msgctxt "shortcut window"
+msgid "Focus the URL entry"
+msgstr ""
+
+#: lib/shortcuts_window.rb:25
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Tampilkan Pintasan"
+
+#: lib/shortcuts_window.rb:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Berhenti"
+
+#: lib/window.rb:37
+msgid "Network Error"
+msgstr "Jaringan Gagal"
+
+#: lib/window.rb:39
+msgid "Couldn’t connect to the given URL."
+msgstr "Tidak dapat terhubung ke URL yang diberikan."
+
+#: lib/window.rb:203
+msgid "Invalid URL"
+msgstr "URL tidak valid"
+
+#: lib/window.rb:265
+#, python-brace-format
+msgid "Server Error {status}"
+msgstr ""
+
+#: lib/window.rb:396
+msgid "Toggle Color Scheme"
+msgstr "Pengalih Skema Warna"
+
+#: lib/window.rb:404
+msgid "Main Menu"
+msgstr "Menu Utama"
+
+#: lib/window.rb:419
+msgid "_New Window"
+msgstr "_Jendela baru"
+
+#: lib/window.rb:425
+msgid "_Keyboard Shortcuts"
+msgstr "_Pintasan Papan Ketik"
+
+#: lib/window.rb:426
+msgid "_About Share Preview"
+msgstr "_Tentang Bagikan Pratinjau"
+
+#: lib/window.rb:452
+msgid "Go"
+msgstr "Pergi"
+
+#: lib/window.rb:466
+msgid "Set a URL to preview"
+msgstr "Tetapkan URL untuk di pratinjau"
+
+#: lib/window.rb:528
+msgid "View Metadata"
+msgstr "Lihat Metadata"
+
+#: lib/window.rb:539
+msgid "Show Logs"
+msgstr "Lihat Log"
+
+#~ msgid "Test social media cards locally"
+#~ msgstr "Uji kartu media sosial secara lokal"
+
+#~ msgid "Gnome;GTK;link;url;unfurl;"
+#~ msgstr "Gnome;GTK;tautan;url;membuka;"
+
+#, fuzzy
+#~ msgid "New Window"
+#~ msgstr "_Jendela baru"
+
+#~ msgid "Preview and debug websites metadata tags for social media share."
+#~ msgstr ""
+#~ "Pratinjau dan debug tag metadata situs web untuk dibagikan di media "
+#~ "sosial."
+
+#~ msgid "Rafael Mardojai CM"
+#~ msgstr "Rafael Mardojai CM"

@@ -1,0 +1,363 @@
+# Turkish translation for share-preivew
+# Copyright (C) 2021-2022 share-preivew's COPYRIGHT HOLDER
+# This file is distributed under the same license as the share-preview package.
+#
+# Bedirhan Tuhana GAYRETLİ <noteqnil@gmail.com>, 2021.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2021.
+# Sabri Ünal <libreajans@gmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: share-preview\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 23:30+0000\n"
+"PO-Revision-Date: 2025-08-30 16:01+0000\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/share-preview/"
+"share-preview/tr/>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.13.1-dev\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: _;C_;G_;NC_;gettext\n"
+"X-Poedit-SearchPath-0: src\n"
+"X-Poedit-SearchPath-1: data\n"
+
+#: lib/about_dialog.rb:13 lib/main.rb:22 lib/window.rb:379
+msgid "Share Preview"
+msgstr "Paylaşım Ön İzle"
+
+#: lib/card.rb:127 lib/data.rb:65
+#, python-brace-format
+msgid "\"{name}\" is empty!"
+msgstr "\"{name}\" boş!"
+
+#: lib/card.rb:130
+#, python-brace-format
+msgid "Found \"{name}\"."
+msgstr "\"{name}\" bulundu."
+
+#: lib/card.rb:140 lib/card.rb:143
+msgid "Unable to find a metadata for title!. Falling back to document title."
+msgstr "Başlık için üst veri bulunamadı! Belge başlığına geri dönülüyor."
+
+#: lib/card.rb:144
+msgid "Unable to find the document title!. Falling back to site url."
+msgstr "Belge başlığı bulunamadı! Site URL'sine geri dönülüyor."
+
+#: lib/card.rb:161
+#, python-brace-format
+msgid "Add a \"{tag}\" tag to the page to have control over the content."
+msgstr ""
+"İçerik üzerinde denetim sahibi olmak için sayfaya \"{tag}\" etiketi ekleyin."
+
+#: lib/card.rb:168
+#, python-brace-format
+msgid "The description should be at least \"{count}\" characters long."
+msgstr "Açıklama en az \"{count}\" karakter uzunluğunda olmalıdır."
+
+#: lib/card.rb:185
+msgid "Unable to find any valid card type."
+msgstr "Geçerli bir kart türü bulunamadı."
+
+#: lib/card.rb:201
+#, python-brace-format
+msgid ""
+"Unable to find \"{name}\". Consider providing a \"{name}\" meta property."
+msgstr "\"{name}\" bulunamadı. \"{name}\" üst veri özelliği sağlamayı düşünün."
+
+#: lib/card.rb:209
+#, python-brace-format
+msgid "Found card of type \"{name}\"."
+msgstr "\"{name}\" türünde bir kart bulundu."
+
+#: lib/card.rb:217
+msgid "Unable to find any valid title or description."
+msgstr "Geçerli bir başlık veya açıklama bulunamadı."
+
+#: lib/card.rb:246
+msgid "Unable to find a valid image in the metadata."
+msgstr "Üst verilerde geçerli bir resim bulunamadı."
+
+#: lib/card.rb:248
+msgid "Unable to find a valid image in the metadata or document body."
+msgstr "Üst verilerde ya da belge gövdesinde geçerli bir resim bulunamadı."
+
+#: lib/card.rb:250
+msgid "Unable to find a valid image in the metadata, will render an icon."
+msgstr "Üst verilerde geçerli bir resim bulunamadı, bir simge oluşturacak."
+
+#: lib/card.rb:254
+#, python-brace-format
+msgid ""
+"Unable to find a valid image in the metadata, will render a \"{name}\" card "
+"with icon."
+msgstr ""
+"Üst verilerde geçerli bir resim bulunamadığında, simgeli bir \"{name}\" "
+"kartı oluşturulur."
+
+#: lib/card.rb:324
+#, python-brace-format
+msgid "Image \"{url}\" is defined with a relative url."
+msgstr "\"{url}\" resmi göreli URL ile tanımlanmış."
+
+#: lib/card.rb:336
+#, python-brace-format
+msgid "Image \"{url}\" met the requirements."
+msgstr "Resim \"{url}\" gereksinimleri karşıladı."
+
+#: lib/card.rb:360
+#, python-brace-format
+msgid "Image \"{url}\" did not meet the requirements: {info}."
+msgstr "Resim \"{url}\" gereksinimleri karşılamadı: {info}."
+
+#: lib/card.rb:406
+#, python-brace-format
+msgid "Image \"{url}\" processed successfully."
+msgstr "Resim \"{url}\" başarıyla işlendi."
+
+#: lib/card.rb:413
+#, python-brace-format
+msgid "Failed to thumbnail \"{url}\": {info}."
+msgstr "\"{url}\" için küçük resim oluşturulamadı: {info}."
+
+#: lib/card_box.rb:39
+msgid "Couldn’t find enough data to generate a card for this social media."
+msgstr "Bu sosyal medyaya kart oluşturmak için yeterli veri bulunamadı."
+
+#: lib/card_box.rb:40
+msgid "Twitter: No card found."
+msgstr "Twitter: Kart bulunamadı."
+
+#: lib/card_box.rb:112
+msgid "Card Error"
+msgstr "Kart Hatası"
+
+#: lib/data.rb:63
+#, python-brace-format
+msgid "No occurrences found for \"{name}\"!"
+msgstr "\"{name}\" için herhangi bir olay bulunamadı!"
+
+#: lib/data.rb:71
+#, python-brace-format
+msgid "Found a valid occurrence for \"{name}\" with value \"{value}\"."
+msgstr "\"{name}\" için \"{value}\" değerine sahip geçerli bir oluşum bulundu."
+
+#: lib/data_dialog.rb:61
+msgid "Metadata"
+msgstr "Üst veri"
+
+#: lib/data_dialog.rb:62
+msgid "Body Images"
+msgstr "Gövde Resimleri"
+
+#: lib/data_dialog.rb:317
+msgid "Nothing to Show"
+msgstr "Gösterilecek Hiçbir Şey Yok"
+
+#: lib/image.rb:32
+#, python-brace-format
+msgid "Image Url Error: {info}"
+msgstr "Resim URL Hatası {info}"
+
+#: lib/image.rb:34
+#, python-brace-format
+msgid "Image Data Url Error: {info}"
+msgstr "Resim Verileri URL Hatası: {info}"
+
+#: lib/image.rb:36
+#, python-brace-format
+msgid "Image Data Invalid Base64: {info}"
+msgstr "Resim Verisi Geçersiz Base64: {info}"
+
+#: lib/image.rb:38
+#, python-brace-format
+msgid "Network Error: {info}"
+msgstr "Ağ Hatası: {info}"
+
+#: lib/image.rb:40
+#, python-brace-format
+msgid "Request Error: {info}"
+msgstr "İstek Hatası: {info}"
+
+#: lib/image.rb:42
+#, python-brace-format
+msgid "Image Error: {info}"
+msgstr "Resim Hatası {info}"
+
+#: lib/image.rb:48
+#, python-brace-format
+msgid "Image is too tiny ({actual}), minimum dimensions are {min}"
+msgstr "Resim çok küçük ({actual}), asgari boyutlar {min}"
+
+#: lib/image.rb:59
+#, python-brace-format
+msgid "Image is too heavy ({actual}), max size is {max}"
+msgstr "Resim çok büyük ({actual}), azami boyut {max}"
+
+#: lib/image.rb:66
+#, python-brace-format
+msgid "Image is unsupported: {info}"
+msgstr "Resim desteklenmiyor: {info}"
+
+#: lib/image.rb:68 lib/window.rb:38
+msgid "Unexpected Error"
+msgstr "Beklenmeyen Hata"
+
+#: lib/image.rb:117
+msgid "Format is unsupported"
+msgstr "Biçim desteklenmiyor"
+
+#: lib/log_dialog.rb:46
+msgid "Scraping Log"
+msgstr "Kazıma Günlüğü"
+
+#: lib/log_row.rb:18
+msgid "DEBUG"
+msgstr "HATA AYIKLAMA"
+
+#: lib/log_row.rb:19
+msgid "INFO"
+msgstr "BİLGİ"
+
+#: lib/log_row.rb:20
+msgid "WARNING"
+msgstr "UYARI"
+
+#: lib/log_row.rb:21
+msgid "ERROR"
+msgstr "HATA"
+
+#: lib/shortcuts_window.rb:19
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Genel"
+
+#: lib/shortcuts_window.rb:24
+msgctxt "shortcut window"
+msgid "Focus the URL entry"
+msgstr "URL girdisine odaklan"
+
+#: lib/shortcuts_window.rb:25
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Kısayolları Göster"
+
+#: lib/shortcuts_window.rb:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Çık"
+
+#: lib/window.rb:37
+msgid "Network Error"
+msgstr "Ağ Hatası"
+
+#: lib/window.rb:39
+msgid "Couldn’t connect to the given URL."
+msgstr "Verilen URL’ye bağlanılamadı."
+
+#: lib/window.rb:203
+msgid "Invalid URL"
+msgstr "Geçersiz URL"
+
+#: lib/window.rb:265
+#, python-brace-format
+msgid "Server Error {status}"
+msgstr "Sunucu Hatası {status}"
+
+#: lib/window.rb:396
+msgid "Toggle Color Scheme"
+msgstr "Renk Şemasını Değiştir"
+
+#: lib/window.rb:404
+msgid "Main Menu"
+msgstr "Ana Menü"
+
+#: lib/window.rb:419
+msgid "_New Window"
+msgstr "_Yeni Pencere"
+
+#: lib/window.rb:425
+msgid "_Keyboard Shortcuts"
+msgstr "_Klavye Kısayolları"
+
+#: lib/window.rb:426
+msgid "_About Share Preview"
+msgstr "Paylaşım Ön İzle _Hakkında"
+
+#: lib/window.rb:452
+msgid "Go"
+msgstr "Git"
+
+#: lib/window.rb:466
+msgid "Set a URL to preview"
+msgstr "Ön izlenecek URL belirle"
+
+#: lib/window.rb:528
+msgid "View Metadata"
+msgstr "Üst Verileri Görüntüle"
+
+#: lib/window.rb:539
+msgid "Show Logs"
+msgstr "_Günlük Göster"
+
+#~ msgid "Test social media cards locally"
+#~ msgstr "Sosyal medya kartlarını yerel olarak sına"
+
+#~ msgid "Gnome;GTK;link;url;unfurl;"
+#~ msgstr ""
+#~ "Gnome;GTK;link;url;unfurl;önizle;önizleme;ön izle;ön "
+#~ "izleme;paylaş;paylaşım;share;preview;"
+
+#~ msgid "New Window"
+#~ msgstr "Yeni Pencere"
+
+#~ msgid "Preview and debug websites metadata tags for social media share."
+#~ msgstr ""
+#~ "Sosyal medya paylaşımı için web sitesi üst veri etiketlerini ön izle ve "
+#~ "hatalarını ayıkla."
+
+#~ msgid "Rafael Mardojai CM"
+#~ msgstr "Rafael Mardojai CM"
+
+#~ msgid "Added Dutch translation"
+#~ msgstr "Flemenkçe çeviri eklendi"
+
+#~ msgid "Added Italian translation"
+#~ msgstr "İtalyanca çeviri eklendi"
+
+#~ msgid "Added Turkish translation"
+#~ msgstr "Türkçe çeviri eklendi"
+
+#~ msgid "Added new translations"
+#~ msgstr "Yeni çeviriler eklendi"
+
+#~ msgid "Bug fixes"
+#~ msgstr "Hata düzeltmeler"
+
+#~ msgid "Bug fixes and improvements."
+#~ msgstr "Hata düzeltmeler ve iyileştirmeler"
+
+#~ msgid "Code cleanup and improvements"
+#~ msgstr "Kod temizliği ve iyileştirmeler"
+
+#~ msgid "Failure when receiving image from the peer."
+#~ msgstr "Eşten resim alırken hata."
+
+#~ msgid "First public release."
+#~ msgstr "İlk sürüm."
+
+#~ msgid "Invalid image format."
+#~ msgstr "Geçersiz resim biçimi."
+
+#~ msgid "New page data dialog"
+#~ msgstr "Yeni sayfa verisi iletişim kutusu"
+
+#~ msgid "Unexpected image error."
+#~ msgstr "Beklenmeyen resim hatası."
+
+#~ msgid "View Found Data"
+#~ msgstr "Bulunan Verileri Görüntüle"

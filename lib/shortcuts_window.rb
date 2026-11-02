@@ -2,6 +2,8 @@
 
 require 'adwaita'
 
+require_relative 'i18n'
+
 # ShortcutsWindow lists the keyboard shortcuts.
 #
 # Ported from upstream's data/resources/ui/shortcuts.ui: one section with a
@@ -14,14 +16,14 @@ require 'adwaita'
 # Adw.ShortcutsDialog, which is what the port builds and what the pilot port
 # uses too.
 class ShortcutsWindow
-  GROUP = 'General'
+  GROUP = c_('shortcut window', 'General')
 
   # Title and accelerator per shortcut, in upstream's order. The
   # accelerators are the ones the application binds.
   SHORTCUTS = [
-    ['Focus the URL entry', '<primary>l'],
-    ['Show Shortcuts', '<primary>question'],
-    ['Quit', '<primary>q'],
+    [c_('shortcut window', 'Focus the URL entry'), '<primary>l'],
+    [c_('shortcut window', 'Show Shortcuts'), '<primary>question'],
+    [c_('shortcut window', 'Quit'), '<primary>q'],
   ].freeze
 
   def build
@@ -36,11 +38,10 @@ class ShortcutsWindow
 
   def present(parent) = build.present(parent)
 
-  def dialog
-    @dialog ||= Adwaita::ShortcutsDialog.new.tap do |window|
-      window.title = 'Keyboard Shortcuts'
-    end
-  end
+  # No title is set: upstream's template sets none either, and the default
+  # Adw.ShortcutsDialog gives itself is already translated by libadwaita's own
+  # catalogue, where setting one here would put an English string back.
+  def dialog = @dialog ||= Adwaita::ShortcutsDialog.new
 
   def section
     @section ||= Adwaita::ShortcutsSection.new.tap do |group|

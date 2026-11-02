@@ -3,6 +3,7 @@
 require 'adwaita'
 
 require_relative 'about_dialog'
+require_relative 'i18n'
 require_relative 'settings'
 require_relative 'style'
 require_relative 'window'
@@ -11,14 +12,14 @@ require_relative 'share/preview/rb/version'
 # App is the application: the actions, the accelerators, the command line and
 # the window group every window joins.
 #
-# Ported from upstream's src/application.rs and src/main.rs. Upstream's
-# src/i18n.rs gives it `gettext_f`, a gettext whose `{name}` placeholders are
-# filled from a dictionary; the port writes those strings with Ruby's own
-# `format` and `%{name}` placeholders, which does the same job, so the
-# translated strings carry no helper of their own.
+# Ported from upstream's src/application.rs and src/main.rs. The locale setup
+# those two files open with — setlocale, bindtextdomain, textdomain and the
+# translated application name — is in lib/i18n.rb, which binds the domain as it
+# loads, so APPLICATION_NAME below is translated by the time this class body
+# runs.
 class App
   APP_ID = 'org.rubygtkproject.SharePreview'
-  APPLICATION_NAME = 'Share Preview'
+  APPLICATION_NAME = _('Share Preview')
   PRGNAME = 'share-preview'
   VERSION = Share::Preview::Rb::VERSION
 

@@ -1,0 +1,339 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the share-preview package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# CombiCraft <<>>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: share-preview\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 23:30+0000\n"
+"PO-Revision-Date: 2024-06-10 16:09+0000\n"
+"Last-Translator: trailblazercombi <domuhr263@gmail.com>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/share-preview/"
+"share-preview/sk/>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"X-Generator: Weblate 5.6-dev\n"
+
+#: lib/about_dialog.rb:13 lib/main.rb:22 lib/window.rb:379
+msgid "Share Preview"
+msgstr "Náhľad zdieľaní"
+
+#: lib/card.rb:127 lib/data.rb:65
+#, python-brace-format
+msgid "\"{name}\" is empty!"
+msgstr "\"{name}\" je prázdne!"
+
+#: lib/card.rb:130
+#, python-brace-format
+msgid "Found \"{name}\"."
+msgstr "Nájdené \"{name}\"."
+
+#: lib/card.rb:140 lib/card.rb:143
+msgid "Unable to find a metadata for title!. Falling back to document title."
+msgstr "Metaúdaje neboli nájdené! Namiesto toho bude použitý názov dokumentu."
+
+#: lib/card.rb:144
+msgid "Unable to find the document title!. Falling back to site url."
+msgstr ""
+"Názov dokumentu nebol nájdený! Namiesto toho bude použitá adresa webovej "
+"stránky."
+
+#: lib/card.rb:161
+#, python-brace-format
+msgid "Add a \"{tag}\" tag to the page to have control over the content."
+msgstr ""
+"Pridajte štítok \"{tag}\" na stránku, aby ste mali kontrolu nad obsahom."
+
+#: lib/card.rb:168
+#, python-brace-format
+msgid "The description should be at least \"{count}\" characters long."
+msgstr "Popis by mal obsahovať minimálne \"{count}\" znakov."
+
+#: lib/card.rb:185
+msgid "Unable to find any valid card type."
+msgstr "Platný typ karty nebol nájdený."
+
+#: lib/card.rb:201
+#, python-brace-format
+msgid ""
+"Unable to find \"{name}\". Consider providing a \"{name}\" meta property."
+msgstr "Nemožno nájsť \"{name}\". Skúste vložiť metaúdaj \"{name}\"."
+
+#: lib/card.rb:209
+#, python-brace-format
+msgid "Found card of type \"{name}\"."
+msgstr "Nájdené karty typu \"{name}\"."
+
+#: lib/card.rb:217
+msgid "Unable to find any valid title or description."
+msgstr "Platný názov ani popis nebol nájdený."
+
+#: lib/card.rb:246
+msgid "Unable to find a valid image in the metadata."
+msgstr "Vhodný obrázok sa nenachádza v metaúdajoch."
+
+#: lib/card.rb:248
+msgid "Unable to find a valid image in the metadata or document body."
+msgstr "Vhodný obrázok sa nenachádza v metaúdajoch, ani v tele dokumentu."
+
+#: lib/card.rb:250
+msgid "Unable to find a valid image in the metadata, will render an icon."
+msgstr ""
+"Vhodný obrázok sa nenachádza v metaúdajoch. Namiesto toho bude použitá ikona."
+
+#: lib/card.rb:254
+#, python-brace-format
+msgid ""
+"Unable to find a valid image in the metadata, will render a \"{name}\" card "
+"with icon."
+msgstr ""
+"Vhodný obrázok sa nenachádza v metaúdajoch. Namiesto toho bude použitá karta "
+"\"{name}\" s ikonou."
+
+#: lib/card.rb:324
+#, python-brace-format
+msgid "Image \"{url}\" is defined with a relative url."
+msgstr "Pre obrázok \"{url}\" existuje odkaz na webstránku."
+
+#: lib/card.rb:336
+#, python-brace-format
+msgid "Image \"{url}\" met the requirements."
+msgstr "Obrázok \"{url}\" spĺňa požiadavky."
+
+#: lib/card.rb:360
+#, python-brace-format
+msgid "Image \"{url}\" did not meet the requirements: {info}."
+msgstr "Obrázok \"{url}\" nespĺňa požiadavky. Dôvod: {info}."
+
+#: lib/card.rb:406
+#, python-brace-format
+msgid "Image \"{url}\" processed successfully."
+msgstr "Obrázok \"{url}\" spracovaný."
+
+#: lib/card.rb:413
+#, python-brace-format
+msgid "Failed to thumbnail \"{url}\": {info}."
+msgstr "Nebolo možné vytvoriť miniatúru pre \"{url}\". Dôvod: {info}."
+
+#: lib/card_box.rb:39
+msgid "Couldn’t find enough data to generate a card for this social media."
+msgstr ""
+"Nemožno nájsť dostatok údajov na generovanie karty pre tieto sociálne médiá."
+
+#: lib/card_box.rb:40
+msgid "Twitter: No card found."
+msgstr "Twitter: Nebolo možné nájsť kartu."
+
+#: lib/card_box.rb:112
+msgid "Card Error"
+msgstr "Chyba karty"
+
+#: lib/data.rb:63
+#, python-brace-format
+msgid "No occurrences found for \"{name}\"!"
+msgstr "Výraz \"{name}\" nebol nájdený!"
+
+#: lib/data.rb:71
+#, fuzzy, python-brace-format
+msgid "Found a valid occurrence for \"{name}\" with value \"{value}\"."
+msgstr "Nájdené \"{name}\" s hodnotou \"{hodnota}\"."
+
+#: lib/data_dialog.rb:61
+msgid "Metadata"
+msgstr "Metaúdaje"
+
+#: lib/data_dialog.rb:62
+msgid "Body Images"
+msgstr "Obrázky"
+
+#: lib/data_dialog.rb:317
+msgid "Nothing to Show"
+msgstr "Nič tu nie je"
+
+#: lib/image.rb:32
+#, python-brace-format
+msgid "Image Url Error: {info}"
+msgstr "Chyba odkazu na obrázok. Dôvod: {info}"
+
+#: lib/image.rb:34
+#, python-brace-format
+msgid "Image Data Url Error: {info}"
+msgstr "Chyba obrázka. Dôvod: {info}"
+
+#: lib/image.rb:36
+#, python-brace-format
+msgid "Image Data Invalid Base64: {info}"
+msgstr "Neplatné údaje o obrázku. Dôvod: Base64, {info}"
+
+#: lib/image.rb:38
+#, python-brace-format
+msgid "Network Error: {info}"
+msgstr "Chyba siete: {info}"
+
+#: lib/image.rb:40
+#, python-brace-format
+msgid "Request Error: {info}"
+msgstr "Chyba žiadosti: {info}"
+
+#: lib/image.rb:42
+#, python-brace-format
+msgid "Image Error: {info}"
+msgstr "Chyba obrázka: {info}"
+
+#: lib/image.rb:48
+#, python-brace-format
+msgid "Image is too tiny ({actual}), minimum dimensions are {min}"
+msgstr "Obrázok je príliš malý ({actual}), minimálne rozmery sú {min}"
+
+#: lib/image.rb:59
+#, python-brace-format
+msgid "Image is too heavy ({actual}), max size is {max}"
+msgstr "Obrázok je príliš veľký ({actual}), maximálna veľkosť je {max}"
+
+#: lib/image.rb:66
+#, python-brace-format
+msgid "Image is unsupported: {info}"
+msgstr "Obrázok nie je podporovaný. Dôvod: {info}"
+
+#: lib/image.rb:68 lib/window.rb:38
+msgid "Unexpected Error"
+msgstr "Neočakávaná chyba"
+
+#: lib/image.rb:117
+msgid "Format is unsupported"
+msgstr "Nepodporovaný formát"
+
+#: lib/log_dialog.rb:46
+msgid "Scraping Log"
+msgstr "Denník"
+
+#: lib/log_row.rb:18
+msgid "DEBUG"
+msgstr "DEŇ"
+
+#: lib/log_row.rb:19
+msgid "INFO"
+msgstr "AKTUALITY"
+
+#: lib/log_row.rb:20
+msgid "WARNING"
+msgstr "UPOZORNENIE"
+
+#: lib/log_row.rb:21
+msgid "ERROR"
+msgstr "ERROR"
+
+#: lib/shortcuts_window.rb:19
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Všeobecné"
+
+#: lib/shortcuts_window.rb:24
+msgctxt "shortcut window"
+msgid "Focus the URL entry"
+msgstr "Skočiť na pole adresy stránky"
+
+#: lib/shortcuts_window.rb:25
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Zobraziť klávesové skratky"
+
+#: lib/shortcuts_window.rb:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Ukončiť"
+
+#: lib/window.rb:37
+msgid "Network Error"
+msgstr "Chyba siete"
+
+#: lib/window.rb:39
+msgid "Couldn’t connect to the given URL."
+msgstr "Nebolo možné pripojiť sa na server, na ktorý odkaz odkazuje."
+
+#: lib/window.rb:203
+msgid "Invalid URL"
+msgstr "Neplatná adresa stránky"
+
+#: lib/window.rb:265
+#, python-brace-format
+msgid "Server Error {status}"
+msgstr ""
+
+#: lib/window.rb:396
+msgid "Toggle Color Scheme"
+msgstr "Prepnúť farebnú schému"
+
+#: lib/window.rb:404
+msgid "Main Menu"
+msgstr "Hlavné menu"
+
+#: lib/window.rb:419
+msgid "_New Window"
+msgstr "_Nové okno"
+
+#: lib/window.rb:425
+msgid "_Keyboard Shortcuts"
+msgstr "_Klávesové skratky"
+
+#: lib/window.rb:426
+msgid "_About Share Preview"
+msgstr "_O aplikácii"
+
+#: lib/window.rb:452
+msgid "Go"
+msgstr "Ísť"
+
+#: lib/window.rb:466
+msgid "Set a URL to preview"
+msgstr "Nastaviť náhľad pre adresu stránky"
+
+#: lib/window.rb:528
+msgid "View Metadata"
+msgstr "Zobraziť metaúdaje"
+
+#: lib/window.rb:539
+msgid "Show Logs"
+msgstr "Zobraziť denník"
+
+#~ msgid "Test social media cards locally"
+#~ msgstr "Zobraziť karty pre sociálne siete"
+
+#~ msgid "Gnome;GTK;link;url;unfurl;"
+#~ msgstr "Gnome;GTK;link;url;unfurl;"
+
+#, fuzzy
+#~ msgid "New Window"
+#~ msgstr "_Nové okno"
+
+#~ msgid "Preview and debug websites metadata tags for social media share."
+#~ msgstr ""
+#~ "Vlož hypertextový odkaz a zisti, ako bude vyzerať jeho karta na "
+#~ "sociálnych sieťach."
+
+#~ msgid "Rafael Mardojai CM"
+#~ msgstr "Rafael Mardojai CM"
+
+#~ msgid "Go..."
+#~ msgstr "Choď..."
+
+#~ msgid "View Found Data..."
+#~ msgstr "Zobraziť nájdené dáta"
+
+#~ msgid "Gnome;GTK;"
+#~ msgstr "Gnome;GTK;"
+
+#~ msgid "Failure when receiving image from the peer."
+#~ msgstr "Nebolo možné prijať obrázok od druha."
+
+#~ msgid "Invalid image format."
+#~ msgstr "Neplatný formát obrázka."
+
+#~ msgid "Unexpected image error."
+#~ msgstr "Neočakávaná chyba obrázka."

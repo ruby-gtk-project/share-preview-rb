@@ -2,13 +2,15 @@
 
 require 'adwaita'
 
+require_relative 'i18n'
+
 # AboutDialog is the app's about window.
 #
 # Ported from `show_about_dialog` in upstream's src/application.rs: an
 # Adw.AboutDialog carrying the app name and icon, the issue and website urls,
 # the GPL-3.0 licence, the version and the credits.
 class AboutDialog
-  APPLICATION_NAME = 'Share Preview'
+  APPLICATION_NAME = _('Share Preview')
   ISSUE_URL = 'https://github.com/rafaelmardojai/share-preview/issues'
   WEBSITE = 'https://apps.gnome.org/SharePreview/'
 

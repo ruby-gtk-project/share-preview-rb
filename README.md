@@ -120,6 +120,27 @@ gem install share-preview-rb
 
 ## 🔧 Basic Usage
 
+## 🌍 Translations
+
+The app carries upstream's message catalogues: `po/` holds the 29 languages
+share-preview is translated into, and `po/POTFILES.in` lists the Ruby sources
+the msgids are extracted from. The msgids are upstream's own, byte for byte, so
+every existing translation keeps working.
+
+```console
+rake translations   # compile po/*.po into locale/<lang>/LC_MESSAGES/share-preview.mo
+rake pot            # re-extract po/share-preview.pot and msgmerge it into every catalogue
+```
+
+`locale/` is a build product and is not committed; `rake build` and `rake test`
+depend on `translations`, and the gem ships the compiled catalogues. Running
+from a checkout without compiling them shows the app in English. To see another
+language:
+
+```console
+LANGUAGE=de nix develop --command xvfb-run -a ruby test/drive_translated.rb
+```
+
 ## 🤝 Contributing
 
 If you need some ideas of where to help, you could work on adding more code coverage,

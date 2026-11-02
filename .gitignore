@@ -50,3 +50,7 @@ Appraisal.*.gemfile.lock
 # nix/ is the runtime gemdir for flake.nix: bundlerEnv needs its lock and
 # gemset committed or the app cannot be built reproducibly.
 !nix/Gemfile.lock
+
+# locale/<lang>/LC_MESSAGES/share-preview.mo is compiled from po/*.po by
+# `rake translations`; the catalogues' source form is po/, which is committed.
+/locale/

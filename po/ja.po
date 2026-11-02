@@ -1,0 +1,317 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the share-preview package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: share-preview\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 23:30+0000\n"
+"PO-Revision-Date: 2025-08-12 06:02+0000\n"
+"Last-Translator: miiniityann <miiniityann@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/share-preview/"
+"share-preview/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.13-dev\n"
+
+#: lib/about_dialog.rb:13 lib/main.rb:22 lib/window.rb:379
+msgid "Share Preview"
+msgstr "シェアプレビュー"
+
+#: lib/card.rb:127 lib/data.rb:65
+#, python-brace-format
+msgid "\"{name}\" is empty!"
+msgstr "\"{name}\"は空です！"
+
+#: lib/card.rb:130
+#, python-brace-format
+msgid "Found \"{name}\"."
+msgstr "\"{name}\"を発見しました。"
+
+#: lib/card.rb:140 lib/card.rb:143
+msgid "Unable to find a metadata for title!. Falling back to document title."
+msgstr ""
+"タイトルのメタデータが見つかりませんでした。ドキュメントタイトルに戻ります。"
+
+#: lib/card.rb:144
+msgid "Unable to find the document title!. Falling back to site url."
+msgstr "ドキュメントのタイトルが見つかりません！ サイトURLに切り替えます。"
+
+#: lib/card.rb:161
+#, python-brace-format
+msgid "Add a \"{tag}\" tag to the page to have control over the content."
+msgstr "\"{tag}\"タグをページに追加することで、コンテンツを管理できます。"
+
+#: lib/card.rb:168
+#, python-brace-format
+msgid "The description should be at least \"{count}\" characters long."
+msgstr "説明文は少なくとも\"{count}\"文字以上である必要があります。"
+
+#: lib/card.rb:185
+msgid "Unable to find any valid card type."
+msgstr "有効なカードの種類が見つかりません。"
+
+#: lib/card.rb:201
+#, python-brace-format
+msgid ""
+"Unable to find \"{name}\". Consider providing a \"{name}\" meta property."
+msgstr ""
+"\"{name}\"が見つかりません。\"{name}\"メタプロパティを提供することを検討して"
+"ください。"
+
+#: lib/card.rb:209
+#, python-brace-format
+msgid "Found card of type \"{name}\"."
+msgstr "\"{name}\"タイプのカードが見つかりました。"
+
+#: lib/card.rb:217
+msgid "Unable to find any valid title or description."
+msgstr "有効なタイトルまたは説明が見つかりません。"
+
+#: lib/card.rb:246
+msgid "Unable to find a valid image in the metadata."
+msgstr "メタデータ内に有効な画像が見つかりません。"
+
+#: lib/card.rb:248
+msgid "Unable to find a valid image in the metadata or document body."
+msgstr "メタデータまたはドキュメント本文内に有効な画像が見つかりませんでした。"
+
+#: lib/card.rb:250
+msgid "Unable to find a valid image in the metadata, will render an icon."
+msgstr "メタデータに有効な画像が見つからなかったため、アイコンを表示します。"
+
+#: lib/card.rb:254
+#, python-brace-format
+msgid ""
+"Unable to find a valid image in the metadata, will render a \"{name}\" card "
+"with icon."
+msgstr ""
+"メタデータ内に有効な画像が見つかりませんでした。そのため、アイコン付きの"
+"\"{name}\"カードを表示します。"
+
+#: lib/card.rb:324
+#, python-brace-format
+msgid "Image \"{url}\" is defined with a relative url."
+msgstr "画像\"{url}\"は相対パスで定義されています。"
+
+#: lib/card.rb:336
+#, python-brace-format
+msgid "Image \"{url}\" met the requirements."
+msgstr "画像\"{url}\"は要件を満たしています。"
+
+#: lib/card.rb:360
+#, python-brace-format
+msgid "Image \"{url}\" did not meet the requirements: {info}."
+msgstr "画像\"{url}\" は要件を満たしていません：{info}。"
+
+#: lib/card.rb:406
+#, python-brace-format
+msgid "Image \"{url}\" processed successfully."
+msgstr "画像\"{url}\"の処理が正常に完了しました。"
+
+#: lib/card.rb:413
+#, python-brace-format
+msgid "Failed to thumbnail \"{url}\": {info}."
+msgstr "\"{url}\"のサムネイル作成に失敗しました: {info}。"
+
+#: lib/card_box.rb:39
+msgid "Couldn’t find enough data to generate a card for this social media."
+msgstr ""
+"このソーシャルメディアのカードを生成するための十分なデータが見つかりませんで"
+"した。"
+
+#: lib/card_box.rb:40
+msgid "Twitter: No card found."
+msgstr "Twitter: カードが見つかりませんでした。"
+
+#: lib/card_box.rb:112
+msgid "Card Error"
+msgstr "カードエラー"
+
+#: lib/data.rb:63
+#, python-brace-format
+msgid "No occurrences found for \"{name}\"!"
+msgstr "\"{name}\"に関する一致する項目は見つかりませんでした！"
+
+#: lib/data.rb:71
+#, python-brace-format
+msgid "Found a valid occurrence for \"{name}\" with value \"{value}\"."
+msgstr ""
+"\"{name}\"という有効なインスタンスを\"{value}\"という値で検出しました。"
+
+#: lib/data_dialog.rb:61
+msgid "Metadata"
+msgstr "メタデータ"
+
+#: lib/data_dialog.rb:62
+msgid "Body Images"
+msgstr "ボディイメージ"
+
+#: lib/data_dialog.rb:317
+msgid "Nothing to Show"
+msgstr "表示するものがありません"
+
+#: lib/image.rb:32
+#, python-brace-format
+msgid "Image Url Error: {info}"
+msgstr "画像URLエラー: {info}"
+
+#: lib/image.rb:34
+#, python-brace-format
+msgid "Image Data Url Error: {info}"
+msgstr "画像データURLエラー: {info}"
+
+#: lib/image.rb:36
+#, python-brace-format
+msgid "Image Data Invalid Base64: {info}"
+msgstr "画像データが無効なBase64形式です: {info}"
+
+#: lib/image.rb:38
+#, python-brace-format
+msgid "Network Error: {info}"
+msgstr "ネットワークエラー: {info}"
+
+#: lib/image.rb:40
+#, python-brace-format
+msgid "Request Error: {info}"
+msgstr "リクエストエラー: {info}"
+
+#: lib/image.rb:42
+#, python-brace-format
+msgid "Image Error: {info}"
+msgstr "画像エラー: {info}"
+
+#: lib/image.rb:48
+#, python-brace-format
+msgid "Image is too tiny ({actual}), minimum dimensions are {min}"
+msgstr "画像が小さすぎます({actual})、最小サイズは{min}です"
+
+#: lib/image.rb:59
+#, python-brace-format
+msgid "Image is too heavy ({actual}), max size is {max}"
+msgstr "画像が重すぎます({actual})、最大サイズは{max}です"
+
+#: lib/image.rb:66
+#, python-brace-format
+msgid "Image is unsupported: {info}"
+msgstr "画像がサポートされていません: {info}"
+
+#: lib/image.rb:68 lib/window.rb:38
+msgid "Unexpected Error"
+msgstr "予期しないエラー"
+
+#: lib/image.rb:117
+msgid "Format is unsupported"
+msgstr "形式がサポートされていません"
+
+#: lib/log_dialog.rb:46
+msgid "Scraping Log"
+msgstr "スクレイピング ログ"
+
+#: lib/log_row.rb:18
+msgid "DEBUG"
+msgstr "デバッグ"
+
+#: lib/log_row.rb:19
+msgid "INFO"
+msgstr "情報"
+
+#: lib/log_row.rb:20
+msgid "WARNING"
+msgstr "警告"
+
+#: lib/log_row.rb:21
+msgid "ERROR"
+msgstr "エラー"
+
+#: lib/shortcuts_window.rb:19
+msgctxt "shortcut window"
+msgid "General"
+msgstr "一般"
+
+#: lib/shortcuts_window.rb:24
+msgctxt "shortcut window"
+msgid "Focus the URL entry"
+msgstr "URL入力欄にフォーカスする"
+
+#: lib/shortcuts_window.rb:25
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "ショートカットを表示"
+
+#: lib/shortcuts_window.rb:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "終了"
+
+#: lib/window.rb:37
+msgid "Network Error"
+msgstr "ネットワーク エラー"
+
+#: lib/window.rb:39
+msgid "Couldn’t connect to the given URL."
+msgstr "指定されたURLに接続できませんでした。"
+
+#: lib/window.rb:203
+msgid "Invalid URL"
+msgstr "無効なURL"
+
+#: lib/window.rb:265
+#, python-brace-format
+msgid "Server Error {status}"
+msgstr "サーバーエラー {status}"
+
+#: lib/window.rb:396
+msgid "Toggle Color Scheme"
+msgstr "カラーテーマを切り替える"
+
+#: lib/window.rb:404
+msgid "Main Menu"
+msgstr "メインメニュー"
+
+#: lib/window.rb:419
+msgid "_New Window"
+msgstr "新しいウィンドウ"
+
+#: lib/window.rb:425
+msgid "_Keyboard Shortcuts"
+msgstr "キーボード ショートカット"
+
+#: lib/window.rb:426
+msgid "_About Share Preview"
+msgstr "Share Previewについて"
+
+#: lib/window.rb:452
+msgid "Go"
+msgstr "実行"
+
+#: lib/window.rb:466
+msgid "Set a URL to preview"
+msgstr "プレビュー用のURLを設定する"
+
+#: lib/window.rb:528
+msgid "View Metadata"
+msgstr "メタデータを表示"
+
+#: lib/window.rb:539
+msgid "Show Logs"
+msgstr "ログを表示"
+
+#~ msgid "Test social media cards locally"
+#~ msgstr "ソーシャルメディアカードをローカルでテストする"
+
+#~ msgid "Gnome;GTK;link;url;unfurl;"
+#~ msgstr "Gnome;GTK;リンク;URL;展開;"
+
+#~ msgid "New Window"
+#~ msgstr "新しいウィンドウ"
+
+#~ msgid "Preview and debug websites metadata tags for social media share."
+#~ msgstr ""
+#~ "ソーシャルメディアでの共有用に、ウェブサイトのメタデータタグをプレビュー"
+#~ "し、デバッグします。"

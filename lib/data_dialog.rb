@@ -2,6 +2,7 @@
 
 require 'adwaita'
 
+require_relative 'i18n'
 require_relative 'metadata_item'
 require_relative 'metadata_row'
 
@@ -57,8 +58,8 @@ class DataDialog
         end
 
         view_stack.tap do |pages|
-          pages.add_titled(metadata_page, METADATA, 'Metadata').icon_name = 'tag-symbolic'
-          pages.add_titled(images_page, IMAGES, 'Body Images').icon_name = 'image-x-generic-symbolic'
+          pages.add_titled(metadata_page, METADATA, _('Metadata')).icon_name = 'tag-symbolic'
+          pages.add_titled(images_page, IMAGES, _('Body Images')).icon_name = 'image-x-generic-symbolic'
 
           metadata_page.tap do |scroller|
             scroller.child = metadata_clamp
@@ -313,7 +314,7 @@ class DataDialog
     end
 
     def empty_label
-      Gtk::Label.new('Nothing to Show').tap do |label|
+      Gtk::Label.new(_('Nothing to Show')).tap do |label|
         label.wrap = true
         label.justify = :center
         label.add_css_class('title-1')

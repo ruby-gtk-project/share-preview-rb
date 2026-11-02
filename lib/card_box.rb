@@ -3,6 +3,7 @@
 require 'adwaita'
 
 require_relative 'card'
+require_relative 'i18n'
 require_relative 'cards/discourse_card'
 require_relative 'cards/facebook_card'
 require_relative 'cards/linkedin_card'
@@ -35,8 +36,8 @@ class CardBox
 
   # The message upstream's `new_from_error` writes for each CardError.
   ERROR_MESSAGES = {
-    CardError::NOT_ENOUGH_DATA       => 'Couldn’t find enough data to generate a card for this social media.',
-    CardError::TWITTER_NO_CARD_FOUND => 'Twitter: No card found.',
+    CardError::NOT_ENOUGH_DATA       => _('Couldn’t find enough data to generate a card for this social media.'),
+    CardError::TWITTER_NO_CARD_FOUND => _('Twitter: No card found.'),
   }.freeze
 
   class << self
@@ -108,7 +109,7 @@ class CardBox
   end
 
   def error_title
-    @error_title ||= Gtk::Label.new('Card Error').tap do |label|
+    @error_title ||= Gtk::Label.new(_('Card Error')).tap do |label|
       label.add_css_class('title-1')
     end
   end

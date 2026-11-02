@@ -1,0 +1,337 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the share-preview package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Rafał Baran <>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: share-preview\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 23:30+0000\n"
+"PO-Revision-Date: 2023-11-03 05:12+0000\n"
+"Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/share-preview/"
+"share-preview/pl/>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.2-dev\n"
+
+#: lib/about_dialog.rb:13 lib/main.rb:22 lib/window.rb:379
+msgid "Share Preview"
+msgstr "Share Preview"
+
+#: lib/card.rb:127 lib/data.rb:65
+#, python-brace-format
+msgid "\"{name}\" is empty!"
+msgstr "\"{name}\" jest puste!"
+
+#: lib/card.rb:130
+#, python-brace-format
+msgid "Found \"{name}\"."
+msgstr "Znaleziono \"{name}\"."
+
+#: lib/card.rb:140 lib/card.rb:143
+msgid "Unable to find a metadata for title!. Falling back to document title."
+msgstr ""
+
+#: lib/card.rb:144
+msgid "Unable to find the document title!. Falling back to site url."
+msgstr ""
+
+#: lib/card.rb:161
+#, python-brace-format
+msgid "Add a \"{tag}\" tag to the page to have control over the content."
+msgstr ""
+
+#: lib/card.rb:168
+#, python-brace-format
+msgid "The description should be at least \"{count}\" characters long."
+msgstr ""
+
+#: lib/card.rb:185
+msgid "Unable to find any valid card type."
+msgstr "Nie można znaleźć żadnego prawidłowego typu karty."
+
+#: lib/card.rb:201
+#, python-brace-format
+msgid ""
+"Unable to find \"{name}\". Consider providing a \"{name}\" meta property."
+msgstr ""
+
+#: lib/card.rb:209
+#, python-brace-format
+msgid "Found card of type \"{name}\"."
+msgstr "Znaleziono kartę typu \"{name}\"."
+
+#: lib/card.rb:217
+msgid "Unable to find any valid title or description."
+msgstr "Nie można znaleźć żadnego prawidłowego tytułu ani opisu."
+
+#: lib/card.rb:246
+msgid "Unable to find a valid image in the metadata."
+msgstr ""
+
+#: lib/card.rb:248
+#, fuzzy
+msgid "Unable to find a valid image in the metadata or document body."
+msgstr "W treści dokumentu nie znaleziono prawidłowych obrazów."
+
+#: lib/card.rb:250
+msgid "Unable to find a valid image in the metadata, will render an icon."
+msgstr ""
+
+#: lib/card.rb:254
+#, python-brace-format
+msgid ""
+"Unable to find a valid image in the metadata, will render a \"{name}\" card "
+"with icon."
+msgstr ""
+
+#: lib/card.rb:324
+#, fuzzy, python-brace-format
+msgid "Image \"{url}\" is defined with a relative url."
+msgstr "Obraz \"{url}\" spełnia wszystkie wymagania."
+
+#: lib/card.rb:336
+#, python-brace-format
+msgid "Image \"{url}\" met the requirements."
+msgstr "Obraz \"{url}\" spełnia wszystkie wymagania."
+
+#: lib/card.rb:360
+#, python-brace-format
+msgid "Image \"{url}\" did not meet the requirements: {info}."
+msgstr "Obraz \"{url}\" nie spełnia wymagań: {info}."
+
+#: lib/card.rb:406
+#, python-brace-format
+msgid "Image \"{url}\" processed successfully."
+msgstr "Pomyślnie przetworzono obraz \"{url}\"."
+
+#: lib/card.rb:413
+#, python-brace-format
+msgid "Failed to thumbnail \"{url}\": {info}."
+msgstr "Nie udało się utworzyć miniaturki \"{url}\": {info}."
+
+#: lib/card_box.rb:39
+msgid "Couldn’t find enough data to generate a card for this social media."
+msgstr ""
+"Nie można znaleźć wystarczającej ilości danych do wygenerowania karty dla "
+"tego medium społecznościowego."
+
+#: lib/card_box.rb:40
+msgid "Twitter: No card found."
+msgstr "Twitter: Nie znaleziono karty."
+
+#: lib/card_box.rb:112
+msgid "Card Error"
+msgstr "Błąd karty"
+
+#: lib/data.rb:63
+#, python-brace-format
+msgid "No occurrences found for \"{name}\"!"
+msgstr ""
+
+#: lib/data.rb:71
+#, python-brace-format
+msgid "Found a valid occurrence for \"{name}\" with value \"{value}\"."
+msgstr ""
+
+#: lib/data_dialog.rb:61
+msgid "Metadata"
+msgstr "Metadane"
+
+#: lib/data_dialog.rb:62
+msgid "Body Images"
+msgstr "Obrazki ze strony"
+
+#: lib/data_dialog.rb:317
+msgid "Nothing to Show"
+msgstr "Nie ma nic do wyświetlenia"
+
+#: lib/image.rb:32
+#, fuzzy, python-brace-format
+msgid "Image Url Error: {info}"
+msgstr "Błąd obrazu: {info}"
+
+#: lib/image.rb:34
+#, fuzzy, python-brace-format
+msgid "Image Data Url Error: {info}"
+msgstr "Błąd obrazu: {info}"
+
+#: lib/image.rb:36
+#, python-brace-format
+msgid "Image Data Invalid Base64: {info}"
+msgstr ""
+
+#: lib/image.rb:38
+#, python-brace-format
+msgid "Network Error: {info}"
+msgstr "Błąd sieci: {info}"
+
+#: lib/image.rb:40
+#, python-brace-format
+msgid "Request Error: {info}"
+msgstr "Błąd zapytania: {info}"
+
+#: lib/image.rb:42
+#, python-brace-format
+msgid "Image Error: {info}"
+msgstr "Błąd obrazu: {info}"
+
+#: lib/image.rb:48
+#, python-brace-format
+msgid "Image is too tiny ({actual}), minimum dimensions are {min}"
+msgstr "Obraz jest za mały ({actual}), minimalne rozmiary to {min}"
+
+#: lib/image.rb:59
+#, python-brace-format
+msgid "Image is too heavy ({actual}), max size is {max}"
+msgstr "Obraz jest za duży ({actual}), maksymalne rozmiary to {max}"
+
+#: lib/image.rb:66
+#, python-brace-format
+msgid "Image is unsupported: {info}"
+msgstr "Obraz nie jest wspierany: {info}"
+
+#: lib/image.rb:68 lib/window.rb:38
+msgid "Unexpected Error"
+msgstr "Nieoczekiwany błąd"
+
+#: lib/image.rb:117
+msgid "Format is unsupported"
+msgstr "Format nie jest obsługiwany"
+
+#: lib/log_dialog.rb:46
+msgid "Scraping Log"
+msgstr "Log pobierania danych"
+
+#: lib/log_row.rb:18
+msgid "DEBUG"
+msgstr "DEBUG"
+
+#: lib/log_row.rb:19
+msgid "INFO"
+msgstr "INFO"
+
+#: lib/log_row.rb:20
+msgid "WARNING"
+msgstr "OSTRZEŻENIE"
+
+#: lib/log_row.rb:21
+msgid "ERROR"
+msgstr "BŁĄD"
+
+#: lib/shortcuts_window.rb:19
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Ogólne"
+
+#: lib/shortcuts_window.rb:24
+msgctxt "shortcut window"
+msgid "Focus the URL entry"
+msgstr ""
+
+#: lib/shortcuts_window.rb:25
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Pokaż skróty"
+
+#: lib/shortcuts_window.rb:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Wyjdź"
+
+#: lib/window.rb:37
+msgid "Network Error"
+msgstr "Błąd sieci"
+
+#: lib/window.rb:39
+msgid "Couldn’t connect to the given URL."
+msgstr "Nie można połączyć się z podanym adresem URL."
+
+#: lib/window.rb:203
+msgid "Invalid URL"
+msgstr "Nieprawidłowy URL"
+
+#: lib/window.rb:265
+#, python-brace-format
+msgid "Server Error {status}"
+msgstr ""
+
+#: lib/window.rb:396
+msgid "Toggle Color Scheme"
+msgstr "Zmień schemat kolorów"
+
+#: lib/window.rb:404
+msgid "Main Menu"
+msgstr "Menu"
+
+#: lib/window.rb:419
+msgid "_New Window"
+msgstr "_Nowe okno"
+
+#: lib/window.rb:425
+msgid "_Keyboard Shortcuts"
+msgstr "_Skróty klawiszowe"
+
+#: lib/window.rb:426
+msgid "_About Share Preview"
+msgstr "_O Share Preview"
+
+#: lib/window.rb:452
+msgid "Go"
+msgstr "Idź"
+
+#: lib/window.rb:466
+msgid "Set a URL to preview"
+msgstr "Wpisz URL do podglądu"
+
+#: lib/window.rb:528
+msgid "View Metadata"
+msgstr "Zobacz Metadane"
+
+#: lib/window.rb:539
+msgid "Show Logs"
+msgstr "Pokaż Logi"
+
+#~ msgid "Test social media cards locally"
+#~ msgstr "Testuj lokalnie karty z mediów społecznościowych"
+
+#~ msgid "Gnome;GTK;link;url;unfurl;"
+#~ msgstr "Gnome;GTK;link;url;unfurl;"
+
+#, fuzzy
+#~ msgid "New Window"
+#~ msgstr "_Nowe okno"
+
+#~ msgid "Preview and debug websites metadata tags for social media share."
+#~ msgstr ""
+#~ "Podejrzyj i debuguj tagi metadanych dla udostępnień w mediach "
+#~ "społecznościowych."
+
+#~ msgid "Rafael Mardojai CM"
+#~ msgstr "Rafael Mardojai CM"
+
+#, fuzzy
+#~ msgid "View Found Data..."
+#~ msgstr "Pokaż Znalezione Metadane"
+
+#~ msgid "Gnome;GTK;"
+#~ msgstr "Gnome;GTK;"
+
+#~ msgid "Failure when receiving image from the peer."
+#~ msgstr "Niepowodzenie podczas odbierania obrazu od pary."
+
+#~ msgid "Invalid image format."
+#~ msgstr "Niepoprawny format obrazu."
+
+#~ msgid "Unexpected image error."
+#~ msgstr "Nieoczekiwany błąd obrazu."
+
+#~ msgid "Toggle Dark Mode"
+#~ msgstr "Przełącz Ciemny Motyw"

@@ -1,0 +1,309 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the share-preview package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: share-preview\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 23:30+0000\n"
+"PO-Revision-Date: 2024-05-07 10:07+0000\n"
+"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/share-preview/"
+"share-preview/hi/>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.5.4-dev\n"
+
+#: lib/about_dialog.rb:13 lib/main.rb:22 lib/window.rb:379
+msgid "Share Preview"
+msgstr "Share Preview"
+
+#: lib/card.rb:127 lib/data.rb:65
+#, python-brace-format
+msgid "\"{name}\" is empty!"
+msgstr "\"{name}\" खाली है!"
+
+#: lib/card.rb:130
+#, python-brace-format
+msgid "Found \"{name}\"."
+msgstr "\"{name}\" मिला।"
+
+#: lib/card.rb:140 lib/card.rb:143
+msgid "Unable to find a metadata for title!. Falling back to document title."
+msgstr "शीर्षक के लिए मेटाडेटा ढूंढने में असमर्थ! दस्तावेज़ शीर्षक पर वापस आते हैं।"
+
+#: lib/card.rb:144
+msgid "Unable to find the document title!. Falling back to site url."
+msgstr "दस्तावेज़ का शीर्षक ढूंढने में असमर्थ! साइट URL पर वापस आते हैं।"
+
+#: lib/card.rb:161
+#, python-brace-format
+msgid "Add a \"{tag}\" tag to the page to have control over the content."
+msgstr "सामग्री पर नियंत्रण पाने के लिए पृष्ठ पर एक \"{tag}\" टैग जोड़ें।"
+
+#: lib/card.rb:168
+#, python-brace-format
+msgid "The description should be at least \"{count}\" characters long."
+msgstr "विवरण कम से कम \"{count}\" अक्षर लंबा होना चाहिए।"
+
+#: lib/card.rb:185
+msgid "Unable to find any valid card type."
+msgstr "कोई वैध कार्ड प्रकार ढूंढने में असमर्थ।"
+
+#: lib/card.rb:201
+#, python-brace-format
+msgid ""
+"Unable to find \"{name}\". Consider providing a \"{name}\" meta property."
+msgstr "\"{name}\" ढूंढने में असमर्थ। \"{name}\" मेटा प्रॉपर्टी प्रदान करने पर विचार करें।"
+
+#: lib/card.rb:209
+#, python-brace-format
+msgid "Found card of type \"{name}\"."
+msgstr "\"{name}\" प्रकार का कार्ड मिला।"
+
+#: lib/card.rb:217
+msgid "Unable to find any valid title or description."
+msgstr "कोई वैध शीर्षक या विवरण ढूंढने में असमर्थ।"
+
+#: lib/card.rb:246
+msgid "Unable to find a valid image in the metadata."
+msgstr "मेटाडेटा में मान्य छवि ढूंढने में असमर्थ।"
+
+#: lib/card.rb:248
+msgid "Unable to find a valid image in the metadata or document body."
+msgstr "मेटाडेटा या दस्तावेज़ के मुख्य भाग में कोई मान्य छवि ढूंढने में असमर्थ।"
+
+#: lib/card.rb:250
+msgid "Unable to find a valid image in the metadata, will render an icon."
+msgstr "मेटाडेटा में मान्य छवि ढूंढने में असमर्थ, एक आइकन प्रस्तुत करेगा।"
+
+#: lib/card.rb:254
+#, python-brace-format
+msgid ""
+"Unable to find a valid image in the metadata, will render a \"{name}\" card "
+"with icon."
+msgstr ""
+"मेटाडेटा में एक वैध छवि ढूंढने में असमर्थ, आइकन के साथ एक \"{name}\" कार्ड प्रस्तुत करेगा।"
+
+#: lib/card.rb:324
+#, python-brace-format
+msgid "Image \"{url}\" is defined with a relative url."
+msgstr "छवि \"{url}\" को एक सापेक्ष URL से परिभाषित किया गया है।"
+
+#: lib/card.rb:336
+#, python-brace-format
+msgid "Image \"{url}\" met the requirements."
+msgstr "छवि \"{url}\" आवश्यकताओं को पूरा करती है।"
+
+#: lib/card.rb:360
+#, python-brace-format
+msgid "Image \"{url}\" did not meet the requirements: {info}."
+msgstr "छवि \"{url}\" आवश्यकताओं को पूरा नहीं करती: {info}।"
+
+#: lib/card.rb:406
+#, python-brace-format
+msgid "Image \"{url}\" processed successfully."
+msgstr "छवि \"{url}\" सफलतापूर्वक संसाधित हुई।"
+
+#: lib/card.rb:413
+#, python-brace-format
+msgid "Failed to thumbnail \"{url}\": {info}."
+msgstr "\"{url}\" थंबनेल बनाने में विफल: {info}।"
+
+#: lib/card_box.rb:39
+msgid "Couldn’t find enough data to generate a card for this social media."
+msgstr "इस सोशल मीडिया के लिए कार्ड बनाने के लिए पर्याप्त डेटा नहीं मिल सका।"
+
+#: lib/card_box.rb:40
+msgid "Twitter: No card found."
+msgstr "Twitter: कोई कार्ड नहीं मिला।"
+
+#: lib/card_box.rb:112
+msgid "Card Error"
+msgstr "कार्ड त्रुटि"
+
+#: lib/data.rb:63
+#, python-brace-format
+msgid "No occurrences found for \"{name}\"!"
+msgstr "\"{name}\" के लिए कोई घटना नहीं मिली!"
+
+#: lib/data.rb:71
+#, python-brace-format
+msgid "Found a valid occurrence for \"{name}\" with value \"{value}\"."
+msgstr "\"{name}\" के लिए \"{value}\" मान के साथ एक वैध घटना मिली।"
+
+#: lib/data_dialog.rb:61
+msgid "Metadata"
+msgstr "मेटाडेटा"
+
+#: lib/data_dialog.rb:62
+msgid "Body Images"
+msgstr "शारीरिक छवियां"
+
+#: lib/data_dialog.rb:317
+msgid "Nothing to Show"
+msgstr "दिखाने के लिए कुछ नहीं"
+
+#: lib/image.rb:32
+#, python-brace-format
+msgid "Image Url Error: {info}"
+msgstr "छवि URL त्रुटि: {info}"
+
+#: lib/image.rb:34
+#, python-brace-format
+msgid "Image Data Url Error: {info}"
+msgstr "छवि डेटा URL त्रुटि: {info}"
+
+#: lib/image.rb:36
+#, python-brace-format
+msgid "Image Data Invalid Base64: {info}"
+msgstr "छवि डेटा अमान्य Base64: {info}"
+
+#: lib/image.rb:38
+#, python-brace-format
+msgid "Network Error: {info}"
+msgstr "नेटवर्क त्रुटि: {info}"
+
+#: lib/image.rb:40
+#, python-brace-format
+msgid "Request Error: {info}"
+msgstr "अनुरोध त्रुटि: {info}"
+
+#: lib/image.rb:42
+#, python-brace-format
+msgid "Image Error: {info}"
+msgstr "छवि त्रुटि: {info}"
+
+#: lib/image.rb:48
+#, python-brace-format
+msgid "Image is too tiny ({actual}), minimum dimensions are {min}"
+msgstr "छवि बहुत छोटी है ({actual}), न्यूनतम आयाम {min} हैं"
+
+#: lib/image.rb:59
+#, python-brace-format
+msgid "Image is too heavy ({actual}), max size is {max}"
+msgstr "छवि बहुत भारी है ({actual}), अधिकतम आकार {max} है"
+
+#: lib/image.rb:66
+#, python-brace-format
+msgid "Image is unsupported: {info}"
+msgstr "छवि असमर्थित है: {info}"
+
+#: lib/image.rb:68 lib/window.rb:38
+msgid "Unexpected Error"
+msgstr "अप्रत्याशित त्रुटि"
+
+#: lib/image.rb:117
+msgid "Format is unsupported"
+msgstr "प्रारूप असमर्थित है"
+
+#: lib/log_dialog.rb:46
+msgid "Scraping Log"
+msgstr "स्क्रैपिंग लॉग"
+
+#: lib/log_row.rb:18
+msgid "DEBUG"
+msgstr "डीबग"
+
+#: lib/log_row.rb:19
+msgid "INFO"
+msgstr "सूचना"
+
+#: lib/log_row.rb:20
+msgid "WARNING"
+msgstr "चेतावनी"
+
+#: lib/log_row.rb:21
+msgid "ERROR"
+msgstr "त्रुटि"
+
+#: lib/shortcuts_window.rb:19
+msgctxt "shortcut window"
+msgid "General"
+msgstr "सामान्य"
+
+#: lib/shortcuts_window.rb:24
+msgctxt "shortcut window"
+msgid "Focus the URL entry"
+msgstr "URL प्रविष्टि पर ध्यान केंद्रित करें"
+
+#: lib/shortcuts_window.rb:25
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "शॉर्टकट दिखाएं"
+
+#: lib/shortcuts_window.rb:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "छोड़ें"
+
+#: lib/window.rb:37
+msgid "Network Error"
+msgstr "नेटवर्क त्रुटि"
+
+#: lib/window.rb:39
+msgid "Couldn’t connect to the given URL."
+msgstr "दिए गए URL से कनेक्ट नहीं हो सका।"
+
+#: lib/window.rb:203
+msgid "Invalid URL"
+msgstr "अमान्य URL"
+
+#: lib/window.rb:265
+#, python-brace-format
+msgid "Server Error {status}"
+msgstr ""
+
+#: lib/window.rb:396
+msgid "Toggle Color Scheme"
+msgstr "रंग योजना टॉगल करें"
+
+#: lib/window.rb:404
+msgid "Main Menu"
+msgstr "मुख्य मेनू"
+
+#: lib/window.rb:419
+msgid "_New Window"
+msgstr "नई विंडो (_N)"
+
+#: lib/window.rb:425
+msgid "_Keyboard Shortcuts"
+msgstr "कीबोर्ड शॉर्टकट (_K)"
+
+#: lib/window.rb:426
+msgid "_About Share Preview"
+msgstr "Share Preview के बारे में (_A)"
+
+#: lib/window.rb:452
+msgid "Go"
+msgstr "जायें"
+
+#: lib/window.rb:466
+msgid "Set a URL to preview"
+msgstr "पूर्वावलोकन करने के लिए एक URL निर्धारित करें"
+
+#: lib/window.rb:528
+msgid "View Metadata"
+msgstr "मेटाडेटा देखें"
+
+#: lib/window.rb:539
+msgid "Show Logs"
+msgstr "लॉग दिखाएं"
+
+#~ msgid "Test social media cards locally"
+#~ msgstr "सोशल मीडिया कार्ड का स्थानीय स्तर पर परीक्षण करें"
+
+#~ msgid "Gnome;GTK;link;url;unfurl;"
+#~ msgstr "Gnome;GTK;लिंक;url;फैलाना;"
+
+#, fuzzy
+#~ msgid "New Window"
+#~ msgstr "नई विंडो (_N)"
+
+#~ msgid "Preview and debug websites metadata tags for social media share."
+#~ msgstr "सोशल मीडिया शेयर के लिए वेबसाइट मेटाडेटा टैग का पूर्वावलोकन और डीबग करें।"

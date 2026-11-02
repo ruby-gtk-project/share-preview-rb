@@ -5,6 +5,7 @@ require 'uri'
 require 'gdk_pixbuf2'
 
 require_relative 'http_client'
+require_relative 'i18n'
 require_relative 'social'
 
 # Image is one candidate image found in a page: its url, its bytes once
@@ -28,23 +29,23 @@ class Image
     end
 
     class << self
-      def url_error(info) = new(:url_error, format('Image Url Error: %{info}', info: info))
+      def url_error(info) = new(:url_error, f_('Image Url Error: {info}', info: info))
 
-      def data_url_error(info) = new(:data_url_error, format('Image Data Url Error: %{info}', info: info))
+      def data_url_error(info) = new(:data_url_error, f_('Image Data Url Error: {info}', info: info))
 
-      def invalid_base64(info) = new(:invalid_base64, format('Image Data Invalid Base64: %{info}', info: info))
+      def invalid_base64(info) = new(:invalid_base64, f_('Image Data Invalid Base64: {info}', info: info))
 
-      def fetch_error(info) = new(:fetch_error, format('Network Error: %{info}', info: info))
+      def fetch_error(info) = new(:fetch_error, f_('Network Error: {info}', info: info))
 
-      def request_error(info) = new(:request_error, format('Request Error: %{info}', info: info))
+      def request_error(info) = new(:request_error, f_('Request Error: {info}', info: info))
 
-      def image_error(info) = new(:image_error, format('Image Error: %{info}', info: info))
+      def image_error(info) = new(:image_error, f_('Image Error: {info}', info: info))
 
       def too_tiny(actual, min)
         new(
           :too_tiny,
-          format(
-            'Image is too tiny (%{actual}), minimum dimensions are %{min}',
+          f_(
+            'Image is too tiny ({actual}), minimum dimensions are {min}',
             actual: actual,
             min:    min,
           ),
@@ -54,17 +55,17 @@ class Image
       def too_heavy(actual, max)
         new(
           :too_heavy,
-          format(
-            'Image is too heavy (%{actual}), max size is %{max}',
+          f_(
+            'Image is too heavy ({actual}), max size is {max}',
             actual: actual,
             max:    max,
           ),
         )
       end
 
-      def unsupported(info) = new(:unsupported, format('Image is unsupported: %{info}', info: info))
+      def unsupported(info) = new(:unsupported, f_('Image is unsupported: {info}', info: info))
 
-      def unexpected = new(:unexpected, 'Unexpected Error')
+      def unexpected = new(:unexpected, _('Unexpected Error'))
     end
   end
 
@@ -113,7 +114,7 @@ class Image
     end
 
     if @format && !constraints[:image_formats].include?(@format)
-      raise ImageError.unsupported('Format is unsupported')
+      raise ImageError.unsupported(_('Format is unsupported'))
     end
 
     matching_kind(social, kinds)

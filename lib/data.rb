@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'card'
+require_relative 'i18n'
 require_relative 'log_item'
 
 # Meta is one meta tag found in the page.
@@ -59,15 +60,15 @@ class PageData
 
       case content
       when nil
-        log(logger, LogItem::DEBUG, format('No occurrences found for "%{name}"!', name: name))
+        log(logger, LogItem::DEBUG, f_('No occurrences found for "{name}"!', name: name))
       when ''
-        log(logger, LogItem::WARNING, format('"%{name}" is empty!', name: name))
+        log(logger, LogItem::WARNING, f_('"{name}" is empty!', name: name))
       else
         log(
           logger,
           LogItem::DEBUG,
-          format(
-            'Found a valid occurrence for "%{name}" with value "%{value}".',
+          f_(
+            'Found a valid occurrence for "{name}" with value "{value}".',
             name:  name,
             value: content,
           ),

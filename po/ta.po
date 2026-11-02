@@ -1,0 +1,320 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the share-preview package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: share-preview\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 23:30+0000\n"
+"PO-Revision-Date: 2025-03-04 03:21+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/share-preview/"
+"share-preview/ta/>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.3-dev\n"
+
+#: lib/about_dialog.rb:13 lib/main.rb:22 lib/window.rb:379
+msgid "Share Preview"
+msgstr "முன்னோட்டத்தைப் பகிரவும்"
+
+#: lib/card.rb:127 lib/data.rb:65
+#, python-brace-format
+msgid "\"{name}\" is empty!"
+msgstr "\"{name}\" காலியாக உள்ளது!"
+
+#: lib/card.rb:130
+#, python-brace-format
+msgid "Found \"{name}\"."
+msgstr "\"{name}\" கிடைத்தது."
+
+#: lib/card.rb:140 lib/card.rb:143
+msgid "Unable to find a metadata for title!. Falling back to document title."
+msgstr ""
+"தலைப்புக்கு ஒரு மெட்டாடேட்டாவைக் கண்டுபிடிக்க முடியவில்லை! ஆவண தலைப்புக்கு மீண்டும் "
+"விழுகிறது."
+
+#: lib/card.rb:144
+msgid "Unable to find the document title!. Falling back to site url."
+msgstr "ஆவண தலைப்பைக் கண்டுபிடிக்க முடியவில்லை! தள முகவரி க்கு மீண்டும் விழுகிறது."
+
+#: lib/card.rb:161
+#, python-brace-format
+msgid "Add a \"{tag}\" tag to the page to have control over the content."
+msgstr ""
+"உள்ளடக்கத்தின் மீது கட்டுப்பாட்டைக் கொண்டுவர பக்கத்தில் \"{tag}\" குறிச்சொல்லைச் சேர்க்கவும்."
+
+#: lib/card.rb:168
+#, python-brace-format
+msgid "The description should be at least \"{count}\" characters long."
+msgstr "விளக்கம் குறைந்தபட்சம் \"{count}\" எழுத்துக்கள் நீளமாக இருக்க வேண்டும்."
+
+#: lib/card.rb:185
+msgid "Unable to find any valid card type."
+msgstr "எந்த செல்லுபடியாகும் அட்டை வகையையும் கண்டுபிடிக்க முடியவில்லை."
+
+#: lib/card.rb:201
+#, python-brace-format
+msgid ""
+"Unable to find \"{name}\". Consider providing a \"{name}\" meta property."
+msgstr ""
+"\"{name}\" ஐ கண்டுபிடிக்க முடியவில்லை. \"{name}\" மேவு சொத்தை வழங்குவதைக் "
+"கவனியுங்கள்."
+
+#: lib/card.rb:209
+#, python-brace-format
+msgid "Found card of type \"{name}\"."
+msgstr "\"{name}\" வகையின் அட்டை."
+
+#: lib/card.rb:217
+msgid "Unable to find any valid title or description."
+msgstr "எந்தவொரு சரியான தலைப்பு அல்லது விளக்கத்தையும் கண்டுபிடிக்க முடியவில்லை."
+
+#: lib/card.rb:246
+msgid "Unable to find a valid image in the metadata."
+msgstr "மெட்டாடேட்டாவில் செல்லுபடியாகும் படத்தைக் கண்டுபிடிக்க முடியவில்லை."
+
+#: lib/card.rb:248
+msgid "Unable to find a valid image in the metadata or document body."
+msgstr ""
+"மேனிலை தரவு அல்லது ஆவண உடலில் செல்லுபடியாகும் படத்தைக் கண்டுபிடிக்க முடியவில்லை."
+
+#: lib/card.rb:250
+msgid "Unable to find a valid image in the metadata, will render an icon."
+msgstr ""
+"மெட்டாடேட்டாவில் செல்லுபடியாகும் படத்தைக் கண்டுபிடிக்க முடியவில்லை, ஒரு ஐகானை வழங்கும்."
+
+#: lib/card.rb:254
+#, python-brace-format
+msgid ""
+"Unable to find a valid image in the metadata, will render a \"{name}\" card "
+"with icon."
+msgstr ""
+"மெட்டாடேட்டாவில் செல்லுபடியாகும் படத்தைக் கண்டுபிடிக்க முடியவில்லை, ஐகானுடன் \"{name}\" "
+"கார்டை வழங்கும்."
+
+#: lib/card.rb:324
+#, python-brace-format
+msgid "Image \"{url}\" is defined with a relative url."
+msgstr "படம் \"{url}\" ஒரு தொடர்புடைய முகவரி உடன் வரையறுக்கப்படுகிறது."
+
+#: lib/card.rb:336
+#, python-brace-format
+msgid "Image \"{url}\" met the requirements."
+msgstr "படம் \"{url}\" தேவைகளை நிறைவு செய்தது."
+
+#: lib/card.rb:360
+#, python-brace-format
+msgid "Image \"{url}\" did not meet the requirements: {info}."
+msgstr "படம் \"{url}\" தேவைகளை நிறைவு செய்யவில்லை: {info}."
+
+#: lib/card.rb:406
+#, python-brace-format
+msgid "Image \"{url}\" processed successfully."
+msgstr "படம் \"{url}\" வெற்றிகரமாக செயலாக்கப்பட்டது."
+
+#: lib/card.rb:413
+#, python-brace-format
+msgid "Failed to thumbnail \"{url}\": {info}."
+msgstr "\"{url}\": {info} என்ற சிறுபடத்தில் தோல்வியுற்றது."
+
+#: lib/card_box.rb:39
+msgid "Couldn’t find enough data to generate a card for this social media."
+msgstr ""
+"இந்த சமூக ஊடகத்திற்கான அட்டையை உருவாக்க போதுமான தரவைக் கண்டுபிடிக்க முடியவில்லை."
+
+#: lib/card_box.rb:40
+msgid "Twitter: No card found."
+msgstr "ட்விட்டர்: அட்டை எதுவும் கிடைக்கவில்லை."
+
+#: lib/card_box.rb:112
+msgid "Card Error"
+msgstr "அட்டை பிழை"
+
+#: lib/data.rb:63
+#, python-brace-format
+msgid "No occurrences found for \"{name}\"!"
+msgstr "\"{name}\" க்கு எந்த நிகழ்வுகளும் கிடைக்கவில்லை!"
+
+#: lib/data.rb:71
+#, python-brace-format
+msgid "Found a valid occurrence for \"{name}\" with value \"{value}\"."
+msgstr "\"{name}\" மதிப்புக்கு \"{value}\" க்கு செல்லுபடியாகும் நிகழ்வைக் கண்டறிந்தது."
+
+#: lib/data_dialog.rb:61
+msgid "Metadata"
+msgstr "மேனிலை தரவு"
+
+#: lib/data_dialog.rb:62
+msgid "Body Images"
+msgstr "உடல் படங்கள்"
+
+#: lib/data_dialog.rb:317
+msgid "Nothing to Show"
+msgstr "காட்ட எதுவும் இல்லை"
+
+#: lib/image.rb:32
+#, python-brace-format
+msgid "Image Url Error: {info}"
+msgstr "பட முகவரி பிழை: {info}"
+
+#: lib/image.rb:34
+#, python-brace-format
+msgid "Image Data Url Error: {info}"
+msgstr "பட தரவு முகவரி பிழை: {info}"
+
+#: lib/image.rb:36
+#, python-brace-format
+msgid "Image Data Invalid Base64: {info}"
+msgstr "படத் தரவு தவறான அடிப்படை 64: {info}"
+
+#: lib/image.rb:38
+#, python-brace-format
+msgid "Network Error: {info}"
+msgstr "பிணைய பிழை: {info}"
+
+#: lib/image.rb:40
+#, python-brace-format
+msgid "Request Error: {info}"
+msgstr "கோரிக்கை பிழை: {info}"
+
+#: lib/image.rb:42
+#, python-brace-format
+msgid "Image Error: {info}"
+msgstr "பட பிழை: {info}"
+
+#: lib/image.rb:48
+#, python-brace-format
+msgid "Image is too tiny ({actual}), minimum dimensions are {min}"
+msgstr "படம் மிகவும் சிறியது ({actual}), குறைந்தபட்ச பரிமாணங்கள் {min}"
+
+#: lib/image.rb:59
+#, python-brace-format
+msgid "Image is too heavy ({actual}), max size is {max}"
+msgstr "படம் மிகவும் கனமானது ({actual}), அதிகபட்ச அளவு {max}"
+
+#: lib/image.rb:66
+#, python-brace-format
+msgid "Image is unsupported: {info}"
+msgstr "படம் ஆதரிக்கப்படவில்லை: {info}"
+
+#: lib/image.rb:68 lib/window.rb:38
+msgid "Unexpected Error"
+msgstr "எதிர்பாராத பிழை"
+
+#: lib/image.rb:117
+msgid "Format is unsupported"
+msgstr "வடிவம் ஆதரிக்கப்படவில்லை"
+
+#: lib/log_dialog.rb:46
+msgid "Scraping Log"
+msgstr "ச்கிராப்பிங் பதிவு"
+
+#: lib/log_row.rb:18
+msgid "DEBUG"
+msgstr "பிழைத்திருத்தம்"
+
+#: lib/log_row.rb:19
+msgid "INFO"
+msgstr "தகவல்"
+
+#: lib/log_row.rb:20
+msgid "WARNING"
+msgstr "எச்சரிக்கை"
+
+#: lib/log_row.rb:21
+msgid "ERROR"
+msgstr "பிழை"
+
+#: lib/shortcuts_window.rb:19
+msgctxt "shortcut window"
+msgid "General"
+msgstr "பொது"
+
+#: lib/shortcuts_window.rb:24
+msgctxt "shortcut window"
+msgid "Focus the URL entry"
+msgstr "முகவரி நுழைவை மையப்படுத்தவும்"
+
+#: lib/shortcuts_window.rb:25
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "குறுக்குவழிகளைக் காட்டு"
+
+#: lib/shortcuts_window.rb:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "வெளியேறு"
+
+#: lib/window.rb:37
+msgid "Network Error"
+msgstr "பிணைய பிழை"
+
+#: lib/window.rb:39
+msgid "Couldn’t connect to the given URL."
+msgstr "கொடுக்கப்பட்ட முகவரி உடன் இணைக்க முடியவில்லை."
+
+#: lib/window.rb:203
+msgid "Invalid URL"
+msgstr "தவறான முகவரி"
+
+#: lib/window.rb:265
+#, python-brace-format
+msgid "Server Error {status}"
+msgstr ""
+
+#: lib/window.rb:396
+msgid "Toggle Color Scheme"
+msgstr "வண்ணத் திட்டத்தை மாற்றவும்"
+
+#: lib/window.rb:404
+msgid "Main Menu"
+msgstr "பட்டியல் விளையாடுங்கள்"
+
+#: lib/window.rb:419
+msgid "_New Window"
+msgstr "_ புதிய சாளரம்"
+
+#: lib/window.rb:425
+msgid "_Keyboard Shortcuts"
+msgstr "விசைப்பலகை குறுக்குவழிகள்"
+
+#: lib/window.rb:426
+msgid "_About Share Preview"
+msgstr "_ பங்கு முன்னோட்டம்"
+
+#: lib/window.rb:452
+msgid "Go"
+msgstr "போ"
+
+#: lib/window.rb:466
+msgid "Set a URL to preview"
+msgstr "முன்னோட்டமிட ஒரு முகவரி ஐ அமைக்கவும்"
+
+#: lib/window.rb:528
+msgid "View Metadata"
+msgstr "மெட்டாடேட்டாவைக் காண்க"
+
+#: lib/window.rb:539
+msgid "Show Logs"
+msgstr "பதிவுகளைக் காட்டு"
+
+#~ msgid "Test social media cards locally"
+#~ msgstr "சமூக ஊடக அட்டைகளை உள்நாட்டில் சோதிக்கவும்"
+
+#~ msgid "Gnome;GTK;link;url;unfurl;"
+#~ msgstr "Gnome; gtk; இணைப்பு; url; underl;"
+
+#, fuzzy
+#~ msgid "New Window"
+#~ msgstr "_ புதிய சாளரம்"
+
+#~ msgid "Preview and debug websites metadata tags for social media share."
+#~ msgstr ""
+#~ "சமூக ஊடக பகிர்வுக்கான வலைத்தளங்களை முன்னோட்டம் மற்றும் பிழைத்திருத்த வலைத்தளங்கள் "
+#~ "மேனிலை தரவு குறிச்சொற்கள்."

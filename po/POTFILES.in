@@ -1,0 +1,11 @@
+lib/about_dialog.rb
+lib/card.rb
+lib/card_box.rb
+lib/data.rb
+lib/data_dialog.rb
+lib/image.rb
+lib/log_dialog.rb
+lib/log_row.rb
+lib/main.rb
+lib/shortcuts_window.rb
+lib/window.rb

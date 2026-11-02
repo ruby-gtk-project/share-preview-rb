@@ -2,6 +2,7 @@
 
 require 'adwaita'
 
+require_relative 'i18n'
 require_relative 'log_item'
 
 # LogRow is one row of the scraping log: the level on the left, the line's
@@ -14,10 +15,10 @@ require_relative 'log_item'
 class LogRow
   # The label, and the CSS classes the container and labels take, per level.
   LEVELS = {
-    LogItem::DEBUG   => {label: 'DEBUG', container: %w[debug dim-label], labels: %w[caption]},
-    LogItem::INFO    => {label: 'INFO', container: %w[accent], labels: []},
-    LogItem::WARNING => {label: 'WARNING', container: %w[warning], labels: []},
-    LogItem::ERROR   => {label: 'ERROR', container: %w[error], labels: []},
+    LogItem::DEBUG   => {label: _('DEBUG'), container: %w[debug dim-label], labels: %w[caption]},
+    LogItem::INFO    => {label: _('INFO'), container: %w[accent], labels: []},
+    LogItem::WARNING => {label: _('WARNING'), container: %w[warning], labels: []},
+    LogItem::ERROR   => {label: _('ERROR'), container: %w[error], labels: []},
   }.freeze
 
   def initialize(item, size_group)
