@@ -16,53 +16,90 @@ the `.ui` files (`cards/*.ui`) have no subclass at all — they are plain
 
 **Port shape.** The pilot (`gnome-contacts-rb`) puts the app class in
 `lib/main.rb` and one component per `lib/<thing>.rb` sibling, with
-`lib/<gem>/application.rb` as the gem shell. The port currently holds only
-that shell plus a placeholder status page, so **nothing user-facing exists
-yet**.
+`lib/<gem>/application.rb` as the gem shell. The port now follows that shape
+throughout: `lib/main.rb` is `App`, `lib/share_preview/application.rb` is a
+three-line alias onto it, and the 26 component files exist.
+
+**Re-survey.** This revision re-reads `lib/` after the port landed (commit
+`82bd84f`, "Port the backends, models, window, cards and dialogs"). The
+component bodies below are unchanged — they are the upstream reading, and
+upstream has not moved. What changed is the `Exists` column and the gap list:
+every widget component is now present, and the one remaining hole is the
+translation layer.
 
 ## What `lib/` has today
 
-| File | What it is |
-|---|---|
-| `lib/share_preview.rb` | requires `share_preview/application` |
-| `lib/share_preview/application.rb` | placeholder: `Gtk::Application`, `Adwaita::ApplicationWindow`, `Adwaita::ToolbarView`, `Adwaita::HeaderBar`, one `Adwaita::StatusPage` reading "The Ruby port has not been written yet." |
-| `lib/share/preview/rb/version.rb` | gem version |
+| File | Lines | What it is |
+|---|---:|---|
+| `lib/main.rb` | 191 | `App`: `Gtk::Application`, `Gtk::WindowGroup`, app actions, accels, `--new-window`, URI args |
+| `lib/window.rb` | 556 | main window, primary menu, 4 stack pages, url box, count badges, `win.*` actions |
+| `lib/card_box.rb` | 117 | card container + card-error state, dispatch onto the five card classes |
+| `lib/cards/discourse_card.rb` | 134 | card layout |
+| `lib/cards/facebook_card.rb` | 105 | card layout |
+| `lib/cards/linkedin_card.rb` | 92 | card layout |
+| `lib/cards/mastodon_card.rb` | 94 | card layout |
+| `lib/cards/twitter_card.rb` | 109 | card layout |
+| `lib/card_image.rb` | 103 | picture + fallback-icon stack |
+| `lib/data_dialog.rb` | 348 | metadata dialog: view switcher, 2 search bars, 2 list boxes, 2 empty states |
+| `lib/metadata_row.rb` | 84 | key/value list row |
+| `lib/log_dialog.rb` | 70 | scraping-log dialog |
+| `lib/log_row.rb` | 82 | log list row, 4 level variants |
+| `lib/shortcuts_window.rb` | 56 | `Adwaita::ShortcutsDialog` (upstream's `GtkShortcutsWindow` is unconstructible from Ruby) |
+| `lib/about_dialog.rb` | 37 | `Adwaita::AboutDialog` |
+| `lib/log_item.rb` | 48 | model |
+| `lib/log_model.rb` | 68 | model + log sink |
+| `lib/metadata_item.rb` | 43 | model with real `key`/`value` properties |
+| `lib/social.rb` | 126 | the five platforms and their constraints |
+| `lib/card.rb` | 428 | card builder, sizes, card errors, log strings |
+| `lib/data.rb` | 104 | scraped metadata |
+| `lib/image.rb` | 310 | image fetch/decode/validate |
+| `lib/scraper.rb` | 213 | HTTP + HTML scrape |
+| `lib/http_client.rb` | 100 | **extra, no upstream file**: the transport `scraper.rb` and `image.rb` share, standing in for the Rust `reqwest` client |
+| `lib/settings.rb` | 75 | GSettings (`social`, `dark-theme`) |
+| `lib/style.rb` | 49 | CSS provider + icon-theme search path |
+| `lib/share_preview.rb` | 3 | requires `share_preview/application` |
+| `lib/share_preview/application.rb` | 12 | `SharePreview::Application = ::App` |
 
-Nothing in upstream maps to the placeholder status page; it is scaffolding to
-be replaced by `lib/main.rb`.
+`data/style.css` and `data/icons/hicolor/scalable/actions/{code,info,tag}-symbolic.svg`
+are carried over too, plus an app icon at
+`data/icons/hicolor/scalable/apps/org.rubygtkproject.SharePreview.svg`.
+The placeholder status page that the first survey recorded is gone.
 
 ## Component map
 
+`Exists` is read against `lib/` on `ruby` at commit `797ace5`.
+
 | # | Upstream file(s) | Port file | Kind | Exists |
 |---|---|---|---|:-:|
-| 1 | `src/application.rs`, `src/main.rs`, `src/i18n.rs`, `data/…desktop.in.in` | `lib/main.rb` | application + app actions + accels | no |
-| 2 | `src/window.rs`, `data/resources/ui/window.ui` | `lib/window.rb` | main window | no |
-| 3 | `data/resources/ui/window.ui` (`menu primary_menu`) | `lib/window.rb` (within) | primary menu | no |
-| 4 | `data/resources/ui/shortcuts.ui` | `lib/shortcuts_window.rb` | keyboard shortcuts window | no |
-| 5 | `src/application.rs` (`show_about_dialog`) | `lib/about_dialog.rb` | about dialog | no |
-| 6 | `src/widgets/card.rs`, `data/resources/ui/card.ui` | `lib/card_box.rb` | card container + card error state | no |
-| 7 | `data/resources/ui/cards/discourse.ui` | `lib/cards/discourse_card.rb` | card layout | no |
-| 8 | `data/resources/ui/cards/facebook.ui` | `lib/cards/facebook_card.rb` | card layout | no |
-| 9 | `data/resources/ui/cards/linkedin.ui` | `lib/cards/linkedin_card.rb` | card layout | no |
-| 10 | `data/resources/ui/cards/mastodon.ui` | `lib/cards/mastodon_card.rb` | card layout | no |
-| 11 | `data/resources/ui/cards/twitter.ui` | `lib/cards/twitter_card.rb` | card layout | no |
-| 12 | `src/widgets/image.rs`, `data/resources/ui/image.ui` | `lib/card_image.rb` | image widget + fallback state | no |
-| 13 | `src/widgets/data_dialog.rs`, `data/resources/ui/data-dialog.ui` | `lib/data_dialog.rb` | metadata dialog (2 pages, 2 empty states) | no |
-| 14 | `data/resources/ui/metadata-item.ui` | `lib/metadata_row.rb` | list row | no |
-| 15 | `src/widgets/log_dialog.rs`, `data/resources/ui/log-dialog.ui` | `lib/log_dialog.rb` | scraping-log dialog | no |
-| 16 | `src/widgets/log_dialog.rs` (`bind_model` closure) | `lib/log_row.rb` | list row (4 level variants) | no |
-| 17 | `src/models/log_item.rs` | `lib/log_item.rb` | model | no |
-| 18 | `src/models/log_model.rs`, `src/backend/log.rs` | `lib/log_model.rb` | model + log sink | no |
-| 19 | `src/models/metadata_item.rs` | `lib/metadata_item.rb` | model | no |
-| 20 | `src/backend/social.rs` | `lib/social.rb` | non-UI: platform constraints | no |
-| 21 | `src/backend/card.rs` | `lib/card.rb` | non-UI: card builder, size, errors | no |
-| 22 | `src/backend/data.rs` | `lib/data.rb` | non-UI: scraped metadata | no |
-| 23 | `src/backend/image.rs` | `lib/image.rb` | non-UI: image fetch/validate | no |
-| 24 | `src/backend/scraper.rs` | `lib/scraper.rb` | non-UI: HTTP + HTML scrape | no |
-| 25 | `data/…gschema.xml.in` | `lib/settings.rb` | non-UI: GSettings (`social`, `dark-theme`) | no |
-| 26 | `data/resources/style.css` | `lib/style.rb` (or `data/style.css`) | stylesheet: 7 app classes | no |
-| 27 | `data/resources/icons/{code,info,tag}-symbolic.svg` | `data/icons/` | 3 bundled symbolic icons | no |
-| 28 | `po/` (30 catalogues, `po/POTFILES.in`) | translation setup | i18n | no |
+| 1 | `src/application.rs`, `src/main.rs`, `src/i18n.rs`, `data/…desktop.in.in` | `lib/main.rb` | application + app actions + accels | yes |
+| 2 | `src/window.rs`, `data/resources/ui/window.ui` | `lib/window.rb` | main window | yes |
+| 3 | `data/resources/ui/window.ui` (`menu primary_menu`) | `lib/window.rb` (within) | primary menu | yes |
+| 4 | `data/resources/ui/shortcuts.ui` | `lib/shortcuts_window.rb` | keyboard shortcuts window | yes |
+| 5 | `src/application.rs` (`show_about_dialog`) | `lib/about_dialog.rb` | about dialog | yes |
+| 6 | `src/widgets/card.rs`, `data/resources/ui/card.ui` | `lib/card_box.rb` | card container + card error state | yes |
+| 7 | `data/resources/ui/cards/discourse.ui` | `lib/cards/discourse_card.rb` | card layout | yes |
+| 8 | `data/resources/ui/cards/facebook.ui` | `lib/cards/facebook_card.rb` | card layout | yes |
+| 9 | `data/resources/ui/cards/linkedin.ui` | `lib/cards/linkedin_card.rb` | card layout | yes |
+| 10 | `data/resources/ui/cards/mastodon.ui` | `lib/cards/mastodon_card.rb` | card layout | yes |
+| 11 | `data/resources/ui/cards/twitter.ui` | `lib/cards/twitter_card.rb` | card layout | yes |
+| 12 | `src/widgets/image.rs`, `data/resources/ui/image.ui` | `lib/card_image.rb` | image widget + fallback state | yes |
+| 13 | `src/widgets/data_dialog.rs`, `data/resources/ui/data-dialog.ui` | `lib/data_dialog.rb` | metadata dialog (2 pages, 2 empty states) | yes |
+| 14 | `data/resources/ui/metadata-item.ui` | `lib/metadata_row.rb` | list row | yes |
+| 15 | `src/widgets/log_dialog.rs`, `data/resources/ui/log-dialog.ui` | `lib/log_dialog.rb` | scraping-log dialog | yes |
+| 16 | `src/widgets/log_dialog.rs` (`bind_model` closure) | `lib/log_row.rb` | list row (4 level variants) | yes |
+| 17 | `src/models/log_item.rs` | `lib/log_item.rb` | model | yes |
+| 18 | `src/models/log_model.rs`, `src/backend/log.rs` | `lib/log_model.rb` | model + log sink | yes |
+| 19 | `src/models/metadata_item.rs` | `lib/metadata_item.rb` | model | yes |
+| 20 | `src/backend/social.rs` | `lib/social.rb` | non-UI: platform constraints | yes |
+| 21 | `src/backend/card.rs` | `lib/card.rb` | non-UI: card builder, size, errors | yes |
+| 22 | `src/backend/data.rs` | `lib/data.rb` | non-UI: scraped metadata | yes |
+| 23 | `src/backend/image.rs` | `lib/image.rb` | non-UI: image fetch/validate | yes |
+| 24 | `src/backend/scraper.rs` | `lib/scraper.rb` | non-UI: HTTP + HTML scrape | yes |
+| 25 | `data/…gschema.xml.in` | `lib/settings.rb` | non-UI: GSettings (`social`, `dark-theme`) | yes |
+| 26 | `data/resources/style.css` | `lib/style.rb` + `data/style.css` | stylesheet: 7 app classes | yes |
+| 27 | `data/resources/icons/{code,info,tag}-symbolic.svg` | `data/icons/hicolor/scalable/actions/` | 3 bundled symbolic icons | yes |
+| 28 | `po/` (30 catalogues, `po/POTFILES.in`) | — | i18n | **no** |
+| — | none (new) | `lib/http_client.rb` | non-UI: shared HTTP transport | yes (extra) |
 
 ## 1. `src/application.rs` + `src/main.rs` → `lib/main.rb` — the application
 
@@ -314,10 +351,38 @@ should carry the existing catalogues over rather than restart them.
 
 ## Gaps and risks for the port
 
-1. **Everything is missing.** `lib/` has a placeholder only; all 28 rows are new work.
-2. **`Adwaita::Application` / `Adwaita::ApplicationWindow`** — the skill flags `Adwaita::Application` as broken; use `Gtk::Application`. The existing placeholder already uses `Adwaita::ApplicationWindow.new(app)` successfully, so keep that.
-3. **`Gtk::ShortcutsWindow` is deprecated** in current GTK; verify it exists in the bindings before committing to §4, else hand-build it like the pilot.
-4. **`Gtk::PropertyExpression` + `Gtk::StringFilter` + `Gtk::AnyFilter`** over a custom GObject (`MetadataItem`) is the riskiest binding surface in the app. Verify early; the fallback is a `Gtk::CustomFilter` or filtering in Ruby and rebuilding the list box.
-5. **Async.** Upstream's fetch is `async`/`spawn!`. Ruby has no equivalent in the bindings; the port needs a thread plus `GLib::Idle.add` to get back on the main loop, or the spinner never animates.
-6. **No `.ui` files in the port** by design — the five `cards/*.ui` trees and `metadata-item.ui` become Ruby classes, and `CardBox`'s resource-name dispatch becomes a lookup table of five classes.
-7. **Upstream ref naming** — the port's tooling should say `origin/master`, not `origin/main`.
+1. **Translations are the only missing component.** There is no `po/` directory
+   on `ruby`, no `gettext` require and no extraction list; every user-visible
+   string is an inline Ruby literal. Upstream ships 30 catalogues and a
+   20-file `POTFILES.in`, including one `msgctxt "shortcut window"` group and
+   the `gettext_f` named placeholder `Server Error {status}`. Carrying the
+   catalogues over rather than restarting them is still the right move; that
+   is a `translation-parity` step, not a widget step.
+2. **Two deliberate divergences from upstream, both recorded in the files:**
+   - `lib/shortcuts_window.rb` builds an `Adwaita::ShortcutsDialog`, because
+     `Gtk::ShortcutsWindow.new` raises *"GtkWindow is not subtype of
+     GtkShortcutsWindow"* and GTK deprecates the widget anyway. Same group
+     title, same three rows.
+   - `lib/http_client.rb` has no upstream counterpart: it is the `reqwest`
+     client that `scraper.rb` and `image.rb` share, split out rather than
+     duplicated.
+3. **`dark-theme` stays dead.** The GSetting is ported because upstream
+   declares it, but upstream never reads it — the colour-scheme button only
+   flips `Adw.StyleManager` and does not persist. Do not "fix" this into a
+   behaviour difference.
+4. **`metadata-item.ui` keeps its data-driven visibility.** The key label is
+   hidden when there is no key, because the Body Images rows have none. This
+   is the documented exception to the house rule, and `lib/metadata_row.rb`
+   must keep it. Note also `dimmed-label` there against `dim-label`
+   elsewhere — both spellings are reproduced as written.
+5. **The risky binding surfaces are now exercised, so re-verify rather than
+   re-plan:** `Gtk::PropertyExpression` + `Gtk::StringFilter` + `Gtk::AnyFilter`
+   over `MetadataItem` in `lib/data_dialog.rb`, the `items-changed`-driven
+   count badges in `lib/window.rb`, and the thread + `GLib::Idle.add` hop that
+   replaces upstream's `async`/`spawn!`. `test/drive_window.rb` and
+   `test/drive_cards.rb` are the drive scripts that cover them.
+6. **No `.ui` files in the port** by design. `CardBox`'s resource-name
+   dispatch became a lookup over the five `lib/cards/*.rb` classes.
+7. **Upstream ref naming** — the port's tooling should say `origin/master`,
+   not `origin/main`. Still true, and still worth fixing wherever the task
+   text is generated.
