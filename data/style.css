@@ -1,0 +1,25 @@
+
+.urlbox {
+  padding: 12px;
+}
+
+.card-container {
+  padding: 0 12px 12px;
+}
+
+.card-padding {
+  padding: 12px;
+}
+
+.metadata-item {
+  padding: 12px;
+}
+
+.logs {
+  padding: 12px 24px;
+}
+
+.log-item {
+  font-family: monospace;
+  padding: 6px 0;
+}
