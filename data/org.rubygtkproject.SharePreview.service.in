@@ -1,0 +1,9 @@
+# Ported from upstream's data/com.rafaelmardojai.SharePreview.service.in.
+# @bindir@ is a genuine build-time substitution (the install prefix's bin
+# directory), left as a template the same way sibling ports
+# (forge-sparks-rb's and raider-rb's data/*.service.in) leave it; only the
+# app id, which this port's App::APP_ID fixes at org.rubygtkproject.SharePreview
+# rather than a build option, is filled in concretely.
+[D-BUS Service]
+Name=org.rubygtkproject.SharePreview
+Exec=@bindir@/share-preview --gapplication-service

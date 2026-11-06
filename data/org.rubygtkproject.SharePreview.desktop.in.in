@@ -1,0 +1,23 @@
+# Ported from upstream's data/com.rafaelmardojai.SharePreview.desktop.in.in.
+# Upstream's @icon@ and @app-id@ are meson substitutions this gem has no build
+# step for, so the app id this port actually runs under (lib/main.rb's
+# App::APP_ID) is filled in directly, the same way the port's icon file at
+# data/icons/hicolor/scalable/apps/org.rubygtkproject.SharePreview.svg is
+# already named concretely rather than left as a template.
+[Desktop Entry]
+Name=Share Preview
+Comment=Test social media cards locally
+Type=Application
+Exec=share-preview %U
+Terminal=false
+Categories=Utility;GNOME;GTK;
+MimeType=x-scheme-handler/http;x-scheme-handler/https
+Keywords=Gnome;GTK;link;url;unfurl;social;
+Icon=org.rubygtkproject.SharePreview
+StartupNotify=true
+DBusActivatable=true
+Actions=new-window;
+
+[Desktop Action new-window]
+Name=New Window
+Exec=share-preview --new-window

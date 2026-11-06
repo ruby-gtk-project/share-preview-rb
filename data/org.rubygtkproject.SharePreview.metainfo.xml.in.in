@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Ported from upstream's data/com.rafaelmardojai.SharePreview.metainfo.xml.in.in
+  (Rafael Mardojai CM 2021 <email@rafaelmardojai.com>). The upstream release
+  history is dropped rather than carried forward: those entries describe
+  behaviour of the Rust/gtk-rs original across versions this Ruby port did not
+  go through, and keeping them would claim a history this gem never had.
+-->
+<component type="desktop-application">
+  <id>org.rubygtkproject.SharePreview</id>
+  <launchable type="desktop-id">org.rubygtkproject.SharePreview.desktop</launchable>
+  <translation type="gettext">share-preview</translation>
+
+  <name translate="no">Share Preview</name>
+  <summary>Test social media cards locally</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <url type="homepage">https://github.com/ruby-gtk-project/share-preview-rb</url>
+  <url type="bugtracker">https://github.com/ruby-gtk-project/share-preview-rb/issues</url>
+  <url type="vcs-browser">https://github.com/ruby-gtk-project/share-preview-rb</url>
+
+  <developer id="com.mardojai">
+    <name translate="no">Rafael Mardojai CM</name>
+  </developer>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#c582c7</color>
+    <color type="primary" scheme_preference="dark">#603761</color>
+  </branding>
+
+  <description>
+    <p>Preview and debug websites metadata tags for social media share.</p>
+    <p>This is a Ruby GTK4 and Libadwaita port of Share Preview, written against the original as its specification.</p>
+  </description>
+
+  <content_rating type="oars-1.1" />
+
+  <requires>
+    <display_length compare="eq">524</display_length>
+  </requires>
+
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
+
+  <kudos>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>ModernToolkit</kudo>
+  </kudos>
+</component>

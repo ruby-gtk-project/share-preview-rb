@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Ported from upstream's data/com.rafaelmardojai.SharePreview.gschema.xml.in,
+  which declares the same two keys lib/settings.rb backs with a JSON file
+  instead of installed GSettings (see that file's header comment for why).
+  This schema is shipped anyway, the same way the pilot and sibling ports
+  ship theirs: it is packaging truth independent of how this port's runtime
+  happens to store the values, and glib-compile-schemas run in strict,
+  dry-run mode can validate it without the app ever reading it.
+-->
+<schemalist>
+  <schema path="/org/rubygtkproject/SharePreview/" id="org.rubygtkproject.SharePreview" gettext-domain="share-preview">
+    <key name="dark-theme" type="b">
+      <default>false</default>
+    </key>
+
+    <key name="social" type="s">
+      <default>''</default>
+    </key>
+  </schema>
+</schemalist>
