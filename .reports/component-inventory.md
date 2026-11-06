@@ -21,11 +21,18 @@ throughout: `lib/main.rb` is `App`, `lib/share_preview/application.rb` is a
 three-line alias onto it, and the 26 component files exist.
 
 **Re-survey.** This revision re-reads `lib/` after the port landed (commit
-`82bd84f`, "Port the backends, models, window, cards and dialogs"). The
-component bodies below are unchanged — they are the upstream reading, and
-upstream has not moved. What changed is the `Exists` column and the gap list:
-every widget component is now present, and the one remaining hole is the
-translation layer.
+`82bd84f`, "Port the backends, models, window, cards and dialogs") and after
+`po/` landed (commit `6453489`, "Port po/: upstream's 29 catalogues, gettext
+and gettext_f"). The component bodies below are unchanged — they are the
+upstream reading, and upstream has not moved. What changed is the `Exists`
+column and the gap list: every widget component and the translation layer are
+now present. The remaining gaps are three data files that upstream ships but
+`ruby` does not yet carry: the `.desktop.in.in` launcher entry, the
+`.metainfo.xml.in.in` AppStream catalogue, and the `.service.in` D-Bus
+activation file — none of `data/com.rafaelmardojai.SharePreview.desktop.in.in`,
+`.metainfo.xml.in.in` or `.service.in` have a counterpart under `data/` on
+`ruby`, and the five message keys `po/`'s own re-survey found missing (desktop
++ metainfo strings) trace back to exactly this gap.
 
 ## What `lib/` has today
 
@@ -98,7 +105,11 @@ The placeholder status page that the first survey recorded is gone.
 | 25 | `data/…gschema.xml.in` | `lib/settings.rb` | non-UI: GSettings (`social`, `dark-theme`) | yes |
 | 26 | `data/resources/style.css` | `lib/style.rb` + `data/style.css` | stylesheet: 7 app classes | yes |
 | 27 | `data/resources/icons/{code,info,tag}-symbolic.svg` | `data/icons/hicolor/scalable/actions/` | 3 bundled symbolic icons | yes |
-| 28 | `po/` (30 catalogues, `po/POTFILES.in`) | — | i18n | **no** |
+| 28 | `po/` (29 catalogues, `po/POTFILES.in`, `po/LINGUAS`) | `lib/i18n.rb` + `po/` + `locale/` | i18n | yes |
+| 29 | `data/com.rafaelmardojai.SharePreview.desktop.in.in` | — | desktop launcher entry | **no** |
+| 30 | `data/com.rafaelmardojai.SharePreview.metainfo.xml.in.in` | — | AppStream metadata | **no** |
+| 31 | `data/com.rafaelmardojai.SharePreview.service.in` | — | D-Bus service activation file | **no** |
+| 32 | `data/com.rafaelmardojai.SharePreview.gschema.xml.in` | `lib/settings.rb` (code only) | GSettings schema install file | **no** (schema itself not shipped as a file; `lib/settings.rb` reads/writes the keys directly) |
 | — | none (new) | `lib/http_client.rb` | non-UI: shared HTTP transport | yes (extra) |
 
 ## 1. `src/application.rs` + `src/main.rs` → `lib/main.rb` — the application
@@ -341,23 +352,45 @@ Three symbolic icons ship in the GResource and are referenced by name:
 (Metadata view-stack page). They are **not** in the system icon theme, so the
 port must bundle them and register an icon-theme search path.
 
-## 28. Translations
+## 28. `po/` + `src/i18n.rs` → `lib/i18n.rb` + `po/` + `locale/` — translations
 
-`po/LINGUAS` lists 30 languages; `po/POTFILES.in` lists 20 source files
-(7 `.ui`, 3 `data/*.in`, 10 `.rs`). User-visible strings total roughly 45,
-including one `msgctxt "shortcut window"` group and the `gettext_f` named
-placeholder `Server Error {status}`. The port needs its own extraction list and
-should carry the existing catalogues over rather than restart them.
+`po/LINGUAS` lists 29 languages; upstream's `po/POTFILES.in` lists 20 source
+files (7 `.ui`, 3 `data/*.in`, 10 `.rs`). User-visible strings total roughly
+45, including one `msgctxt "shortcut window"` group and the `gettext_f` named
+placeholder `Server Error {status}`. **Ported** (commit `6453489`):
+`lib/i18n.rb` binds the gettext domain via libc and supplies `_`, `c_` and
+`f_`; the port's own `po/POTFILES.in` lists the Ruby sources; `rake pot` /
+`rake translations` extract and compile; 61 of upstream's 66 message keys are
+produced, the other five being the desktop/metainfo strings that have no
+source file yet (see components 29–30, still gaps).
+
+## 29–32. Desktop launcher, AppStream metadata, D-Bus service, GSettings schema file
+
+None of `data/com.rafaelmardojai.SharePreview.desktop.in.in`,
+`.metainfo.xml.in.in`, `.service.in` or `.gschema.xml.in` have a port
+counterpart under `data/` on `ruby`. These are not widgets, but they are
+user-facing: the desktop entry is what the shell's launcher shows and what
+supplies the `Actions=new-window` quick-launch entry and the `http`/`https`
+scheme handlers that `lib/main.rb`'s command-line parsing assumes exist; the
+metainfo file is what a software-center page reads; the service file is what
+lets D-Bus activate the app by name; the gschema file is what `glib-compile-schemas`
+needs to actually install the `social`/`dark-theme` keys `lib/settings.rb`
+reads and writes — without it, `lib/settings.rb` works only against a
+schema compiled some other way (e.g. a dev-shell override), not a real
+install. None of the four need app code to port — they are static
+`data/`-tree files with a build step — so they are flagged here for a future
+unit, not written in this step.
 
 ## Gaps and risks for the port
 
-1. **Translations are the only missing component.** There is no `po/` directory
-   on `ruby`, no `gettext` require and no extraction list; every user-visible
-   string is an inline Ruby literal. Upstream ships 30 catalogues and a
-   20-file `POTFILES.in`, including one `msgctxt "shortcut window"` group and
-   the `gettext_f` named placeholder `Server Error {status}`. Carrying the
-   catalogues over rather than restarting them is still the right move; that
-   is a `translation-parity` step, not a widget step.
+1. **Translations are ported; four static data files are the remaining gap.**
+   `po/` and `lib/i18n.rb` landed in commit `6453489` — see component 28. What
+   is left is not app code: the `.desktop.in.in` launcher entry, the
+   `.metainfo.xml.in.in` AppStream catalogue, the `.service.in` D-Bus
+   activation file, and a real `.gschema.xml` install file for the `social`/
+   `dark-theme` keys `lib/settings.rb` already reads and writes in code (see
+   components 29–32). These are a `data/` + build-system step, not a widget
+   step.
 2. **Two deliberate divergences from upstream, both recorded in the files:**
    - `lib/shortcuts_window.rb` builds an `Adwaita::ShortcutsDialog`, because
      `Gtk::ShortcutsWindow.new` raises *"GtkWindow is not subtype of
