@@ -124,6 +124,17 @@ passed.
   scanner artifact on both trees, cancels out, not a real unresolved
   message on either side.
 
+## Update (this audit): re-checked after the three newest commits
+
+None of `36751a9`, `7359eb6`, or `a0ed3ef` touches `po/`, `locale/`,
+`data/*.xml.in.in`, or any `_`/`c_`/`n_` call site — they are an inventory
+correction, a Rake task, and a spec load-path fix respectively. Re-grepped
+`data/org.rubygtkproject.SharePreview.metainfo.xml.in.in` this session and
+confirmed the `<name translate="no">Share Preview</name>` divergence named
+below is still present, byte-for-byte unchanged, and re-ran
+`test/drive_translated.rb` (20/20 messages in `de`, still passing). Nothing
+in this report's numbers moves this round.
+
 ## Summary (numbers, not an adjective)
 
 ```

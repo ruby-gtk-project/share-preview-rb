@@ -89,6 +89,43 @@ by itself, evidence the gaps don't exist — which is exactly why the other
 four skills were run in full rather than taking this one's clean grep as
 the whole answer.
 
+## Update (this audit): re-scanned after three new commits
+
+Since the last round, `36751a9` (inventory refresh), `7359eb6` (`rake
+drive` added), and `a0ed3ef` (spec load-path fix) landed. Re-ran the same
+grep over `lib/`, `exe/`, `.reports/`, and confirmed `PORTING.md` still
+does not exist on `ruby`: no new hits for `TODO`, `FIXME`, `not
+implemented`, `for now`, `in a future`, `out of scope`, or any other
+hunted construction. The one prior hit (`.reports/component-inventory.md:
+417`, "No `.ui` files in the port by design") is unchanged and still a
+correct structural correspondence, not an excuse.
+
+More importantly: neither commit message for `7359eb6` nor `a0ed3ef`
+overclaims. `7359eb6`'s message says it adds a Rake task and that the four
+scripts are "confirmed green" — true, re-verified this session — and does
+**not** say CI now runs them. `a0ed3ef`'s message says it fixes a
+`LoadError` and names the before/after state precisely ("0 examples, 0
+failures, no more LoadError") rather than claiming the spec suite now
+tests anything. Both are accurate, narrowly-scoped claims about narrowly-
+scoped fixes. **The gap these two commits leave behind — `.gitlab-ci.yml`
+still never invokes `rake drive` or any drive script, so the only CI-
+visible test signal is still an empty RSpec run — is not claimed as closed
+anywhere, by any commit message or report.** That is the correct way to
+leave a partial fix: visible, dated, and not dressed up as done. It is
+restated as an open gap in `test-parity.md` and `component-parity.md`
+rather than treated as resolved because *a* task now exists.
+
+One new thing this audit flags that no document had stated: the runtime
+gate's own "components covered" number changed from 20 (recorded in the
+prior round's reports) to 30 (this round) for the *same* 14/0 check count,
+with nothing in the repository explaining the change or defining what a
+"component" is for that count. This is not a `lib/`/`exe/`/`.reports/`
+excuse-language hit — it's a claim made by the gate itself, outside any
+file this skill's grep reaches — but per the task's instruction to treat
+an unexplained or narrow gate as a gap in its own right, it is named here
+and in `test-parity.md` rather than passed through silently as "the gate
+says 30, so coverage must have grown."
+
 ## Rules check
 
 - Nothing was deleted; the one real hit (`by design`, line 417) was left

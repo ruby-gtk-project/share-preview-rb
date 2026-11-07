@@ -14,10 +14,12 @@ and driving it — `ruby-gtk-testing`'s mechanism, via the four `test/drive_*.rb
 scripts under `nix develop --command xvfb-run -a ruby test/drive_*.rb` — not
 by reading source and assuming.
 
-## Headline: the runtime gate is narrower than its own claim
+## Headline: the runtime gate is narrower than its own claim, and its own number moved
 
-The task's runtime gate reports **"14 checks passed, 0 failed, covering 20
-components."** That is true of exactly one file, `test/drive_actions.rb`
+This round's runtime gate reports **"14 checks passed, 0 failed, covering 30
+components."** (The prior round's gate, for the identical 14/0, said "20
+components" — see `test-parity.md` for why that drift is itself a finding,
+not an improvement.) The 14/0 is true of exactly one file, `test/drive_actions.rb`
 (confirmed by re-running it: `14 of 14 checks passed` / `DRIVE OK`, the
 only file in `test/` whose assertion unit is `check(...)` and the only one
 that prints `DRIVE OK`/`DRIVE FAILED`). The other three driver scripts —
@@ -41,11 +43,12 @@ reader of the gate alone would not know `drive_cards.rb`/`drive_window.rb`/
 `accountability-ensurance.md` for why a report that's narrower than the
 work actually done is still a finding, not a clean bill.
 
-**Separately and more seriously:** none of the four scripts is wired into
-any CI target. `Rakefile` has no `drive` task; `.gitlab-ci.yml`'s `test`
-stage runs `bin/rspec spec`, and `spec/` contains only `spec_helper.rb` and
-`README.md` — zero example files. CI is green by running nothing. See
-`test-parity.md`.
+**Separately and more seriously:** `Rakefile` now has a `drive` task
+(commit `7359eb6`, added after the last round) — but `.gitlab-ci.yml`'s
+`test` stage still runs only `bin/rspec spec`, and `spec/` still contains
+only `spec_helper.rb` and `README.md` — zero example files. CI is green by
+running nothing; a local Rake task existing doesn't change what GitLab
+actually executes. See `test-parity.md` for the full update.
 
 ## Unit-by-unit axis check
 

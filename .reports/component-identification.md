@@ -72,6 +72,24 @@ Spot-checked against the current tree rather than re-run from scratch
 No new components found that the existing inventory missed, and no
 component it lists has disappeared from `lib/`.
 
+## Update (this audit): re-checked after `36751a9`, `7359eb6`, `a0ed3ef`
+
+`36751a9` (landed after the prior round's reports were committed) is the
+correction this document asked for: it rewrites `component-inventory.md`'s
+rows 29–32 from "no" to "yes" in the inventory itself. Re-read this
+session: the inventory no longer disagrees with the tree on that point.
+The other two commits (`rake drive`, the spec load-path fix) touch
+`Rakefile`/`spec_helper.rb`, not `lib/`/`data/`, so they add no new widget,
+dialog, action, or file-mapping row — the 32-unit map is unchanged by them.
+
+The runtime gate's "30 components" figure (up from "20" last round) does
+**not** correspond to any count derivable from this inventory (32 rows) or
+from counting unique widget classes across `lib/`. It is flagged as an
+open, unexplained number in `test-parity.md` and `accountability-
+ensurance.md` rather than treated as this document's problem to reconcile,
+since nothing in `lib/`, `exe/`, or `data/` changed in a way that would
+move a component count by ten.
+
 ## What this step did not re-derive
 
 A full re-scan with `component-scan.sh` against a freshly built GIR symbol
