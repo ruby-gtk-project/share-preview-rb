@@ -20,19 +20,28 @@ the `.ui` files (`cards/*.ui`) have no subclass at all — they are plain
 throughout: `lib/main.rb` is `App`, `lib/share_preview/application.rb` is a
 three-line alias onto it, and the 26 component files exist.
 
-**Re-survey.** This revision re-reads `lib/` after the port landed (commit
-`82bd84f`, "Port the backends, models, window, cards and dialogs") and after
-`po/` landed (commit `6453489`, "Port po/: upstream's 29 catalogues, gettext
-and gettext_f"). The component bodies below are unchanged — they are the
-upstream reading, and upstream has not moved. What changed is the `Exists`
-column and the gap list: every widget component and the translation layer are
-now present. The remaining gaps are three data files that upstream ships but
-`ruby` does not yet carry: the `.desktop.in.in` launcher entry, the
-`.metainfo.xml.in.in` AppStream catalogue, and the `.service.in` D-Bus
-activation file — none of `data/com.rafaelmardojai.SharePreview.desktop.in.in`,
-`.metainfo.xml.in.in` or `.service.in` have a counterpart under `data/` on
-`ruby`, and the five message keys `po/`'s own re-survey found missing (desktop
-+ metainfo strings) trace back to exactly this gap.
+**Second re-survey.** This revision re-reads `lib/` and `data/` at commit
+`5ea68dd` ("Parity reports"), after commit `a61ea35` ("Port packaging
+metadata: desktop entry, metainfo, D-Bus service, GSettings schema") landed
+the four data files the previous re-survey (at `797ace5`) still listed as
+missing. They are confirmed present under their renamed, port-specific app
+id: `data/org.rubygtkproject.SharePreview.desktop.in.in`,
+`.metainfo.xml.in.in`, `.service.in` and `.gschema.xml.in`, verified by
+listing `data/` directly rather than trusting the prior report's "no". The
+component bodies are otherwise unchanged from the first reading of upstream
+— upstream has not moved. `.reports/component-parity.md` (already on this
+branch, commit `5ea68dd`) ran the 4-axis check on these four files ahead of
+this re-survey and found one real text-axis divergence worth repeating here
+rather than only there: upstream's `metainfo.xml.in.in` has
+`<name>Share Preview</name>` with no `translate="no"`, so the app name is in
+upstream's translatable catalogue; the port's copy has
+`<name translate="no">Share Preview</name>`, opting out. See
+`translation-parity.md` for the message-count consequence. There is no
+remaining gap in "does the file exist" terms; the open items are the two
+already-documented divergences (this one, and `lib/settings.rb` backing the
+gschema's keys with a JSON file rather than reading an installed, compiled
+schema) — both load-bearing enough to flag again below rather than drop now
+that the files exist.
 
 ## What `lib/` has today
 
@@ -67,14 +76,17 @@ activation file — none of `data/com.rafaelmardojai.SharePreview.desktop.in.in`
 | `lib/share_preview.rb` | 3 | requires `share_preview/application` |
 | `lib/share_preview/application.rb` | 12 | `SharePreview::Application = ::App` |
 
-`data/style.css` and `data/icons/hicolor/scalable/actions/{code,info,tag}-symbolic.svg`
-are carried over too, plus an app icon at
-`data/icons/hicolor/scalable/apps/org.rubygtkproject.SharePreview.svg`.
+`data/style.css` (byte-identical to upstream's `data/resources/style.css`) and
+`data/icons/hicolor/scalable/actions/{code,info,tag}-symbolic.svg` are carried
+over too, plus an app icon at
+`data/icons/hicolor/scalable/apps/org.rubygtkproject.SharePreview.svg`, and
+now the four packaging files renamed under the port's own app id:
+`data/org.rubygtkproject.SharePreview.{desktop.in.in,metainfo.xml.in.in,service.in,gschema.xml.in}`.
 The placeholder status page that the first survey recorded is gone.
 
 ## Component map
 
-`Exists` is read against `lib/` on `ruby` at commit `797ace5`.
+`Exists` is read against `lib/` and `data/` on `ruby` at commit `5ea68dd`.
 
 | # | Upstream file(s) | Port file | Kind | Exists |
 |---|---|---|---|:-:|
@@ -106,10 +118,10 @@ The placeholder status page that the first survey recorded is gone.
 | 26 | `data/resources/style.css` | `lib/style.rb` + `data/style.css` | stylesheet: 7 app classes | yes |
 | 27 | `data/resources/icons/{code,info,tag}-symbolic.svg` | `data/icons/hicolor/scalable/actions/` | 3 bundled symbolic icons | yes |
 | 28 | `po/` (29 catalogues, `po/POTFILES.in`, `po/LINGUAS`) | `lib/i18n.rb` + `po/` + `locale/` | i18n | yes |
-| 29 | `data/com.rafaelmardojai.SharePreview.desktop.in.in` | — | desktop launcher entry | **no** |
-| 30 | `data/com.rafaelmardojai.SharePreview.metainfo.xml.in.in` | — | AppStream metadata | **no** |
-| 31 | `data/com.rafaelmardojai.SharePreview.service.in` | — | D-Bus service activation file | **no** |
-| 32 | `data/com.rafaelmardojai.SharePreview.gschema.xml.in` | `lib/settings.rb` (code only) | GSettings schema install file | **no** (schema itself not shipped as a file; `lib/settings.rb` reads/writes the keys directly) |
+| 29 | `data/com.rafaelmardojai.SharePreview.desktop.in.in` | `data/org.rubygtkproject.SharePreview.desktop.in.in` | desktop launcher entry | yes |
+| 30 | `data/com.rafaelmardojai.SharePreview.metainfo.xml.in.in` | `data/org.rubygtkproject.SharePreview.metainfo.xml.in.in` | AppStream metadata | yes (text divergence: `<name>` gained `translate="no"` — see `translation-parity.md`) |
+| 31 | `data/com.rafaelmardojai.SharePreview.service.in` | `data/org.rubygtkproject.SharePreview.service.in` | D-Bus service activation file | yes |
+| 32 | `data/com.rafaelmardojai.SharePreview.gschema.xml.in` | `data/org.rubygtkproject.SharePreview.gschema.xml.in` + `lib/settings.rb` | GSettings schema install file | yes (file ships and validates under `glib-compile-schemas --strict --dry-run`; `lib/settings.rb` itself still backs the two keys with a JSON file rather than reading the installed schema — documented substitution, not a gap in file presence) |
 | — | none (new) | `lib/http_client.rb` | non-UI: shared HTTP transport | yes (extra) |
 
 ## 1. `src/application.rs` + `src/main.rs` → `lib/main.rb` — the application
@@ -366,31 +378,52 @@ source file yet (see components 29–30, still gaps).
 
 ## 29–32. Desktop launcher, AppStream metadata, D-Bus service, GSettings schema file
 
-None of `data/com.rafaelmardojai.SharePreview.desktop.in.in`,
-`.metainfo.xml.in.in`, `.service.in` or `.gschema.xml.in` have a port
-counterpart under `data/` on `ruby`. These are not widgets, but they are
-user-facing: the desktop entry is what the shell's launcher shows and what
-supplies the `Actions=new-window` quick-launch entry and the `http`/`https`
-scheme handlers that `lib/main.rb`'s command-line parsing assumes exist; the
+All four now have a port counterpart under `data/` on `ruby`, landed in
+commit `a61ea35`: `data/org.rubygtkproject.SharePreview.desktop.in.in`,
+`.metainfo.xml.in.in`, `.service.in` and `.gschema.xml.in`, renamed onto the
+port's own app id (`org.rubygtkproject.SharePreview`, from `lib/main.rb`'s
+`App::APP_ID`) with the `@app-id@`/`@gettext-package@`/`@icon@` meson
+substitutions filled in concretely, since this gem has no meson build step to
+perform them; `@bindir@` is left as a genuine build-time placeholder in the
+service file. These are not widgets, but they are user-facing: the desktop
+entry is what the shell's launcher shows and what supplies the
+`Actions=new-window` quick-launch entry and the `http`/`https` scheme
+handlers that `lib/main.rb`'s command-line parsing assumes exist; the
 metainfo file is what a software-center page reads; the service file is what
-lets D-Bus activate the app by name; the gschema file is what `glib-compile-schemas`
-needs to actually install the `social`/`dark-theme` keys `lib/settings.rb`
-reads and writes — without it, `lib/settings.rb` works only against a
-schema compiled some other way (e.g. a dev-shell override), not a real
-install. None of the four need app code to port — they are static
-`data/`-tree files with a build step — so they are flagged here for a future
-unit, not written in this step.
+lets D-Bus activate the app by name; the gschema file is what
+`glib-compile-schemas` reads to install the `social`/`dark-theme` keys, and
+it validates clean under `glib-compile-schemas --strict --dry-run`.
+
+Two things to still flag rather than call finished: (1) the metainfo file's
+`<name>` carries `translate="no"` where upstream's does not — upstream puts
+"Share Preview" in its translatable catalogue, the port opts it out; this is
+a real text-axis divergence, not a correspondence, and it is the reason the
+translation census's use-count for that string differs by one between the
+two sides (see `translation-parity.md`). (2) the gschema *file* now exists
+and validates, but `lib/settings.rb` does not read the keys from an
+installed, compiled schema at runtime — it backs the same two keys with a
+JSON file instead, to avoid requiring a system schema install just to run
+the app from a checkout. Same keys, same defaults, same semantics, but the
+file on disk is packaging truth the running app does not itself consult.
+Neither of these two is "not applicable" or "by design" in the sense of
+needing no further work — they are documented, deliberate divergences that a
+reviewer should be able to find without re-deriving them, and whoever picks
+up gschema-backed settings as real work still has that to do.
 
 ## Gaps and risks for the port
 
-1. **Translations are ported; four static data files are the remaining gap.**
-   `po/` and `lib/i18n.rb` landed in commit `6453489` — see component 28. What
-   is left is not app code: the `.desktop.in.in` launcher entry, the
-   `.metainfo.xml.in.in` AppStream catalogue, the `.service.in` D-Bus
-   activation file, and a real `.gschema.xml` install file for the `social`/
-   `dark-theme` keys `lib/settings.rb` already reads and writes in code (see
-   components 29–32). These are a `data/` + build-system step, not a widget
-   step.
+1. **Translations and the four packaging data files are both ported now; two
+   named divergences remain, not file-presence gaps.** `po/` and
+   `lib/i18n.rb` landed in commit `6453489`; the desktop entry, metainfo
+   catalogue, D-Bus service file and GSettings schema landed in commit
+   `a61ea35` (see components 28–32). What is left is the two divergences
+   named in full under components 29–32: the metainfo `<name>` carrying
+   `translate="no"` against upstream's translatable name, and
+   `lib/settings.rb` backing the gschema's keys with a JSON file rather than
+   reading them from an installed, compiled schema. Both are recorded, not
+   swept into "by design" — see `.reports/accountability-ensurance.md` and
+   `component-parity.md` for the fuller writeups and who still owes work on
+   the second one if a real schema install is ever required.
 2. **Two deliberate divergences from upstream, both recorded in the files:**
    - `lib/shortcuts_window.rb` builds an `Adwaita::ShortcutsDialog`, because
      `Gtk::ShortcutsWindow.new` raises *"GtkWindow is not subtype of
