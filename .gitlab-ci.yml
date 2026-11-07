@@ -38,11 +38,28 @@ workflow:
     # For tags, create a pipeline.
     - if: '$CI_COMMIT_TAG'
 
+.gtk_system_deps: &gtk_system_deps
+  # The four test/drive_*.rb scripts load `gtk4`/`adwaita`, which need GTK4,
+  # libadwaita and the GObject-Introspection typelibs on the system the gem
+  # extensions build against, plus a display `xvfb-run` can stand in for.
+  # None of this ships in the plain `ruby:${RUBY_VERSION}` image, and these
+  # scripts are the only real test coverage this port has (see
+  # test/TEST_PARITY.md / .reports/test-parity.md) — `rake drive`'s own
+  # `nix develop` wrapper only works in the Nix dev shell, so CI runs the
+  # same scripts directly instead, under this apt-installed stack.
+  - apt-get update -qq
+  - >
+    apt-get install -y --no-install-recommends
+    libgtk-4-dev libadwaita-1-dev gobject-introspection
+    libgirepository1.0-dev pkg-config xvfb
+    > /dev/null
+
 .test_template-current: &test_definition-current
   stage: test
   script:
     # || true so we don't fail here, because it'll probably work even if the gem update fails
     - gem update --silent --system > /dev/null 2>&1 || true
+    - *gtk_system_deps
     - mkdir -p vendor/bundle
     - bundle config set path 'vendor/bundle'
     - chmod +t -R vendor/bundle
@@ -60,6 +77,12 @@ workflow:
           --tag \~ci_skip \
           --format progress \
           --format RspecJunitFormatter
+    # The headless GTK drive scripts: the port's only real coverage of
+    # actual widget behaviour. Each one exits non-zero on any failed check.
+    - xvfb-run -a bundle exec appraisal unlocked_deps ruby test/drive_actions.rb
+    - xvfb-run -a bundle exec appraisal unlocked_deps ruby test/drive_cards.rb
+    - xvfb-run -a bundle exec appraisal unlocked_deps ruby test/drive_window.rb
+    - xvfb-run -a bundle exec appraisal unlocked_deps ruby test/drive_translated.rb
   cache:
     key: ${CI_JOB_IMAGE}
     paths:
@@ -73,6 +96,7 @@ workflow:
     - gem install rubygems-update -v ${RUBYGEMS_VERSION} || true
     # Actually updates both RubyGems and Bundler!
     - update_rubygems
+    - *gtk_system_deps
     - mkdir -p vendor/bundle
     - bundle config set path 'vendor/bundle'
     - chmod +t -R vendor/bundle
@@ -90,6 +114,12 @@ workflow:
           --tag \~ci_skip \
           --format progress \
           --format RspecJunitFormatter
+    # The headless GTK drive scripts: the port's only real coverage of
+    # actual widget behaviour. Each one exits non-zero on any failed check.
+    - xvfb-run -a bundle exec appraisal ${APPRAISAL} ruby test/drive_actions.rb
+    - xvfb-run -a bundle exec appraisal ${APPRAISAL} ruby test/drive_cards.rb
+    - xvfb-run -a bundle exec appraisal ${APPRAISAL} ruby test/drive_window.rb
+    - xvfb-run -a bundle exec appraisal ${APPRAISAL} ruby test/drive_translated.rb
   cache:
     key: ${CI_JOB_IMAGE}
     paths:

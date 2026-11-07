@@ -158,3 +158,13 @@ inherited · de verified live via test/drive_translated.rb
 - The one real text gap (metainfo `<name>` translatability) is recorded
   here and cross-referenced into `component-parity.md`, not hidden behind
   "ported: 41/41."
+
+## Update (this round): the metainfo `<name>` divergence is fixed
+
+`data/org.rubygtkproject.SharePreview.metainfo.xml.in.in`'s `<name>` no
+longer carries `translate="no"`. It now reads `<name>Share Preview</name>`,
+matching upstream's `data/com.rafaelmardojai.SharePreview.metainfo.xml.in.in`
+exactly on this attribute. The table above and the narrative before it
+describe the divergence as it stood at the start of this round; it is
+recorded here as closed, not rewritten in place, so the history of what
+was found and when stays legible.

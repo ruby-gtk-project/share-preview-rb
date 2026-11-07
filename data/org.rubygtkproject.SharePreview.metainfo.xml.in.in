@@ -11,7 +11,7 @@
   <launchable type="desktop-id">org.rubygtkproject.SharePreview.desktop</launchable>
   <translation type="gettext">share-preview</translation>
 
-  <name translate="no">Share Preview</name>
+  <name>Share Preview</name>
   <summary>Test social media cards locally</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>

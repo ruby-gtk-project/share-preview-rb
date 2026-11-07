@@ -168,3 +168,38 @@ not traceable to the tree it is supposedly describing.
 - The gate's unexplained "20 components" → "30 components" drift between
   rounds is named rather than silently accepted as a bigger, better
   number.
+
+## Update (this round): CI now runs the drive scripts
+
+`.gitlab-ci.yml`'s `test` stage no longer only runs `bin/rspec spec`
+(0 examples). A new `.gtk_system_deps` anchor installs
+`libgtk-4-dev libadwaita-1-dev gobject-introspection libgirepository1.0-dev
+pkg-config xvfb` via `apt-get` into the plain `ruby:${RUBY_VERSION}` image
+(the pattern already proven in the fleet by `Switcheroo-rb`'s
+`.gitlab-ci.yml`, since `rake drive`'s own `nix develop` wrapper has no Nix
+to call out to inside this runner), then each of the four
+`test/drive_*.rb` scripts is run directly under `xvfb-run -a bundle exec
+appraisal ... ruby test/drive_X.rb`, after the existing `bin/rspec` step,
+in both the current and legacy Ruby job templates. All four exit non-zero
+on a failed check, so a regression here now fails the pipeline, not just a
+human's manual `nix develop --command xvfb-run -a ruby test/drive_*.rb`.
+Re-ran all four by hand in the Nix dev shell after editing the YAML to
+confirm nothing regressed: `drive_actions.rb` 14/14 `DRIVE OK`,
+`drive_cards.rb` OK (30 card boxes), `drive_translated.rb` OK (20 messages
+in `de`), `drive_window.rb` OK. `locale/*/LC_MESSAGES/*.mo` are already
+committed, so `drive_translated.rb` needs no extra `rake translations`
+step in CI.
+
+## Update (this round): a checked-in component count
+
+`.reports/components.json` is a new, generated, checked-in manifest: the
+same 32 rows `.reports/component-inventory.md`'s "Component map" table
+already carried (`id`, `upstream`, `port`, `description`, `present`),
+re-serialized as JSON so a runtime gate (or anything else) can compute a
+"components covered" figure by counting entries where `present` is `true`
+— 32 of 32, today — instead of reporting a number with no traceable
+source. This does not itself change the external gate that printed "20"
+then "30" for the same 14/0 check count; that code is outside this
+repository and this round could not locate or edit it. What this repo can
+now offer it is the concrete, versioned source the earlier gap named as
+missing. See `.reports/accountability-ensurance.md` for the fuller note.

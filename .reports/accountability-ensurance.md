@@ -143,3 +143,26 @@ says 30, so coverage must have grown."
   the metainfo `<name>`) is named with a file:line and carried into the
   parity ledger it belongs to, per the rule that an accusation without a
   location is noise.
+
+## Update (this round): the metainfo divergence is fixed; the gate's own number still isn't traceable from here
+
+The `<name translate="no">Share Preview</name>` divergence named above and
+in `translation-parity.md` is fixed this round: the port's
+`data/org.rubygtkproject.SharePreview.metainfo.xml.in.in` now has
+`<name>Share Preview</name>`, matching upstream's untranslated-attribute
+absence. Re-parsed with `REXML` to confirm the file still parses after the
+edit.
+
+On the "components covered" drift (20 → 30 for the same 14/0 checks,
+matching neither the 32-row inventory): this repo cannot reach or edit the
+code that prints that figure — it runs outside the checked-out tree, as
+the prior audit already established. What was added this round is
+`.reports/components.json`, a generated, checked-in 32-row manifest
+(`id`/`upstream`/`port`/`description`/`present`) derived directly from
+`.reports/component-inventory.md`'s existing table, so that a gate *could*
+compute "components covered" as a count over this file's `present: true`
+rows (32 today) rather than an unexplained number. This is the
+"concrete, checked-in source" half of the prior round's instruction; the
+other half — making the external gate actually read it — is not
+something a commit on this branch can do. Naming that limit here rather
+than silently calling the gap closed.

@@ -1,0 +1,226 @@
+[
+  {
+    "id": 1,
+    "upstream": "src/application.rs, src/main.rs, src/i18n.rs, data/…desktop.in.in",
+    "port": "lib/main.rb",
+    "description": "application + app actions + accels",
+    "present": true
+  },
+  {
+    "id": 2,
+    "upstream": "src/window.rs, data/resources/ui/window.ui",
+    "port": "lib/window.rb",
+    "description": "main window",
+    "present": true
+  },
+  {
+    "id": 3,
+    "upstream": "data/resources/ui/window.ui (menu primary_menu)",
+    "port": "lib/window.rb (within)",
+    "description": "primary menu",
+    "present": true
+  },
+  {
+    "id": 4,
+    "upstream": "data/resources/ui/shortcuts.ui",
+    "port": "lib/shortcuts_window.rb",
+    "description": "keyboard shortcuts window",
+    "present": true
+  },
+  {
+    "id": 5,
+    "upstream": "src/application.rs (show_about_dialog)",
+    "port": "lib/about_dialog.rb",
+    "description": "about dialog",
+    "present": true
+  },
+  {
+    "id": 6,
+    "upstream": "src/widgets/card.rs, data/resources/ui/card.ui",
+    "port": "lib/card_box.rb",
+    "description": "card container + card error state",
+    "present": true
+  },
+  {
+    "id": 7,
+    "upstream": "data/resources/ui/cards/discourse.ui",
+    "port": "lib/cards/discourse_card.rb",
+    "description": "card layout",
+    "present": true
+  },
+  {
+    "id": 8,
+    "upstream": "data/resources/ui/cards/facebook.ui",
+    "port": "lib/cards/facebook_card.rb",
+    "description": "card layout",
+    "present": true
+  },
+  {
+    "id": 9,
+    "upstream": "data/resources/ui/cards/linkedin.ui",
+    "port": "lib/cards/linkedin_card.rb",
+    "description": "card layout",
+    "present": true
+  },
+  {
+    "id": 10,
+    "upstream": "data/resources/ui/cards/mastodon.ui",
+    "port": "lib/cards/mastodon_card.rb",
+    "description": "card layout",
+    "present": true
+  },
+  {
+    "id": 11,
+    "upstream": "data/resources/ui/cards/twitter.ui",
+    "port": "lib/cards/twitter_card.rb",
+    "description": "card layout",
+    "present": true
+  },
+  {
+    "id": 12,
+    "upstream": "src/widgets/image.rs, data/resources/ui/image.ui",
+    "port": "lib/card_image.rb",
+    "description": "image widget + fallback state",
+    "present": true
+  },
+  {
+    "id": 13,
+    "upstream": "src/widgets/data_dialog.rs, data/resources/ui/data-dialog.ui",
+    "port": "lib/data_dialog.rb",
+    "description": "metadata dialog (2 pages, 2 empty states)",
+    "present": true
+  },
+  {
+    "id": 14,
+    "upstream": "data/resources/ui/metadata-item.ui",
+    "port": "lib/metadata_row.rb",
+    "description": "list row",
+    "present": true
+  },
+  {
+    "id": 15,
+    "upstream": "src/widgets/log_dialog.rs, data/resources/ui/log-dialog.ui",
+    "port": "lib/log_dialog.rb",
+    "description": "scraping-log dialog",
+    "present": true
+  },
+  {
+    "id": 16,
+    "upstream": "src/widgets/log_dialog.rs (bind_model closure)",
+    "port": "lib/log_row.rb",
+    "description": "list row (4 level variants)",
+    "present": true
+  },
+  {
+    "id": 17,
+    "upstream": "src/models/log_item.rs",
+    "port": "lib/log_item.rb",
+    "description": "model",
+    "present": true
+  },
+  {
+    "id": 18,
+    "upstream": "src/models/log_model.rs, src/backend/log.rs",
+    "port": "lib/log_model.rb",
+    "description": "model + log sink",
+    "present": true
+  },
+  {
+    "id": 19,
+    "upstream": "src/models/metadata_item.rs",
+    "port": "lib/metadata_item.rb",
+    "description": "model",
+    "present": true
+  },
+  {
+    "id": 20,
+    "upstream": "src/backend/social.rs",
+    "port": "lib/social.rb",
+    "description": "non-UI: platform constraints",
+    "present": true
+  },
+  {
+    "id": 21,
+    "upstream": "src/backend/card.rs",
+    "port": "lib/card.rb",
+    "description": "non-UI: card builder, size, errors",
+    "present": true
+  },
+  {
+    "id": 22,
+    "upstream": "src/backend/data.rs",
+    "port": "lib/data.rb",
+    "description": "non-UI: scraped metadata",
+    "present": true
+  },
+  {
+    "id": 23,
+    "upstream": "src/backend/image.rs",
+    "port": "lib/image.rb",
+    "description": "non-UI: image fetch/validate",
+    "present": true
+  },
+  {
+    "id": 24,
+    "upstream": "src/backend/scraper.rs",
+    "port": "lib/scraper.rb",
+    "description": "non-UI: HTTP + HTML scrape",
+    "present": true
+  },
+  {
+    "id": 25,
+    "upstream": "data/…gschema.xml.in",
+    "port": "lib/settings.rb",
+    "description": "non-UI: GSettings (social, dark-theme)",
+    "present": true
+  },
+  {
+    "id": 26,
+    "upstream": "data/resources/style.css",
+    "port": "lib/style.rb + data/style.css",
+    "description": "stylesheet: 7 app classes",
+    "present": true
+  },
+  {
+    "id": 27,
+    "upstream": "data/resources/icons/{code,info,tag}-symbolic.svg",
+    "port": "data/icons/hicolor/scalable/actions/",
+    "description": "3 bundled symbolic icons",
+    "present": true
+  },
+  {
+    "id": 28,
+    "upstream": "po/ (29 catalogues, po/POTFILES.in, po/LINGUAS)",
+    "port": "lib/i18n.rb + po/ + locale/",
+    "description": "i18n",
+    "present": true
+  },
+  {
+    "id": 29,
+    "upstream": "data/com.rafaelmardojai.SharePreview.desktop.in.in",
+    "port": "data/org.rubygtkproject.SharePreview.desktop.in.in",
+    "description": "desktop launcher entry",
+    "present": true
+  },
+  {
+    "id": 30,
+    "upstream": "data/com.rafaelmardojai.SharePreview.metainfo.xml.in.in",
+    "port": "data/org.rubygtkproject.SharePreview.metainfo.xml.in.in",
+    "description": "AppStream metadata",
+    "present": true
+  },
+  {
+    "id": 31,
+    "upstream": "data/com.rafaelmardojai.SharePreview.service.in",
+    "port": "data/org.rubygtkproject.SharePreview.service.in",
+    "description": "D-Bus service activation file",
+    "present": true
+  },
+  {
+    "id": 32,
+    "upstream": "data/com.rafaelmardojai.SharePreview.gschema.xml.in",
+    "port": "data/org.rubygtkproject.SharePreview.gschema.xml.in + lib/settings.rb",
+    "description": "GSettings schema install file",
+    "present": true
+  }
+]

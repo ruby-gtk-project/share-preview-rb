@@ -155,3 +155,12 @@ not the other.
 - The stale "4 gaps" in `component-inventory.md` is not silently
   reconciled — it's named here and in `component-identification.md` as a
   stale report, not quietly corrected and left unremarked.
+
+## Update (this round): metainfo `<name>` translatability fixed
+
+The divergence described above (port's `<name translate="no">` vs.
+upstream's plain `<name>`) is fixed: the port's
+`data/org.rubygtkproject.SharePreview.metainfo.xml.in.in` now matches
+upstream on this attribute. Row 30 of `.reports/component-inventory.md`
+still shows the pre-fix wording from when it was written; this note is the
+pointer to the current state rather than a silent rewrite of that row.
