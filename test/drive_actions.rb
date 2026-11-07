@@ -10,12 +10,44 @@
 # Run it with: nix develop --command xvfb-run -a ruby test/drive_actions.rb
 
 require 'socket'
+require 'fileutils'
 
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 
 require 'main'
 require 'data_dialog'
 require 'data'
+
+SHOTS = File.expand_path('../tmp/shots', __dir__)
+FileUtils.rm_rf(SHOTS)
+FileUtils.mkdir_p(SHOTS)
+
+# GTK4 has no screenshot call. Painting the widget into a render node and
+# handing that to a renderer is the route that works headlessly.
+def shoot(name, widget)
+  Gsk::CairoRenderer.new.tap do |renderer|
+    renderer.realize(nil)
+
+    begin
+      Gtk::Snapshot.new.then do |snapshot|
+        Gtk::WidgetPaintable.new(widget).snapshot(snapshot, widget.width, widget.height)
+        snapshot.to_node.then do |node|
+          if node.nil?
+            puts "    shot #{name} skipped: widget produced no render node"
+          else
+            path = File.join(SHOTS, "#{name}.png")
+            renderer.render_texture(node, nil).save_to_png(path)
+            puts "    shot #{path}"
+          end
+        end
+      end
+    ensure
+      renderer.unrealize
+    end
+  end
+rescue StandardError => e
+  puts "    shot #{name} failed: #{e.class}: #{e.message}"
+end
 
 CHECKS = []
 
@@ -93,8 +125,9 @@ app.build
 # ticks for the background thread to answer, which `wait_until` below
 # handles by re-arming itself).
 STEPS = []
-STEPS << lambda { |window, _win, stack, _url_entry|
+STEPS << lambda { |window, win, stack, _url_entry|
   check('window built with the splash page showing') { stack.visible_child_name == Window::SPLASH }
+  shoot('01-splash', win)
 }
 
 STEPS << lambda { |_window, win, _stack, url_entry|
@@ -115,11 +148,12 @@ STEPS << lambda { |_window, win, _stack, url_entry|
 }
 
 STEPS << :wait_for_error
-STEPS << lambda { |window, _win, stack, _url_entry|
+STEPS << lambda { |window, win, stack, _url_entry|
   check('refused connection shows the Network Error page') do
     stack.visible_child_name == Window::ERROR &&
       window.send(:error_title).label == Window::NETWORK_TITLE
   end
+  shoot('02-network-error', win)
 }
 
 STEPS << lambda { |_window, win, _stack, url_entry|
@@ -128,11 +162,12 @@ STEPS << lambda { |_window, win, _stack, url_entry|
 }
 
 STEPS << :wait_for_error
-STEPS << lambda { |window, _win, stack, _url_entry|
+STEPS << lambda { |window, win, stack, _url_entry|
   check('a 404 shows the Unexpected Error page') do
     stack.visible_child_name == Window::ERROR &&
       window.send(:error_title).label == Window::UNEXPECTED_TITLE
   end
+  shoot('03-unexpected-error', win)
 }
 
 STEPS << lambda { |_window, win, _stack, url_entry|
@@ -141,8 +176,9 @@ STEPS << lambda { |_window, win, _stack, url_entry|
 }
 
 STEPS << :wait_for_card
-STEPS << lambda { |_window, _win, stack, _url_entry|
+STEPS << lambda { |_window, win, stack, _url_entry|
   check('win.run, fired through the action group, loads the card') { stack.visible_child_name == Window::CARD }
+  shoot('04-card', win)
 }
 
 STEPS << lambda { |_window, _win, _stack, _url_entry|
@@ -203,6 +239,7 @@ STEPS << lambda { |window, _win, _stack, _url_entry|
   @search_dialog = DataDialog.new(window.instance_variable_get(:@data))
   @search_dialog.build
   check('the scraped data dialog has both metadata rows before searching') { @search_dialog.send(:metadata_model).n_items == 2 }
+  shoot('05-data-dialog', @search_dialog.window)
 }
 
 STEPS << lambda { |_window, _win, _stack, _url_entry|
