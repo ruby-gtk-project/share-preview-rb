@@ -168,3 +168,16 @@ exactly on this attribute. The table above and the narrative before it
 describe the divergence as it stood at the start of this round; it is
 recorded here as closed, not rewritten in place, so the history of what
 was found and when stays legible.
+
+## Update (this round): re-checked at `1e1c133` — no translation-surface change
+
+The one new commit since the last round (`1e1c133`, "Capture screenshots
+from the actions drive script, add gtk_driver helper") touches only
+`test/drive_actions.rb` and adds `test/gtk_driver.rb` — neither is a
+`po/`, `locale/`, or `_`/`c_`/`n_`/`data/*.xml.in.in` call site. Re-ran
+`grep -n 'translate=\"no\"' data/org.rubygtkproject.SharePreview.metainfo.xml.in.in`:
+no match — the `<name>` fix recorded as closed in the prior round's
+update is still in place (`<name>Share Preview</name>`, no
+`translate="no"`). Re-ran `test/drive_translated.rb` live this session:
+`drive_translated: OK (20 messages in de)`, same as last round. Numbers
+in the Summary table above are unchanged by this round's commit.

@@ -99,3 +99,15 @@ redoing them wholesale would reproduce the same 32 rows. What *was* run
 fresh, and feeds `component-parity.md` and `translation-parity.md` instead
 of this document, is the translation census comparison and the headless
 drive-script runs, both of which touch the same unit boundaries.
+
+## Update (this round): re-checked at `1e1c133`
+
+The only new commit (`1e1c133`) adds `test/gtk_driver.rb` and extends
+`test/drive_actions.rb` with screenshot capture — neither is a `lib/`,
+`exe/`, or `data/` file, so it adds no new widget, dialog, action, or
+file-mapping unit. The 32-row map this document and
+`.reports/component-inventory.md` describe is unchanged. Spot-checked
+`find lib exe -type f` against the prior round's list: identical, 24
+files under `lib/` (including `lib/cards/*.rb` and
+`lib/share_preview/`/`lib/share/preview/rb*` support files) plus
+`exe/share-preview`.

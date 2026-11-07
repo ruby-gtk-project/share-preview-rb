@@ -164,3 +164,41 @@ upstream's plain `<name>`) is fixed: the port's
 upstream on this attribute. Row 30 of `.reports/component-inventory.md`
 still shows the pre-fix wording from when it was written; this note is the
 pointer to the current state rather than a silent rewrite of that row.
+
+## Update (this round): re-driven at `1e1c133` — no behavioural change, gate metric drifted a third time
+
+Re-ran all four `test/drive_*.rb` scripts against the port at `1e1c133`
+("Capture screenshots from the actions drive script, add gtk_driver
+helper") with upstream unchanged at `2d36059`. All four still pass
+(14/14, `drive_cards`/`drive_window`/`drive_translated` all OK — see
+`test-parity.md`'s update for the full output). The commit's actual
+content is additive-only to the test harness (screenshot capture to
+`tmp/shots/`, a vendored `test/gtk_driver.rb`), touching no `lib/` or
+`data/` unit, so none of the per-unit findings above change: the
+shortcuts-window correspondence, the stylesheet byte-identity, the
+window/log-model behaviour, and the data-dialog search/filter behaviour
+were all re-confirmed live rather than re-read from memory.
+
+One thing to flag rather than silently re-approve: `drive_actions.rb`'s
+new screenshot step reports two of five shots "skipped: widget produced
+no render node" (the splash page and the data dialog). The script does
+not treat this as a failure (it's a `shot ... skipped` log line, not a
+`check`), and the three shots that *do* render (network error, unexpected
+error, loaded card) land under `tmp/shots/`, confirmed present on disk
+this session. This is accepted as a known headless-rendering limitation
+(GTK ties render-node production to an actual compositor frame, which
+Xvfb+software rendering doesn't always produce for every widget state) —
+not a parity gap, since the screenshot step is observability sugar added
+on top of the 14 checks, not a replacement for any of them, and the 14/14
+checks it wraps still run and still pass regardless of whether a given
+shot renders.
+
+Still open from prior rounds, not improved this round: the runtime gate
+reports "29 components" this time, a third distinct figure (20 → 30 →
+29) for the identical 14/0 check count, with `.reports/components.json`
+still at 32/32 present and nothing in this commit touching the unit map.
+See `test-parity.md`'s update for the full statement; it is not repeated
+twice in the same words here, but it means this document cannot say the
+runtime gate corroborates "all units verified" — only this round's direct
+drive-script re-run can, and it does, for the units the four scripts
+actually touch.

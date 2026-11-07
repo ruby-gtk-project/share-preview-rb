@@ -166,3 +166,39 @@ rows (32 today) rather than an unexplained number. This is the
 other half — making the external gate actually read it — is not
 something a commit on this branch can do. Naming that limit here rather
 than silently calling the gap closed.
+
+## Update (this round): re-scanned at `1e1c133`; the gate-number drift is now a pattern, not a one-off
+
+Re-ran the excuse grep over `lib/`, `exe/`, `test/`, and `.reports/` this
+round (`TODO`, `FIXME`, `not implemented`, `for now`, `in a future`, `out
+of scope`, `not ported`, `not needed`, `unnecessary for this port`): the
+only hits are the pre-existing, correctly-attributed "Mastodon" substring
+matches and the one already-cleared `.reports/component-inventory.md:417`
+"by design" line (still a correct structural correspondence, not an
+excuse — see earlier in this file). No `PORTING.md` exists on `ruby`
+(confirmed again: `test -f PORTING.md` fails). Nothing new to flag from
+the grep itself.
+
+The thing worth flagging plainly this round is **the gate metric's own
+behaviour across three consecutive rounds**: "20 components" → "30
+components" → now "29 components," for the identical "14 checks passed, 0
+failed." Each individual round's reports named the drift when it
+happened; none speculated about *why* it moves, because nothing in this
+checked-out tree can see the code that prints it. Three rounds of the
+same unexplained number moving by small amounts, with the repository's
+own inventory sitting still at 32/32 the entire time, is itself evidence
+that this is not sampling noise from counting something real and variable
+in the port — it reads as a count of something outside this tree
+entirely (possibly the runtime harness's own notion of "component" drawn
+from a different source, such as GTK's live widget tree at the moment of
+the check, rather than this repository's file-level unit map). This audit
+does not have access to that code to confirm which, so it is named as an
+open question rather than a diagnosis: **a three-round pattern of an
+unreconciled, moving headline number is treated as a standing parity gap
+in its own right, per the task's instruction, not as something that
+resolves itself by being re-noted every round without escalation.** If a
+fourth round repeats this pattern, the next audit should treat "write the
+same note again" as insufficient and should instead look for the gate's
+source outside this repository (e.g. the fleet's harness code, if
+reachable) rather than continuing to document a symptom whose cause stays
+out of reach.

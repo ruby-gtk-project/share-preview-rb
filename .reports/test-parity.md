@@ -203,3 +203,46 @@ then "30" for the same 14/0 check count; that code is outside this
 repository and this round could not locate or edit it. What this repo can
 now offer it is the concrete, versioned source the earlier gap named as
 missing. See `.reports/accountability-ensurance.md` for the fuller note.
+
+## Update (this round): re-verified at `1e1c133`; the gate's number moved *again*
+
+Re-read upstream (`origin/master` unchanged at `2d36059`) and re-ran all
+four drive scripts by hand under `nix develop --command xvfb-run -a ruby
+test/drive_*.rb` against the port at `1e1c133` ("Capture screenshots from
+the actions drive script, add gtk_driver helper"):
+
+```
+drive_actions.rb:    14 of 14 checks passed, DRIVE OK
+drive_cards.rb:       30 card boxes, both error cards, log dialog 4 rows
+                      [1,1,1], data dialog 2+1 rows — OK
+drive_window.rb:      card renders, log counts [1,0,0], 6 log lines,
+                      every platform cycled, both dialogs opened — OK
+drive_translated.rb:  20 messages in de — OK
+```
+
+All four still pass, unchanged in substance from the last round. The new
+commit only adds screenshot capture (`tmp/shots/*.png`) and a vendored
+`test/gtk_driver.rb` helper to `drive_actions.rb` — it does not add or
+remove a `check(...)` call, so the 14-assertion count is exactly the same
+script as before. Re-ran `bundle exec` / the dev shell's own rspec
+invocation again: still `0 examples, 0 failures`. `.gitlab-ci.yml` (landed
+last round, confirmed present this round at the same path) still runs all
+four drive scripts directly under `xvfb-run`, so that part of the gap
+named in the last two rounds stays closed.
+
+**This round's runtime gate says "14 checks passed, 0 failed, covering 29
+components."** That is a *third* distinct figure for the component count
+behind the identical 14/0 — 20, then 30, then 29 — across three rounds in
+which `.reports/component-inventory.md` and `.reports/components.json`
+have both held steady at 32 rows / 32 present. Nothing landed this round
+that would remove or add 1, 3, or 12 components from that count (the only
+new commit touches `test/drive_actions.rb` and adds `test/gtk_driver.rb`,
+neither of which is a `lib/`/`data/` unit). The gate's own number is still
+not reconstructible from anything in this repository, for the third round
+running. Per the task's explicit instruction this round, this is restated
+plainly: **a gate whose own headline metric cannot be derived from the
+tree it is gating, and which changes between runs of the identical
+check set, is not evidence of 29-component coverage — it is an unverified
+number**, and the actual verified coverage remains what is listed above:
+4 scripts, 14 named assertions, 3 whole-scenario scripts, all passing,
+plus a CI pipeline that now runs all four directly.
