@@ -213,3 +213,20 @@ end
 # show a translated one.
 task test: :translations
 task build: :translations
+
+### DRIVE TASKS
+# These are the only tests this app has: headless-GTK scripts that actually
+# build and interact with widgets, under Xvfb, since there is no GTK
+# available to run them without a display. They need the Nix dev shell
+# (GTK4, Libadwaita, their typelibs) and are therefore not part of `rake test`
+# or `rake spec`, which run under plain Ruby and would fail to load `gtk4`/
+# `adwaita` at all. Run them with `rake drive`, or by hand with
+# `nix develop --command xvfb-run -a ruby test/drive_*.rb`.
+DRIVE_SCRIPTS = Dir["test/drive_*.rb"].sort
+
+desc "Run every headless GTK drive script under Xvfb (requires the Nix dev shell)"
+task :drive do
+  DRIVE_SCRIPTS.each do |script|
+    sh "nix", "develop", "--command", "xvfb-run", "-a", "ruby", script
+  end
+end
