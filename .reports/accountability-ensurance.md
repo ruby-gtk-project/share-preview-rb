@@ -202,3 +202,41 @@ same note again" as insufficient and should instead look for the gate's
 source outside this repository (e.g. the fleet's harness code, if
 reachable) rather than continuing to document a symptom whose cause stays
 out of reach.
+
+## Update (this round): re-scanned at `884e74f`; no fleet-harness access from here; one real gem attempt made and rejected with cause
+
+Re-ran `find-excuses.sh` over `lib/`, `exe/`, and `.reports/` again: zero
+hits (same clean result as every prior round). Re-ran all four
+`test/drive_*.rb` scripts under `nix develop --command xvfb-run -a ruby`:
+`drive_actions.rb` 14/14 DRIVE OK, `drive_cards.rb`/`drive_window.rb`/
+`drive_translated.rb` all OK, matching every number in `test-parity.md`'s
+last update exactly. `.reports/components.json` and
+`component-inventory.md` are both still 32/32. Checked the working tree
+(`/home/nathan/src/github/ruby-gtk-project`) for a reachable fleet-harness
+repository per the prior round's suggestion: it holds only the other
+`*-rb` port forks and shared branding/nix files, nothing that looks like
+the external gate's own code. There is nothing to escalate *to* from this
+machine — the gate's source genuinely isn't in reach from inside this
+audit, so the honest statement this round is that limit, not a fourth
+copy of the same unexplained-number paragraph.
+
+Before concluding there was nothing left to do, one concrete thing was
+tried rather than assumed: `lib/scraper.rb`'s header comment says "the
+port has no HTML parser available" to justify hand-rolled regex scanning
+of `<title>`/`<meta>`/`<link>`/`<img>` tags instead of a real parser. That
+claim was tested, not taken on faith. `gem install nokogiri
+--user-install` *does* succeed inside the fork's `nix develop` shell
+(network reaches rubygems.org, and a precompiled `x86_64-linux-gnu`
+native gem installs with no build step). But the shell's `ruby` is a Nix
+wrapper that pins `Gem.path` to the flake's own read-only gem closure
+(`/nix/store/.../share-preview-gems/...`) regardless of `GEM_HOME`/
+`GEM_PATH` set in the invoking environment — `Gem.path` printed the nix
+store path even with `GEM_PATH` exported to the user install directory
+beforehand, so `require "nokogiri"` still raises `LoadError` inside the
+dev shell. Making nokogiri loadable would mean adding it to
+`flake.nix`'s Ruby gem set, which is an infra change to the shared devshell
+definition, not a `lib/` change, and out of reach of a port commit on this
+branch for the same reason the gate-metric fix is. The regex scanner in
+`lib/scraper.rb` is therefore kept as the correct, deliberate choice for
+this environment — not an unexamined workaround — and the header comment
+is accurate as written.
