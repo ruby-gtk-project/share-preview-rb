@@ -111,3 +111,14 @@ file-mapping unit. The 32-row map this document and
 files under `lib/` (including `lib/cards/*.rb` and
 `lib/share_preview/`/`lib/share/preview/rb*` support files) plus
 `exe/share-preview`.
+
+## Update (this round): re-checked at `5f6d600` — no new commit
+
+No commit landed on `ruby` since the prior round's reports; `HEAD` is
+still `5f6d600` and upstream is still `2d36059`. `find lib exe data -type
+f` re-run this session: identical file set to the prior round's list.
+`.reports/components.json` and `component-inventory.md` both still carry
+32 rows / 32 present. The runtime gate's "components covered" figure for
+this round ("10") is addressed in `test-parity.md` and
+`accountability-ensurance.md`, since it is a gate-side number, not
+anything derivable from a re-scan of this tree.

@@ -181,3 +181,15 @@ update is still in place (`<name>Share Preview</name>`, no
 `translate="no"`). Re-ran `test/drive_translated.rb` live this session:
 `drive_translated: OK (20 messages in de)`, same as last round. Numbers
 in the Summary table above are unchanged by this round's commit.
+
+## Update (this round): re-checked at `5f6d600` — no new commit, no translation-surface change
+
+Port `HEAD` is `5f6d600`, the same commit the last round's reports
+describe; `origin/master` is unchanged at `2d36059`. Re-ran
+`grep -n 'translate="no"' data/org.rubygtkproject.SharePreview.metainfo.xml.in.in`:
+still no match. Re-ran `diff` on the `po/*.po` basename lists: still
+29/29, identical filenames. Re-ran `test/drive_translated.rb` live:
+`drive_translated: OK (20 messages in de)`. Nothing in the Summary table
+moves this round. The runtime gate's "components" figure this round
+("10") is addressed in `test-parity.md` and `accountability-ensurance.md`
+rather than here, since nothing about the translation catalogue changed.

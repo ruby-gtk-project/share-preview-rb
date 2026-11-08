@@ -202,3 +202,26 @@ twice in the same words here, but it means this document cannot say the
 runtime gate corroborates "all units verified" — only this round's direct
 drive-script re-run can, and it does, for the units the four scripts
 actually touch.
+
+## Update (this round): re-driven at `5f6d600` — unchanged tree, gate metric drifted a fourth time
+
+No new commit exists to re-check this round (port `HEAD` is `5f6d600`,
+identical to the commit the prior round's reports describe; upstream
+unchanged at `2d36059`). Re-ran all four `test/drive_*.rb` scripts rather
+than assuming the prior round's pass still holds: all four pass with the
+same numbers as before (14/14, 30 card boxes, log counts `[1,0,0]`/
+`[1,1,1]`, 20 `de` messages). Every per-unit finding above — the shortcuts-
+window correspondence, the byte-identical stylesheet, the window/log-model
+badge behaviour, the data-dialog search/filter behaviour, the metainfo
+`<name>` fix — was re-confirmed against the current tree, not re-read from
+memory, and nothing has changed.
+
+The runtime gate this round reports "14 checks passed, 0 failed, covering
+10 components" — a fourth distinct figure (20 → 30 → 29 → 10) for the
+identical 14/0 check count, against a component map that has sat at 32/32
+for four rounds running with zero commits between the last two. This
+document cannot derive "10" from any unit table above, and does not try
+to. The verified parity remains what every unit row above states: driven
+live, matched to upstream, with the one documented correspondence
+(shortcuts dialog) and the one small, now-fixed historical divergence
+(metainfo `<name>`) already accounted for.

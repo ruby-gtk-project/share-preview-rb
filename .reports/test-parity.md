@@ -246,3 +246,43 @@ check set, is not evidence of 29-component coverage — it is an unverified
 number**, and the actual verified coverage remains what is listed above:
 4 scripts, 14 named assertions, 3 whole-scenario scripts, all passing,
 plus a CI pipeline that now runs all four directly.
+
+## Update (this round): re-verified at `5f6d600`, no new commits since the last round's reports
+
+`origin/master` is unchanged at `2d36059`; the port's `HEAD` is `5f6d600`,
+the exact commit the prior round's reports were committed against — no
+new `lib/`, `exe/`, `test/`, `data/`, or `.gitlab-ci.yml` change exists
+for this round to re-check. Re-ran all four scripts by hand under
+`nix develop --command xvfb-run -a ruby test/drive_*.rb` rather than
+trusting the prior round's numbers to still hold:
+
+```
+drive_actions.rb:     14 of 14 checks passed, DRIVE OK
+drive_cards.rb:       30 card boxes, both error cards, log dialog 4 rows
+                      [1,1,1], data dialog 2+1 rows — OK
+drive_window.rb:      card renders, log counts [1,0,0], 6 log lines,
+                      every platform cycled, both dialogs opened — OK
+drive_translated.rb:  20 messages in de — OK
+```
+
+Also re-ran the dev shell's own RSpec invocation directly (not `bin/rspec`,
+which isn't on `PATH` outside the shell): `0 examples, 0 failures` —
+unchanged. `spec/` still contains only `spec_helper.rb` and `README.md`.
+
+This round's runtime gate reports **"14 checks passed, 0 failed, covering
+10 components."** 14/0 reproduces exactly, again. "10 components" is a
+**fourth** distinct figure for the identical check set across four rounds:
+20 → 30 → 29 → 10, while `.reports/component-inventory.md` and
+`.reports/components.json` have held at 32 rows / 32 present every round,
+including this one (re-counted this session: still 32/32). A number that
+drops from 29 to 10 between rounds with zero commits in between is not
+sampling noise around a real count — it is confirmation that the figure
+is not derived from anything this repository can see or influence. Per
+the task's instruction to treat a narrow or inconsistent gate as a gap in
+its own right, this is restated, not softened: the gate's headline metric
+still cannot be reconstructed from the tree it is gating, and the gap this
+leaves is unchanged from every prior round — the four drive scripts are
+real, reproducible, and pass, but nothing in the repository explains or
+bounds what "10 components" means, and CI's only test-stage check that
+GitLab itself can see besides the drive scripts is still an empty RSpec
+run.

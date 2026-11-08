@@ -240,3 +240,38 @@ branch for the same reason the gate-metric fix is. The regex scanner in
 `lib/scraper.rb` is therefore kept as the correct, deliberate choice for
 this environment — not an unexamined workaround — and the header comment
 is accurate as written.
+
+## Update (this round): re-scanned at `5f6d600` — zero new commits, the gate number dropped to a fourth distinct value
+
+No commit landed on `ruby` since the last round; `HEAD` is still
+`5f6d600` and `origin/master` is still `2d36059`. Re-ran
+`find-excuses.sh` over `lib/`, `exe/`, `test/`, and `.reports/`: same
+clean result as every prior round — the only hits are the pre-existing,
+correctly-attributed "Mastodon" substring matches and the one
+already-cleared `.reports/component-inventory.md:417` "by design" line.
+`PORTING.md` still does not exist on `ruby` (`test -f PORTING.md` fails).
+Re-ran all four drive scripts: identical pass as every prior round
+(14/14 `DRIVE OK`; cards/window/translated all `OK`).
+
+This round's runtime gate reports "14 checks passed, 0 failed, covering
+10 components." That is the **fourth** distinct "components" figure
+across four consecutive rounds — 20, 30, 29, now 10 — for the identical
+14/0 check count, against a zero-commit diff since the last round's
+reports. The prior round already said that if a fourth round repeated
+the pattern, this audit should stop re-noting it and instead look outside
+this repository for the gate's source. That look was made again this
+round (same result as last time: `/home/nathan/src/github/ruby-gtk-project`
+holds only the other `*-rb` port forks and shared branding/nix files,
+nothing that looks like the harness that prints the gate's own summary
+line) and there is still nothing in this checked-out tree that can reach
+or explain it. The honest escalation this round is naming what the
+pattern itself now shows: a figure that moves by 19, by 1, then **drops
+by 19** between rounds with *zero* commits separating the last two
+observations (29 → 10, same tree, same commit) cannot be a count of
+anything in this repository, including anything a human might plausibly
+call "a component." It is either random, or it is counting something
+with no fixed relationship to the port's file-level unit map at all. This
+is named as a standing, now four-round-deep parity gap in its own right —
+the gate is not corroborating evidence for "10 components verified" or
+for any other number; the only verified coverage is what `test-parity.md`
+and `component-parity.md` state directly from the drive-script re-runs.
